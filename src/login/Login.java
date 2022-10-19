@@ -109,6 +109,7 @@ public class Login extends javax.swing.JFrame {
 
         bg.add(iniciarBtt, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 300, 150, 40));
 
+        header.setBackground(new java.awt.Color(255, 255, 204));
         header.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mousePressed(java.awt.event.MouseEvent evt) {
                 headerMousePressed(evt);
