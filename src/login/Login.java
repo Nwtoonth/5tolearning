@@ -25,6 +25,7 @@ public class Login extends javax.swing.JFrame {
         header = new java.awt.Panel();
         exitBtt = new java.awt.Panel();
         exitTxt = new javax.swing.JLabel();
+        headerTitulo = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setLocationByPlatform(true);
@@ -49,20 +50,42 @@ public class Login extends javax.swing.JFrame {
         bg.add(userLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 150, 120, -1));
 
         userTxt.setForeground(new java.awt.Color(204, 204, 204));
-        userTxt.setText("  ingrese usuario");
+        userTxt.setText("Ingresar usuario");
         userTxt.setBorder(null);
-        bg.add(userTxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 180, 240, 20));
+        userTxt.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                userTxtMousePressed(evt);
+            }
+        });
+        bg.add(userTxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 180, 310, 30));
 
         contraseñaLabel.setFont(new java.awt.Font("Segoe Print", 0, 14)); // NOI18N
         contraseñaLabel.setText("Contraseña");
         bg.add(contraseñaLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 220, 120, -1));
 
         contrasenaTxt.setForeground(new java.awt.Color(204, 204, 204));
-        contrasenaTxt.setText("jPasswordField1");
-        bg.add(contrasenaTxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 250, 240, -1));
+        contrasenaTxt.setText("********");
+        contrasenaTxt.setBorder(null);
+        contrasenaTxt.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                contrasenaTxtMousePressed(evt);
+            }
+        });
+        bg.add(contrasenaTxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 250, 310, 30));
 
-        iniciarBtt.setBackground(new java.awt.Color(255, 255, 153));
+        iniciarBtt.setBackground(new java.awt.Color(255, 255, 0));
         iniciarBtt.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        iniciarBtt.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                iniciarBttMouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                iniciarBttMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                iniciarBttMouseExited(evt);
+            }
+        });
 
         iniciarTxt.setFont(new java.awt.Font("Segoe Print", 1, 14)); // NOI18N
         iniciarTxt.setText("INICIAR");
@@ -131,18 +154,26 @@ public class Login extends javax.swing.JFrame {
                 .addGap(13, 13, 13))
         );
 
+        headerTitulo.setText("5tolearning");
+
         javax.swing.GroupLayout headerLayout = new javax.swing.GroupLayout(header);
         header.setLayout(headerLayout);
         headerLayout.setHorizontalGroup(
             headerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(headerLayout.createSequentialGroup()
                 .addComponent(exitBtt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 777, Short.MAX_VALUE))
+                .addGap(350, 350, 350)
+                .addComponent(headerTitulo)
+                .addGap(0, 367, Short.MAX_VALUE))
         );
         headerLayout.setVerticalGroup(
             headerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, headerLayout.createSequentialGroup()
-                .addComponent(exitBtt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addGroup(headerLayout.createSequentialGroup()
+                .addGroup(headerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(exitBtt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(headerLayout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(headerTitulo)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
@@ -184,6 +215,40 @@ public class Login extends javax.swing.JFrame {
     private void exitBttMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_exitBttMouseExited
         exitBtt.setBackground(Color.YELLOW);
     }//GEN-LAST:event_exitBttMouseExited
+
+    private void iniciarBttMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_iniciarBttMouseEntered
+        iniciarBtt.setBackground(Color.BLUE);
+    }//GEN-LAST:event_iniciarBttMouseEntered
+
+    private void iniciarBttMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_iniciarBttMouseExited
+        iniciarBtt.setBackground(Color.YELLOW);
+    }//GEN-LAST:event_iniciarBttMouseExited
+
+    private void userTxtMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_userTxtMousePressed
+        if (userTxt.getText().equals("Ingresar usuario")){
+            userTxt.setText("");
+            userTxt.setForeground(Color.BLACK);
+        }
+        if (String.valueOf(contrasenaTxt.getPassword()).isEmpty()){
+            contrasenaTxt.setText("********");
+            contrasenaTxt.setForeground(Color.gray);
+        }
+    }//GEN-LAST:event_userTxtMousePressed
+
+    private void contrasenaTxtMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_contrasenaTxtMousePressed
+        if (String.valueOf( contrasenaTxt.getPassword()).equals("********")){
+            contrasenaTxt.setText("");
+            contrasenaTxt.setForeground(Color.BLACK);
+        }
+        if (userTxt.getText().isEmpty()){
+            userTxt.setText("Ingresar usuario");
+            userTxt.setForeground(Color.gray);
+        }
+    }//GEN-LAST:event_contrasenaTxtMousePressed
+
+    private void iniciarBttMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_iniciarBttMouseClicked
+        javax.swing.JOptionPane.showMessageDialog(this, "intento de inicio con : "+ userTxt.getText() + "\nContraseña: " + String.valueOf(contrasenaTxt.getPassword()), "INICIAR",javax.swing.JOptionPane.INFORMATION_MESSAGE);
+    }//GEN-LAST:event_iniciarBttMouseClicked
 
     /**
      * @param args the command line arguments
@@ -227,6 +292,7 @@ public class Login extends javax.swing.JFrame {
     private java.awt.Panel exitBtt;
     private javax.swing.JLabel exitTxt;
     private java.awt.Panel header;
+    private javax.swing.JLabel headerTitulo;
     private java.awt.Panel iniciarBtt;
     private javax.swing.JLabel iniciarTxt;
     private javax.swing.JLabel jLabel1;
