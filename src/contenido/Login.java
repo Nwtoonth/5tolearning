@@ -1,4 +1,4 @@
-package login;
+package contenido;
 
 import java.awt.Color;
 
