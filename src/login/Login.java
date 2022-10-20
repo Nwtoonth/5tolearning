@@ -4,12 +4,28 @@ import java.awt.Color;
 
 public class Login extends javax.swing.JFrame {
     
+    //encabezado
     int xMouse, yMouse;
+    
     public Login() {
         initComponents();
+        
+        //logo
+        this.setLocationRelativeTo(null);
+        rsscalelabel.RSScaleLabel.setScaleLabel(jLabel2,"src/logo/to5learning.png");
+        
+        //Inicio p1 = new Inicio();
+        //p1.setSize(680,420);
+        //p1.setLocation(0,0);
+        //content.removeAll();
+        //content.add(p1,BorderLayout.CENTER);
+        //content.revalidate();
+        //content.repaint();
     }
 
     @SuppressWarnings("unchecked")
+    
+    
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
@@ -26,6 +42,7 @@ public class Login extends javax.swing.JFrame {
         exitBtt = new java.awt.Panel();
         exitTxt = new javax.swing.JLabel();
         headerTitulo = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setLocationByPlatform(true);
@@ -38,16 +55,16 @@ public class Login extends javax.swing.JFrame {
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/rick.jpg"))); // NOI18N
         jLabel1.setText("jLabel1");
-        bg.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(557, 20, 240, 480));
+        bg.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(567, 30, 230, 470));
 
         titulo.setFont(new java.awt.Font("Segoe Print", 1, 18)); // NOI18N
         titulo.setText("INICIAR SESION");
         titulo.setToolTipText("");
-        bg.add(titulo, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 60, 260, 40));
+        bg.add(titulo, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 210, 260, 40));
 
         userLabel.setFont(new java.awt.Font("Segoe Print", 0, 14)); // NOI18N
         userLabel.setText("Usuario");
-        bg.add(userLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 150, 120, -1));
+        bg.add(userLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 270, 120, -1));
 
         userTxt.setForeground(new java.awt.Color(204, 204, 204));
         userTxt.setText("Ingresar usuario");
@@ -57,11 +74,11 @@ public class Login extends javax.swing.JFrame {
                 userTxtMousePressed(evt);
             }
         });
-        bg.add(userTxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 180, 310, 30));
+        bg.add(userTxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 300, 310, 30));
 
         contraseñaLabel.setFont(new java.awt.Font("Segoe Print", 0, 14)); // NOI18N
         contraseñaLabel.setText("Contraseña");
-        bg.add(contraseñaLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 220, 120, -1));
+        bg.add(contraseñaLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 340, 120, -1));
 
         contrasenaTxt.setForeground(new java.awt.Color(204, 204, 204));
         contrasenaTxt.setText("********");
@@ -71,7 +88,7 @@ public class Login extends javax.swing.JFrame {
                 contrasenaTxtMousePressed(evt);
             }
         });
-        bg.add(contrasenaTxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 250, 310, 30));
+        bg.add(contrasenaTxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 370, 310, 30));
 
         iniciarBtt.setBackground(new java.awt.Color(255, 255, 0));
         iniciarBtt.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
@@ -107,7 +124,7 @@ public class Login extends javax.swing.JFrame {
                 .addContainerGap())
         );
 
-        bg.add(iniciarBtt, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 300, 150, 40));
+        bg.add(iniciarBtt, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 420, 150, 40));
 
         header.setBackground(new java.awt.Color(255, 255, 204));
         header.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -179,16 +196,21 @@ public class Login extends javax.swing.JFrame {
         );
 
         bg.add(header, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 800, 30));
+        bg.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 40, 400, 170));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(bg, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(bg, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(bg, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(bg, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
 
         pack();
@@ -248,7 +270,15 @@ public class Login extends javax.swing.JFrame {
     }//GEN-LAST:event_contrasenaTxtMousePressed
 
     private void iniciarBttMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_iniciarBttMouseClicked
-        javax.swing.JOptionPane.showMessageDialog(this, "intento de inicio con : "+ userTxt.getText() + "\nContraseña: " + String.valueOf(contrasenaTxt.getPassword()), "INICIAR",javax.swing.JOptionPane.INFORMATION_MESSAGE);
+        //javax.swing.JOptionPane.showMessageDialog(this, "intento de inicio con : "+ userTxt.getText() + "\nContraseña: " + String.valueOf(contrasenaTxt.getPassword()), "INICIAR",javax.swing.JOptionPane.INFORMATION_MESSAGE);
+        //String usuario = userTxt.getText();
+        //String paswd = contrasenaTxt.getText();
+        
+        intro pc = new intro();
+        pc.setVisible(true);
+        this.dispose();
+        
+        //System.exit(0);
     }//GEN-LAST:event_iniciarBttMouseClicked
 
     /**
@@ -297,6 +327,7 @@ public class Login extends javax.swing.JFrame {
     private java.awt.Panel iniciarBtt;
     private javax.swing.JLabel iniciarTxt;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel titulo;
     private javax.swing.JLabel userLabel;
     private javax.swing.JTextField userTxt;
