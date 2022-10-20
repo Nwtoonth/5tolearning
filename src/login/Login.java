@@ -12,15 +12,8 @@ public class Login extends javax.swing.JFrame {
         
         //logo
         this.setLocationRelativeTo(null);
-        rsscalelabel.RSScaleLabel.setScaleLabel(jLabel2,"src/logo/to5learning.png");
+        rsscalelabel.RSScaleLabel.setScaleLabel(logoLogin,"src/logo/to5learning.png");
         
-        //Inicio p1 = new Inicio();
-        //p1.setSize(680,420);
-        //p1.setLocation(0,0);
-        //content.removeAll();
-        //content.add(p1,BorderLayout.CENTER);
-        //content.revalidate();
-        //content.repaint();
     }
 
     @SuppressWarnings("unchecked")
@@ -30,7 +23,7 @@ public class Login extends javax.swing.JFrame {
     private void initComponents() {
 
         bg = new javax.swing.JPanel();
-        jLabel1 = new javax.swing.JLabel();
+        morty = new javax.swing.JLabel();
         titulo = new javax.swing.JLabel();
         userLabel = new javax.swing.JLabel();
         userTxt = new javax.swing.JTextField();
@@ -42,7 +35,7 @@ public class Login extends javax.swing.JFrame {
         exitBtt = new java.awt.Panel();
         exitTxt = new javax.swing.JLabel();
         headerTitulo = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
+        logoLogin = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setLocationByPlatform(true);
@@ -52,10 +45,10 @@ public class Login extends javax.swing.JFrame {
         bg.setForeground(new java.awt.Color(102, 102, 255));
         bg.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/rick.jpg"))); // NOI18N
-        jLabel1.setText("jLabel1");
-        bg.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(567, 30, 230, 470));
+        morty.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        morty.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/rick.jpg"))); // NOI18N
+        morty.setText("jLabel1");
+        bg.add(morty, new org.netbeans.lib.awtextra.AbsoluteConstraints(567, 30, 230, 470));
 
         titulo.setFont(new java.awt.Font("Segoe Print", 1, 18)); // NOI18N
         titulo.setText("INICIAR SESION");
@@ -196,7 +189,7 @@ public class Login extends javax.swing.JFrame {
         );
 
         bg.add(header, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 800, 30));
-        bg.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 40, 400, 170));
+        bg.add(logoLogin, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 40, 400, 170));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -274,7 +267,7 @@ public class Login extends javax.swing.JFrame {
         //String usuario = userTxt.getText();
         //String paswd = contrasenaTxt.getText();
         
-        intro pc = new intro();
+        Inicio pc = new Inicio();
         pc.setVisible(true);
         this.dispose();
         
@@ -326,8 +319,8 @@ public class Login extends javax.swing.JFrame {
     private javax.swing.JLabel headerTitulo;
     private java.awt.Panel iniciarBtt;
     private javax.swing.JLabel iniciarTxt;
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel logoLogin;
+    private javax.swing.JLabel morty;
     private javax.swing.JLabel titulo;
     private javax.swing.JLabel userLabel;
     private javax.swing.JTextField userTxt;
