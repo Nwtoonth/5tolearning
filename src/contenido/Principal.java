@@ -27,32 +27,20 @@ public class Principal extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        body = new javax.swing.JPanel();
         Title = new javax.swing.JLabel();
-        Image = new javax.swing.JLabel();
 
         setBackground(new java.awt.Color(255, 255, 255));
         setMinimumSize(new java.awt.Dimension(750, 430));
-        setPreferredSize(new java.awt.Dimension(750, 430));
+        setPreferredSize(new java.awt.Dimension(920, 585));
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        body.setBackground(new java.awt.Color(255, 255, 255));
-        body.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-        add(body, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
 
         Title.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
         Title.setText("Bienvenido");
         add(Title, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 10, -1, -1));
-
-        Image.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        Image.setIcon(new javax.swing.ImageIcon(getClass().getResource("/itp_library/images/336799ebb339821f342bc5a13386aff2.jpg"))); // NOI18N
-        add(Image, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 80, -1, -1));
     }// </editor-fold>//GEN-END:initComponents
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JLabel Image;
     private javax.swing.JLabel Title;
-    private javax.swing.JPanel body;
     // End of variables declaration//GEN-END:variables
 }

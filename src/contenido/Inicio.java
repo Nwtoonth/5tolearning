@@ -16,12 +16,21 @@ public class Inicio extends javax.swing.JFrame {
      * Creates new form Inicio
      */
     public Inicio() {
+        
         initComponents();
         
         this.setLocationRelativeTo(null);
         rsscalelabel.RSScaleLabel.setScaleLabel(logoInicio,"src/logo/to5learning.png");
+        //rsscalelabel.RSScaleLabel.setScaleLabel(fondoContent,"src/imagenes/cafe.jpeg");
         
-        rsscalelabel.RSScaleLabel.setScaleLabel(fondoContent,"src/imagenes/cafe.jpeg");
+        Principal p1= new Principal();
+        p1.setSize(920, 585);
+        p1.setLocation(0,0);
+        
+        content.removeAll();
+        content.add(p1);
+        content.revalidate();
+        content.repaint();
     }
 
     /**
@@ -43,11 +52,10 @@ public class Inicio extends javax.swing.JFrame {
         btn_inicio = new java.awt.Panel();
         jLabel1 = new javax.swing.JLabel();
         btn_perfil = new java.awt.Panel();
-        jLabel2 = new javax.swing.JLabel();
-        btn_config = new java.awt.Panel();
         jLabel3 = new javax.swing.JLabel();
+        btn_configuracion = new java.awt.Panel();
+        jLabel2 = new javax.swing.JLabel();
         content = new java.awt.Panel();
-        fondoContent = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -174,58 +182,54 @@ public class Inicio extends javax.swing.JFrame {
         });
         btn_perfil.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel2.setFont(new java.awt.Font("Segoe UI Semibold", 0, 14)); // NOI18N
-        jLabel2.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/file-chart.png"))); // NOI18N
-        jLabel2.setText("configuracion");
-        btn_perfil.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(19, 6, 137, 28));
-
-        Menu.add(btn_perfil, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 80, 190, 40));
-
-        btn_config.setBackground(new java.awt.Color(21, 101, 192));
-        btn_config.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseEntered(java.awt.event.MouseEvent evt) {
-                btn_configMouseEntered(evt);
-            }
-            public void mouseExited(java.awt.event.MouseEvent evt) {
-                btn_configMouseExited(evt);
-            }
-            public void mousePressed(java.awt.event.MouseEvent evt) {
-                btn_configMousePressed(evt);
-            }
-        });
-        btn_config.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
         jLabel3.setFont(new java.awt.Font("Segoe UI Semibold", 0, 14)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(255, 255, 255));
         jLabel3.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/account-multiple.png"))); // NOI18N
         jLabel3.setText("perfil");
-        btn_config.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(19, 6, 137, 28));
+        btn_perfil.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(19, 6, 137, 28));
 
-        Menu.add(btn_config, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 40, 190, 40));
+        Menu.add(btn_perfil, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 40, 190, 40));
+
+        btn_configuracion.setBackground(new java.awt.Color(21, 101, 192));
+        btn_configuracion.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                btn_configuracionMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                btn_configuracionMouseExited(evt);
+            }
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                btn_configuracionMousePressed(evt);
+            }
+        });
+        btn_configuracion.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jLabel2.setFont(new java.awt.Font("Segoe UI Semibold", 0, 14)); // NOI18N
+        jLabel2.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/file-chart.png"))); // NOI18N
+        jLabel2.setText("configuracion");
+        btn_configuracion.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(19, 6, 137, 28));
+
+        Menu.add(btn_configuracion, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 80, 190, 40));
 
         getContentPane().add(Menu, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 110, 190, 590));
 
         content.setBackground(new java.awt.Color(204, 204, 204));
 
-        fondoContent.setVerticalAlignment(javax.swing.SwingConstants.TOP);
-
         javax.swing.GroupLayout contentLayout = new javax.swing.GroupLayout(content);
         content.setLayout(contentLayout);
         contentLayout.setHorizontalGroup(
             contentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(fondoContent, javax.swing.GroupLayout.DEFAULT_SIZE, 920, Short.MAX_VALUE)
+            .addGap(0, 920, Short.MAX_VALUE)
         );
         contentLayout.setVerticalGroup(
             contentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(contentLayout.createSequentialGroup()
-                .addComponent(fondoContent, javax.swing.GroupLayout.PREFERRED_SIZE, 594, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 6, Short.MAX_VALUE))
+            .addGap(0, 590, Short.MAX_VALUE)
         );
 
-        getContentPane().add(content, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 110, 920, 600));
+        getContentPane().add(content, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 110, 920, 590));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -255,8 +259,34 @@ public class Inicio extends javax.swing.JFrame {
     }//GEN-LAST:event_btn_inicioMouseExited
 
     private void btn_inicioMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_inicioMousePressed
-        // TODO add your handling code here:
+        Principal p1= new Principal();
+        p1.setSize(920, 585);
+        p1.setLocation(0,0);
+        
+        content.removeAll();
+        content.add(p1);
+        content.revalidate();
+        content.repaint();
     }//GEN-LAST:event_btn_inicioMousePressed
+
+    private void btn_configuracionMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_configuracionMouseEntered
+        btn_configuracion.setBackground(new Color(0,153,255));
+    }//GEN-LAST:event_btn_configuracionMouseEntered
+
+    private void btn_configuracionMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_configuracionMouseExited
+        btn_configuracion.setBackground(new Color(21,101,192));
+    }//GEN-LAST:event_btn_configuracionMouseExited
+
+    private void btn_configuracionMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_configuracionMousePressed
+        Config p3= new Config();
+        p3.setSize(920, 585);
+        p3.setLocation(0,0);
+        
+        content.removeAll();
+        content.add(p3);
+        content.revalidate();
+        content.repaint();
+    }//GEN-LAST:event_btn_configuracionMousePressed
 
     private void btn_perfilMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_perfilMouseEntered
         btn_perfil.setBackground(new Color(0,153,255));
@@ -267,20 +297,15 @@ public class Inicio extends javax.swing.JFrame {
     }//GEN-LAST:event_btn_perfilMouseExited
 
     private void btn_perfilMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_perfilMousePressed
-        // TODO add your handling code here:
+        Perfil p2= new Perfil();
+        p2.setSize(920, 585);
+        p2.setLocation(0,0);
+        
+        content.removeAll();
+        content.add(p2);
+        content.revalidate();
+        content.repaint();
     }//GEN-LAST:event_btn_perfilMousePressed
-
-    private void btn_configMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_configMouseEntered
-        btn_config.setBackground(new Color(0,153,255));
-    }//GEN-LAST:event_btn_configMouseEntered
-
-    private void btn_configMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_configMouseExited
-        btn_config.setBackground(new Color(21,101,192));
-    }//GEN-LAST:event_btn_configMouseExited
-
-    private void btn_configMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_configMousePressed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_btn_configMousePressed
 
     /**
      * @param args the command line arguments
@@ -320,14 +345,13 @@ public class Inicio extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private java.awt.Panel Header;
     private java.awt.Panel Menu;
-    private java.awt.Panel btn_config;
+    private java.awt.Panel btn_configuracion;
     private java.awt.Panel btn_inicio;
     private java.awt.Panel btn_perfil;
     private java.awt.Panel content;
     private javax.swing.JLabel esloganTxt;
     private java.awt.Panel exitIniciBtt;
     private javax.swing.JLabel exitInicioTxt;
-    private javax.swing.JLabel fondoContent;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
