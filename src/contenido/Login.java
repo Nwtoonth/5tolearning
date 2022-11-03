@@ -1,6 +1,8 @@
 package contenido;
 
 import java.awt.Color;
+import java.util.List;
+
 
 public class Login extends javax.swing.JFrame {
     
@@ -14,6 +16,17 @@ public class Login extends javax.swing.JFrame {
         this.setLocationRelativeTo(null);
         rsscalelabel.RSScaleLabel.setScaleLabel(logoLogin,"src/logo/to5learning.png");
         
+        LoginInicio p1= new LoginInicio();
+        p1.setSize(530, 420);
+        p1.setLocation(0,0);
+        
+        content.removeAll();
+        content.add(logoLogin);
+        content.add(iniciarBtt);
+        content.add(registrarBtt);
+        content.add(p1);
+        content.revalidate();
+        content.repaint();
     }
 
     @SuppressWarnings("unchecked")
@@ -24,18 +37,16 @@ public class Login extends javax.swing.JFrame {
 
         bg = new javax.swing.JPanel();
         morty = new javax.swing.JLabel();
-        titulo = new javax.swing.JLabel();
-        userLabel = new javax.swing.JLabel();
-        userTxt = new javax.swing.JTextField();
-        contraseñaLabel = new javax.swing.JLabel();
-        contrasenaTxt = new javax.swing.JPasswordField();
-        iniciarBtt = new java.awt.Panel();
-        iniciarTxt = new javax.swing.JLabel();
         header = new java.awt.Panel();
         exitBtt = new java.awt.Panel();
         exitTxt = new javax.swing.JLabel();
         headerTitulo = new javax.swing.JLabel();
+        content = new javax.swing.JPanel();
+        iniciarBtt = new java.awt.Panel();
+        iniciarTxt = new javax.swing.JLabel();
         logoLogin = new javax.swing.JLabel();
+        registrarBtt = new java.awt.Panel();
+        registrarTxt = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setLocationByPlatform(true);
@@ -49,75 +60,6 @@ public class Login extends javax.swing.JFrame {
         morty.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/rick.jpg"))); // NOI18N
         morty.setText("jLabel1");
         bg.add(morty, new org.netbeans.lib.awtextra.AbsoluteConstraints(567, 30, 230, 470));
-
-        titulo.setFont(new java.awt.Font("Segoe Print", 1, 18)); // NOI18N
-        titulo.setText("INICIAR SESION");
-        titulo.setToolTipText("");
-        bg.add(titulo, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 210, 260, 40));
-
-        userLabel.setFont(new java.awt.Font("Segoe Print", 0, 14)); // NOI18N
-        userLabel.setText("Usuario");
-        bg.add(userLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 270, 120, -1));
-
-        userTxt.setForeground(new java.awt.Color(204, 204, 204));
-        userTxt.setText("Ingresar usuario");
-        userTxt.setBorder(null);
-        userTxt.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mousePressed(java.awt.event.MouseEvent evt) {
-                userTxtMousePressed(evt);
-            }
-        });
-        bg.add(userTxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 300, 310, 30));
-
-        contraseñaLabel.setFont(new java.awt.Font("Segoe Print", 0, 14)); // NOI18N
-        contraseñaLabel.setText("Contraseña");
-        bg.add(contraseñaLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 340, 120, -1));
-
-        contrasenaTxt.setForeground(new java.awt.Color(204, 204, 204));
-        contrasenaTxt.setText("********");
-        contrasenaTxt.setBorder(null);
-        contrasenaTxt.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mousePressed(java.awt.event.MouseEvent evt) {
-                contrasenaTxtMousePressed(evt);
-            }
-        });
-        bg.add(contrasenaTxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 370, 310, 30));
-
-        iniciarBtt.setBackground(new java.awt.Color(255, 255, 0));
-        iniciarBtt.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        iniciarBtt.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                iniciarBttMouseClicked(evt);
-            }
-            public void mouseEntered(java.awt.event.MouseEvent evt) {
-                iniciarBttMouseEntered(evt);
-            }
-            public void mouseExited(java.awt.event.MouseEvent evt) {
-                iniciarBttMouseExited(evt);
-            }
-        });
-
-        iniciarTxt.setFont(new java.awt.Font("Segoe Print", 1, 14)); // NOI18N
-        iniciarTxt.setText("INICIAR");
-
-        javax.swing.GroupLayout iniciarBttLayout = new javax.swing.GroupLayout(iniciarBtt);
-        iniciarBtt.setLayout(iniciarBttLayout);
-        iniciarBttLayout.setHorizontalGroup(
-            iniciarBttLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(iniciarBttLayout.createSequentialGroup()
-                .addGap(47, 47, 47)
-                .addComponent(iniciarTxt)
-                .addContainerGap(49, Short.MAX_VALUE))
-        );
-        iniciarBttLayout.setVerticalGroup(
-            iniciarBttLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(iniciarBttLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(iniciarTxt, javax.swing.GroupLayout.DEFAULT_SIZE, 28, Short.MAX_VALUE)
-                .addContainerGap())
-        );
-
-        bg.add(iniciarBtt, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 420, 150, 40));
 
         header.setBackground(new java.awt.Color(255, 255, 204));
         header.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -189,7 +131,105 @@ public class Login extends javax.swing.JFrame {
         );
 
         bg.add(header, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 800, 30));
-        bg.add(logoLogin, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 40, 400, 170));
+
+        iniciarBtt.setBackground(new java.awt.Color(255, 255, 0));
+        iniciarBtt.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        iniciarBtt.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                iniciarBttMouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                iniciarBttMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                iniciarBttMouseExited(evt);
+            }
+        });
+
+        iniciarTxt.setFont(new java.awt.Font("Segoe Print", 1, 14)); // NOI18N
+        iniciarTxt.setText("INICIAR");
+
+        javax.swing.GroupLayout iniciarBttLayout = new javax.swing.GroupLayout(iniciarBtt);
+        iniciarBtt.setLayout(iniciarBttLayout);
+        iniciarBttLayout.setHorizontalGroup(
+            iniciarBttLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(iniciarBttLayout.createSequentialGroup()
+                .addGap(47, 47, 47)
+                .addComponent(iniciarTxt)
+                .addContainerGap(49, Short.MAX_VALUE))
+        );
+        iniciarBttLayout.setVerticalGroup(
+            iniciarBttLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(iniciarBttLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(iniciarTxt, javax.swing.GroupLayout.DEFAULT_SIZE, 28, Short.MAX_VALUE)
+                .addContainerGap())
+        );
+
+        registrarBtt.setBackground(new java.awt.Color(255, 255, 0));
+        registrarBtt.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        registrarBtt.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                registrarBttMouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                registrarBttMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                registrarBttMouseExited(evt);
+            }
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                registrarBttMousePressed(evt);
+            }
+        });
+
+        registrarTxt.setFont(new java.awt.Font("Segoe Print", 1, 14)); // NOI18N
+        registrarTxt.setText("REGISTRAR");
+
+        javax.swing.GroupLayout registrarBttLayout = new javax.swing.GroupLayout(registrarBtt);
+        registrarBtt.setLayout(registrarBttLayout);
+        registrarBttLayout.setHorizontalGroup(
+            registrarBttLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(registrarBttLayout.createSequentialGroup()
+                .addGap(47, 47, 47)
+                .addComponent(registrarTxt)
+                .addContainerGap(49, Short.MAX_VALUE))
+        );
+        registrarBttLayout.setVerticalGroup(
+            registrarBttLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(registrarBttLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(registrarTxt, javax.swing.GroupLayout.DEFAULT_SIZE, 28, Short.MAX_VALUE)
+                .addContainerGap())
+        );
+
+        javax.swing.GroupLayout contentLayout = new javax.swing.GroupLayout(content);
+        content.setLayout(contentLayout);
+        contentLayout.setHorizontalGroup(
+            contentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(contentLayout.createSequentialGroup()
+                .addGap(36, 36, 36)
+                .addGroup(contentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(logoLogin, javax.swing.GroupLayout.PREFERRED_SIZE, 318, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(contentLayout.createSequentialGroup()
+                        .addComponent(iniciarBtt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(92, 92, 92)
+                        .addComponent(registrarBtt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(72, Short.MAX_VALUE))
+        );
+        contentLayout.setVerticalGroup(
+            contentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, contentLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(logoLogin, javax.swing.GroupLayout.PREFERRED_SIZE, 116, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 248, Short.MAX_VALUE)
+                .addGroup(contentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(iniciarBtt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(registrarBtt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap())
+        );
+
+        bg.add(content, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 50, 530, 420));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -240,39 +280,41 @@ public class Login extends javax.swing.JFrame {
         iniciarBtt.setBackground(Color.YELLOW);
     }//GEN-LAST:event_iniciarBttMouseExited
 
-    private void userTxtMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_userTxtMousePressed
-        if (userTxt.getText().equals("Ingresar usuario")){
-            userTxt.setText("");
-            userTxt.setForeground(Color.BLACK);
-        }
-        if (String.valueOf(contrasenaTxt.getPassword()).isEmpty()){
-            contrasenaTxt.setText("********");
-            contrasenaTxt.setForeground(Color.gray);
-        }
-    }//GEN-LAST:event_userTxtMousePressed
-
-    private void contrasenaTxtMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_contrasenaTxtMousePressed
-        if (String.valueOf( contrasenaTxt.getPassword()).equals("********")){
-            contrasenaTxt.setText("");
-            contrasenaTxt.setForeground(Color.BLACK);
-        }
-        if (userTxt.getText().isEmpty()){
-            userTxt.setText("Ingresar usuario");
-            userTxt.setForeground(Color.gray);
-        }
-    }//GEN-LAST:event_contrasenaTxtMousePressed
-
     private void iniciarBttMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_iniciarBttMouseClicked
         //javax.swing.JOptionPane.showMessageDialog(this, "intento de inicio con : "+ userTxt.getText() + "\nContraseña: " + String.valueOf(contrasenaTxt.getPassword()), "INICIAR",javax.swing.JOptionPane.INFORMATION_MESSAGE);
         //String usuario = userTxt.getText();
         //String paswd = contrasenaTxt.getText();
         
-        Inicio pc = new Inicio();
-        pc.setVisible(true);
+        Inicio p1 = new Inicio();
+        p1.setVisible(true);
         this.dispose();
         
         //System.exit(0);
     }//GEN-LAST:event_iniciarBttMouseClicked
+
+    private void registrarBttMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_registrarBttMouseClicked
+        
+    }//GEN-LAST:event_registrarBttMouseClicked
+
+    private void registrarBttMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_registrarBttMouseEntered
+        registrarBtt.setBackground(Color.BLUE);
+    }//GEN-LAST:event_registrarBttMouseEntered
+
+    private void registrarBttMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_registrarBttMouseExited
+        registrarBtt.setBackground(Color.YELLOW);
+    }//GEN-LAST:event_registrarBttMouseExited
+
+    private void registrarBttMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_registrarBttMousePressed
+        LoginRegistro p2= new LoginRegistro();
+        p2.setSize(530, 420);
+        p2.setLocation(0,0);
+        
+        content.removeAll();
+        content.add(iniciarBtt);
+        content.add(p2);
+        content.revalidate();
+        content.repaint();
+    }//GEN-LAST:event_registrarBttMousePressed
 
     /**
      * @param args the command line arguments
@@ -311,8 +353,7 @@ public class Login extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel bg;
-    private javax.swing.JPasswordField contrasenaTxt;
-    private javax.swing.JLabel contraseñaLabel;
+    private javax.swing.JPanel content;
     private java.awt.Panel exitBtt;
     private javax.swing.JLabel exitTxt;
     private java.awt.Panel header;
@@ -321,8 +362,7 @@ public class Login extends javax.swing.JFrame {
     private javax.swing.JLabel iniciarTxt;
     private javax.swing.JLabel logoLogin;
     private javax.swing.JLabel morty;
-    private javax.swing.JLabel titulo;
-    private javax.swing.JLabel userLabel;
-    private javax.swing.JTextField userTxt;
+    private java.awt.Panel registrarBtt;
+    private javax.swing.JLabel registrarTxt;
     // End of variables declaration//GEN-END:variables
 }

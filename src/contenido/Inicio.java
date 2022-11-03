@@ -23,7 +23,7 @@ public class Inicio extends javax.swing.JFrame {
         rsscalelabel.RSScaleLabel.setScaleLabel(logoInicio,"src/logo/to5learning.png");
         //rsscalelabel.RSScaleLabel.setScaleLabel(fondoContent,"src/imagenes/cafe.jpeg");
         
-        Principal p1= new Principal();
+        InicioActividad p1= new InicioActividad();
         p1.setSize(920, 585);
         p1.setLocation(0,0);
         
@@ -60,6 +60,7 @@ public class Inicio extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
+        Header.setBackground(new java.awt.Color(255, 255, 204));
         Header.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
 
         esloganTxt.setFont(new java.awt.Font("Segoe UI Semibold", 1, 14)); // NOI18N
@@ -133,14 +134,14 @@ public class Inicio extends javax.swing.JFrame {
                 .addGroup(HeaderLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(logoInicio, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addGroup(HeaderLayout.createSequentialGroup()
-                        .addGap(0, 56, Short.MAX_VALUE)
+                        .addGap(0, 62, Short.MAX_VALUE)
                         .addGroup(HeaderLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addComponent(exitIniciBtt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(esloganTxt))))
                 .addContainerGap())
         );
 
-        getContentPane().add(Header, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
+        getContentPane().add(Header, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, 110));
 
         Menu.setBackground(new java.awt.Color(21, 101, 192));
         Menu.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -247,7 +248,11 @@ public class Inicio extends javax.swing.JFrame {
     }//GEN-LAST:event_exitIniciBttMouseExited
 
     private void exitIniciBttMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_exitIniciBttMousePressed
-        System.exit(0);
+        Login pc = new Login();
+        pc.setVisible(true);
+        this.dispose();
+        
+        //System.exit(0);
     }//GEN-LAST:event_exitIniciBttMousePressed
 
     private void btn_inicioMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_inicioMouseEntered
@@ -259,7 +264,7 @@ public class Inicio extends javax.swing.JFrame {
     }//GEN-LAST:event_btn_inicioMouseExited
 
     private void btn_inicioMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_inicioMousePressed
-        Principal p1= new Principal();
+        InicioActividad p1= new InicioActividad();
         p1.setSize(920, 585);
         p1.setLocation(0,0);
         
@@ -267,6 +272,7 @@ public class Inicio extends javax.swing.JFrame {
         content.add(p1);
         content.revalidate();
         content.repaint();
+        
     }//GEN-LAST:event_btn_inicioMousePressed
 
     private void btn_configuracionMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_configuracionMouseEntered
@@ -297,7 +303,7 @@ public class Inicio extends javax.swing.JFrame {
     }//GEN-LAST:event_btn_perfilMouseExited
 
     private void btn_perfilMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_perfilMousePressed
-        Perfil p2= new Perfil();
+        InicioPerfil p2= new InicioPerfil();
         p2.setSize(920, 585);
         p2.setLocation(0,0);
         
