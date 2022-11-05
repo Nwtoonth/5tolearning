@@ -5,6 +5,7 @@
 package contenido;
 
 import java.awt.Color;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -33,6 +34,10 @@ public class LoginRegistro extends javax.swing.JPanel {
         userTxt = new javax.swing.JTextField();
         contraseñaLabel = new javax.swing.JLabel();
         contrasenaTxt = new javax.swing.JPasswordField();
+        iniciarBtt = new java.awt.Panel();
+        iniciarTxt = new javax.swing.JLabel();
+        registrarBtt = new java.awt.Panel();
+        registrarTxt = new javax.swing.JLabel();
 
         titulo.setFont(new java.awt.Font("Segoe Print", 1, 18)); // NOI18N
         titulo.setText("Registro");
@@ -62,22 +67,100 @@ public class LoginRegistro extends javax.swing.JPanel {
             }
         });
 
+        iniciarBtt.setBackground(new java.awt.Color(255, 255, 0));
+        iniciarBtt.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        iniciarBtt.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                iniciarBttMouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                iniciarBttMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                iniciarBttMouseExited(evt);
+            }
+        });
+
+        iniciarTxt.setFont(new java.awt.Font("Segoe Print", 1, 14)); // NOI18N
+        iniciarTxt.setText("INICIAR");
+
+        javax.swing.GroupLayout iniciarBttLayout = new javax.swing.GroupLayout(iniciarBtt);
+        iniciarBtt.setLayout(iniciarBttLayout);
+        iniciarBttLayout.setHorizontalGroup(
+            iniciarBttLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(iniciarBttLayout.createSequentialGroup()
+                .addGap(47, 47, 47)
+                .addComponent(iniciarTxt)
+                .addContainerGap(49, Short.MAX_VALUE))
+        );
+        iniciarBttLayout.setVerticalGroup(
+            iniciarBttLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(iniciarBttLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(iniciarTxt, javax.swing.GroupLayout.DEFAULT_SIZE, 28, Short.MAX_VALUE)
+                .addContainerGap())
+        );
+
+        registrarBtt.setBackground(new java.awt.Color(255, 255, 0));
+        registrarBtt.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        registrarBtt.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                registrarBttMouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                registrarBttMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                registrarBttMouseExited(evt);
+            }
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                registrarBttMousePressed(evt);
+            }
+        });
+
+        registrarTxt.setFont(new java.awt.Font("Segoe Print", 1, 14)); // NOI18N
+        registrarTxt.setText("REGISTRAR");
+
+        javax.swing.GroupLayout registrarBttLayout = new javax.swing.GroupLayout(registrarBtt);
+        registrarBtt.setLayout(registrarBttLayout);
+        registrarBttLayout.setHorizontalGroup(
+            registrarBttLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(registrarBttLayout.createSequentialGroup()
+                .addGap(47, 47, 47)
+                .addComponent(registrarTxt)
+                .addContainerGap(49, Short.MAX_VALUE))
+        );
+        registrarBttLayout.setVerticalGroup(
+            registrarBttLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(registrarBttLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(registrarTxt, javax.swing.GroupLayout.DEFAULT_SIZE, 28, Short.MAX_VALUE)
+                .addContainerGap())
+        );
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(110, 110, 110)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(titulo, javax.swing.GroupLayout.PREFERRED_SIZE, 260, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(userTxt, javax.swing.GroupLayout.PREFERRED_SIZE, 310, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(contrasenaTxt, javax.swing.GroupLayout.PREFERRED_SIZE, 310, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(10, 10, 10)
+                        .addGap(110, 110, 110)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(userLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(contraseñaLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addContainerGap(110, Short.MAX_VALUE))
+                            .addComponent(titulo, javax.swing.GroupLayout.PREFERRED_SIZE, 260, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(userTxt, javax.swing.GroupLayout.PREFERRED_SIZE, 310, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(contrasenaTxt, javax.swing.GroupLayout.PREFERRED_SIZE, 310, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(10, 10, 10)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(userLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(contraseñaLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(53, 53, 53)
+                        .addComponent(iniciarBtt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(92, 92, 92)
+                        .addComponent(registrarBtt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(55, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -92,7 +175,11 @@ public class LoginRegistro extends javax.swing.JPanel {
                 .addComponent(contraseñaLabel)
                 .addGap(4, 4, 4)
                 .addComponent(contrasenaTxt, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(205, Short.MAX_VALUE))
+                .addGap(36, 36, 36)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(iniciarBtt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(registrarBtt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(129, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
@@ -118,10 +205,66 @@ public class LoginRegistro extends javax.swing.JPanel {
         }
     }//GEN-LAST:event_contrasenaTxtMousePressed
 
+    private void iniciarBttMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_iniciarBttMouseClicked
+        //javax.swing.JOptionPane.showMessageDialog(this, "intento de inicio con : "+ userTxt.getText() + "\nContraseña: " + String.valueOf(contrasenaTxt.getPassword()), "INICIAR",javax.swing.JOptionPane.INFORMATION_MESSAGE);
+        //String usuario = userTxt.getText();
+        //String paswd = contrasenaTxt.getText();
+        String usuario=userTxt.getText();
+        String contrasena=contrasenaTxt.getText();
+        int pos = Usuario.verificarLogueo(usuario, contrasena);
+        if (pos==-1){
+            JOptionPane.showMessageDialog(this,"Usuario o contraseña inconrrecta");
+        }else{
+            Inicio p1 = new Inicio();
+            p1.setVisible(true);
+            
+            //System.exit(0);
+        }
+
+        
+    }//GEN-LAST:event_iniciarBttMouseClicked
+
+    private void iniciarBttMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_iniciarBttMouseEntered
+        iniciarBtt.setBackground(Color.BLUE);
+    }//GEN-LAST:event_iniciarBttMouseEntered
+
+    private void iniciarBttMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_iniciarBttMouseExited
+        iniciarBtt.setBackground(Color.YELLOW);
+    }//GEN-LAST:event_iniciarBttMouseExited
+
+    private void registrarBttMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_registrarBttMouseClicked
+
+    }//GEN-LAST:event_registrarBttMouseClicked
+
+    private void registrarBttMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_registrarBttMouseEntered
+        registrarBtt.setBackground(Color.BLUE);
+    }//GEN-LAST:event_registrarBttMouseEntered
+
+    private void registrarBttMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_registrarBttMouseExited
+        registrarBtt.setBackground(Color.YELLOW);
+    }//GEN-LAST:event_registrarBttMouseExited
+
+    private void registrarBttMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_registrarBttMousePressed
+        String usuario= userTxt.getText();
+        String contrasena=contrasenaTxt.getText();
+        Usuario obj = new Usuario();
+        if(Usuario.verificarUsuarioNuevo(usuario)==-1){
+            obj.setNick(usuario);
+            obj.setContrasena(contrasena);
+            UsuarioLista.agregar(obj);
+        } else{
+            JOptionPane.showMessageDialog(this, "este usuario ya esta en uso");
+        }
+    }//GEN-LAST:event_registrarBttMousePressed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPasswordField contrasenaTxt;
     private javax.swing.JLabel contraseñaLabel;
+    private java.awt.Panel iniciarBtt;
+    private javax.swing.JLabel iniciarTxt;
+    private java.awt.Panel registrarBtt;
+    private javax.swing.JLabel registrarTxt;
     private javax.swing.JLabel titulo;
     private javax.swing.JLabel userLabel;
     private javax.swing.JTextField userTxt;

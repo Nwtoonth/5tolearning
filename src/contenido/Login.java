@@ -2,6 +2,7 @@ package contenido;
 
 import java.awt.Color;
 import java.util.List;
+import javax.swing.JOptionPane;
 
 
 public class Login extends javax.swing.JFrame {
@@ -16,17 +17,6 @@ public class Login extends javax.swing.JFrame {
         this.setLocationRelativeTo(null);
         rsscalelabel.RSScaleLabel.setScaleLabel(logoLogin,"src/logo/to5learning.png");
         
-        LoginInicio p1= new LoginInicio();
-        p1.setSize(530, 420);
-        p1.setLocation(0,0);
-        
-        content.removeAll();
-        content.add(logoLogin);
-        content.add(iniciarBtt);
-        content.add(registrarBtt);
-        content.add(p1);
-        content.revalidate();
-        content.repaint();
     }
 
     @SuppressWarnings("unchecked")
@@ -47,6 +37,11 @@ public class Login extends javax.swing.JFrame {
         logoLogin = new javax.swing.JLabel();
         registrarBtt = new java.awt.Panel();
         registrarTxt = new javax.swing.JLabel();
+        titulo = new javax.swing.JLabel();
+        userTxt = new javax.swing.JTextField();
+        userLabel = new javax.swing.JLabel();
+        contraseñaLabel = new javax.swing.JLabel();
+        contrasenaTxt = new javax.swing.JPasswordField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setLocationByPlatform(true);
@@ -203,18 +198,59 @@ public class Login extends javax.swing.JFrame {
                 .addContainerGap())
         );
 
+        titulo.setFont(new java.awt.Font("Segoe Print", 1, 18)); // NOI18N
+        titulo.setText("INICIAR SESION");
+        titulo.setToolTipText("");
+
+        userTxt.setForeground(new java.awt.Color(204, 204, 204));
+        userTxt.setText("Ingresar usuario");
+        userTxt.setBorder(null);
+        userTxt.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                userTxtMousePressed(evt);
+            }
+        });
+
+        userLabel.setFont(new java.awt.Font("Segoe Print", 0, 14)); // NOI18N
+        userLabel.setText("Usuario");
+
+        contraseñaLabel.setFont(new java.awt.Font("Segoe Print", 0, 14)); // NOI18N
+        contraseñaLabel.setText("Contraseña");
+
+        contrasenaTxt.setForeground(new java.awt.Color(204, 204, 204));
+        contrasenaTxt.setText("********");
+        contrasenaTxt.setBorder(null);
+        contrasenaTxt.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                contrasenaTxtMousePressed(evt);
+            }
+        });
+
         javax.swing.GroupLayout contentLayout = new javax.swing.GroupLayout(content);
         content.setLayout(contentLayout);
         contentLayout.setHorizontalGroup(
             contentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(contentLayout.createSequentialGroup()
-                .addGap(36, 36, 36)
                 .addGroup(contentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(logoLogin, javax.swing.GroupLayout.PREFERRED_SIZE, 318, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(contentLayout.createSequentialGroup()
-                        .addComponent(iniciarBtt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(92, 92, 92)
-                        .addComponent(registrarBtt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(36, 36, 36)
+                        .addGroup(contentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(logoLogin, javax.swing.GroupLayout.PREFERRED_SIZE, 318, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(contentLayout.createSequentialGroup()
+                                .addComponent(iniciarBtt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(92, 92, 92)
+                                .addComponent(registrarBtt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                    .addGroup(contentLayout.createSequentialGroup()
+                        .addGap(82, 82, 82)
+                        .addGroup(contentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(titulo, javax.swing.GroupLayout.PREFERRED_SIZE, 260, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(userTxt, javax.swing.GroupLayout.PREFERRED_SIZE, 310, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(contrasenaTxt, javax.swing.GroupLayout.PREFERRED_SIZE, 310, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(contentLayout.createSequentialGroup()
+                                .addGap(10, 10, 10)
+                                .addGroup(contentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(userLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(contraseñaLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE))))))
                 .addContainerGap(72, Short.MAX_VALUE))
         );
         contentLayout.setVerticalGroup(
@@ -222,7 +258,17 @@ public class Login extends javax.swing.JFrame {
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, contentLayout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(logoLogin, javax.swing.GroupLayout.PREFERRED_SIZE, 116, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 248, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(titulo, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(20, 20, 20)
+                .addComponent(userLabel)
+                .addGap(4, 4, 4)
+                .addComponent(userTxt, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(10, 10, 10)
+                .addComponent(contraseñaLabel)
+                .addGap(4, 4, 4)
+                .addComponent(contrasenaTxt, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 46, Short.MAX_VALUE)
                 .addGroup(contentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(iniciarBtt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(registrarBtt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -284,10 +330,16 @@ public class Login extends javax.swing.JFrame {
         //javax.swing.JOptionPane.showMessageDialog(this, "intento de inicio con : "+ userTxt.getText() + "\nContraseña: " + String.valueOf(contrasenaTxt.getPassword()), "INICIAR",javax.swing.JOptionPane.INFORMATION_MESSAGE);
         //String usuario = userTxt.getText();
         //String paswd = contrasenaTxt.getText();
-        
-        Inicio p1 = new Inicio();
-        p1.setVisible(true);
-        this.dispose();
+        String usuario=userTxt.getText();
+        String contrasena=contrasenaTxt.getText();
+        int pos = Usuario.verificarLogueo(usuario, contrasena);
+        if (pos==-1){
+            JOptionPane.showMessageDialog(this,"Usuario o contraseña inconrrecta");
+        }else{
+            Inicio p1 = new Inicio();
+            p1.setVisible(true);
+            this.dispose();
+        }
         
         //System.exit(0);
     }//GEN-LAST:event_iniciarBttMouseClicked
@@ -310,11 +362,32 @@ public class Login extends javax.swing.JFrame {
         p2.setLocation(0,0);
         
         content.removeAll();
-        content.add(iniciarBtt);
         content.add(p2);
         content.revalidate();
         content.repaint();
     }//GEN-LAST:event_registrarBttMousePressed
+
+    private void userTxtMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_userTxtMousePressed
+        if (userTxt.getText().equals("Ingresar usuario")){
+            userTxt.setText("");
+            userTxt.setForeground(Color.BLACK);
+        }
+        if (String.valueOf(contrasenaTxt.getPassword()).isEmpty()){
+            contrasenaTxt.setText("********");
+            contrasenaTxt.setForeground(Color.gray);
+        }
+    }//GEN-LAST:event_userTxtMousePressed
+
+    private void contrasenaTxtMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_contrasenaTxtMousePressed
+        if (String.valueOf( contrasenaTxt.getPassword()).equals("********")){
+            contrasenaTxt.setText("");
+            contrasenaTxt.setForeground(Color.BLACK);
+        }
+        if (userTxt.getText().isEmpty()){
+            userTxt.setText("Ingresar usuario");
+            userTxt.setForeground(Color.gray);
+        }
+    }//GEN-LAST:event_contrasenaTxtMousePressed
 
     /**
      * @param args the command line arguments
@@ -354,6 +427,8 @@ public class Login extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel bg;
     private javax.swing.JPanel content;
+    private javax.swing.JPasswordField contrasenaTxt;
+    private javax.swing.JLabel contraseñaLabel;
     private java.awt.Panel exitBtt;
     private javax.swing.JLabel exitTxt;
     private java.awt.Panel header;
@@ -364,5 +439,8 @@ public class Login extends javax.swing.JFrame {
     private javax.swing.JLabel morty;
     private java.awt.Panel registrarBtt;
     private javax.swing.JLabel registrarTxt;
+    private javax.swing.JLabel titulo;
+    private javax.swing.JLabel userLabel;
+    private javax.swing.JTextField userTxt;
     // End of variables declaration//GEN-END:variables
 }
