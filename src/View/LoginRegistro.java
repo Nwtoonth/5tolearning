@@ -2,8 +2,10 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JPanel.java to edit this template
  */
-package contenido;
+package View;
 
+import ViewModel.UsuarioLista;
+import ViewModel.Usuario;
 import java.awt.Color;
 import javax.swing.JOptionPane;
 
