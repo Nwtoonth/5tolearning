@@ -4,6 +4,8 @@
  */
 package View;
 
+import ViewModel.UsuarioLista;
+import ViewModel.Usuario;
 import java.awt.Color;
 import javax.swing.JOptionPane;
 
