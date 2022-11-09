@@ -1,4 +1,4 @@
-package contenido;
+package View;
 
 import java.awt.Color;
 import java.util.List;
