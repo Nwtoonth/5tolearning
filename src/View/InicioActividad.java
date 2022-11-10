@@ -31,6 +31,7 @@ public class InicioActividad extends javax.swing.JPanel {
         Title = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
         Actividad1 = new javax.swing.JButton();
+        Actividad2 = new javax.swing.JButton();
 
         setBackground(new java.awt.Color(255, 255, 255));
         setMinimumSize(new java.awt.Dimension(750, 430));
@@ -65,20 +66,49 @@ public class InicioActividad extends javax.swing.JPanel {
             }
         });
 
+        Actividad2.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        Actividad2.setForeground(new java.awt.Color(102, 102, 102));
+        Actividad2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/charmander_72.png"))); // NOI18N
+        Actividad2.setText("Repaso");
+        Actividad2.setBorder(null);
+        Actividad2.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        Actividad2.setPressedIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/charmander_72.png"))); // NOI18N
+        Actividad2.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/charmander_96.png"))); // NOI18N
+        Actividad2.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        Actividad2.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                Actividad2MouseClicked(evt);
+            }
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                Actividad2MousePressed(evt);
+            }
+        });
+        Actividad2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                Actividad2ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout contentLayout = new javax.swing.GroupLayout(content);
         content.setLayout(contentLayout);
         contentLayout.setHorizontalGroup(
             contentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(contentLayout.createSequentialGroup()
                 .addGap(30, 30, 30)
-                .addComponent(Title))
+                .addComponent(Title)
+                .addGap(0, 0, Short.MAX_VALUE))
             .addGroup(contentLayout.createSequentialGroup()
                 .addGap(50, 50, 50)
                 .addGroup(contentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(contentLayout.createSequentialGroup()
+                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addContainerGap(770, Short.MAX_VALUE))
+                    .addGroup(contentLayout.createSequentialGroup()
                         .addGap(6, 6, 6)
-                        .addComponent(Actividad1, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(Actividad1, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(Actividad2, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(186, 186, 186))))
         );
         contentLayout.setVerticalGroup(
             contentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -88,8 +118,10 @@ public class InicioActividad extends javax.swing.JPanel {
                 .addGap(20, 20, 20)
                 .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(Actividad1, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
+                .addGroup(contentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(Actividad1, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(Actividad2, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(364, 364, 364))
         );
 
         add(content, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 920, 590));
@@ -110,9 +142,29 @@ public class InicioActividad extends javax.swing.JPanel {
         content.repaint();
     }//GEN-LAST:event_Actividad1MouseClicked
 
+    private void Actividad2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Actividad2MouseClicked
+        Actividad2 p2= new Actividad2();
+        //p2.setSize(920, 585);
+        //p2.setLocation(0,0);
+        p2.setVisible(true);
+        //content.removeAll();
+        //content.add(p2);
+        //content.revalidate();
+        //content.repaint();
+    }//GEN-LAST:event_Actividad2MouseClicked
+
+    private void Actividad2MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Actividad2MousePressed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_Actividad2MousePressed
+
+    private void Actividad2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Actividad2ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_Actividad2ActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton Actividad1;
+    private javax.swing.JButton Actividad2;
     private javax.swing.JLabel Title;
     private javax.swing.JPanel content;
     private javax.swing.JLabel jLabel1;

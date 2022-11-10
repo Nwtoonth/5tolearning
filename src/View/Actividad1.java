@@ -4,17 +4,18 @@
  */
 package View;
 
+import java.util.ArrayList;
+
 /**
  *
  * @author Admin
  */
 public class Actividad1 extends javax.swing.JPanel {
 
-    /**
-     * Creates new form Actividad1
-     */
+    
     public Actividad1() {
         initComponents();
+
         
     }
 
