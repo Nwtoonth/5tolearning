@@ -1,4 +1,4 @@
-package View;
+package view;
 
 import java.awt.Color;
 
@@ -6,9 +6,9 @@ import java.awt.Color;
  *
  * @author Duvan
  */
-public class Actividad3 extends javax.swing.JFrame {
+public class VistaActividades extends javax.swing.JFrame {
 
-    public Actividad3() {
+    public VistaActividades() {
         initComponents();
     }
 
@@ -50,7 +50,7 @@ public class Actividad3 extends javax.swing.JFrame {
         setUndecorated(true);
         setResizable(false);
 
-        jPanel1.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel1.setBackground(new java.awt.Color(204, 255, 255));
         jPanel1.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         jPanel1.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseEntered(java.awt.event.MouseEvent evt) {

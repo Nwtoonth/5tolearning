@@ -5,9 +5,8 @@
  */
 package View;
 
-import ViewModel.ActividadStrings;
 import ViewModel.ControladorActividad;
-import java.util.ArrayList;
+import model.ActividadStringModel;
 
 /**
  *
@@ -166,33 +165,10 @@ public class InicioActividad extends javax.swing.JPanel {
     }//GEN-LAST:event_Actividad2MousePressed
 
     private void Actividad2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Actividad2MouseClicked
-
-        ArrayList<String> line = new ArrayList<>(){{
-            add("Public ");
-            add("static ");
-            add("void ");
-            add("main ");
-            add("( ");
-            add("String[] ");
-            add("args ");
-            add(") ");
-            add("{}");
-        }};
-        ArrayList<String> line2 = new ArrayList<>(){{
-            add("Public ");
-            add("int ");
-            add("getNum ");
-            add("(");
-            add(")");
-            add("{}");
-            
-        }};
-        /*
-        ActividadStrings a = new ActividadStrings(line);
-        ControladorActividad c = new ControladorActividad(a);
-        */
-        ActividadStrings b = new ActividadStrings(line);
-        ControladorActividad c = new ControladorActividad(b);
+        String rutaAchivoString = "src\\model\\data\\strings1";
+        String rutaArchivoEnunciados = "src\\model\\data\\enunciados1";
+        ActividadStringModel a1 = new ActividadStringModel(rutaAchivoString,rutaArchivoEnunciados);
+        ControladorActividad c1 = new ControladorActividad(a1.getActividades(),a1.getEnunciados());
     }//GEN-LAST:event_Actividad2MouseClicked
 
     private void Actividad3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Actividad3MouseClicked

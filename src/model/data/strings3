@@ -1,0 +1,7 @@
+numeros .add (1) ;#
+numeros .remove (index) ;#
+numeros .size () ;#
+numeros .clear () ;#
+numeros .set (3,num) ;#
+numeros .get (5) ;#
+Collections .sort (numeros) ;#

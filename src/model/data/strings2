@@ -1,0 +1,7 @@
+String [] arrayName = {item1, item2} ;#
+Int [] arrayName = {10, 20} ;#
+ArrayList <String> name = new ArrayList<> () ;#
+HashMap <Integer String> name = new HashMap<> () ;#
+HashSet <Autos> name = new HashSet<> () ;#
+TreeSet <gatos> name = new TreeSet<> () ;#
+TreeMap <Boolean> name = new TreeMap<> () ;#
