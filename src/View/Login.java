@@ -44,8 +44,8 @@ public class Login extends javax.swing.JFrame {
         userLabel = new javax.swing.JLabel();
         contraseñaLabel = new javax.swing.JLabel();
         jTextFieldUser = new javax.swing.JTextField();
-        jTextFieldPassword = new javax.swing.JTextField();
         jLabelRespuesta = new javax.swing.JLabel();
+        jPasswordField1 = new javax.swing.JPasswordField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setLocationByPlatform(true);
@@ -227,18 +227,13 @@ public class Login extends javax.swing.JFrame {
             }
         });
 
-        jTextFieldPassword.setBackground(new java.awt.Color(255, 255, 255));
-        jTextFieldPassword.setFont(new java.awt.Font("Segoe Print", 0, 12)); // NOI18N
-        jTextFieldPassword.setForeground(new java.awt.Color(153, 153, 153));
-        jTextFieldPassword.setText("Contraseña");
-        jTextFieldPassword.addMouseListener(new java.awt.event.MouseAdapter() {
+        jPasswordField1.setBackground(new java.awt.Color(255, 255, 255));
+        jPasswordField1.setFont(new java.awt.Font("Segoe Print", 0, 12)); // NOI18N
+        jPasswordField1.setForeground(new java.awt.Color(153, 153, 153));
+        jPasswordField1.setText("*********");
+        jPasswordField1.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jTextFieldPasswordMouseClicked(evt);
-            }
-        });
-        jTextFieldPassword.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextFieldPasswordActionPerformed(evt);
+                jPasswordField1MouseClicked(evt);
             }
         });
 
@@ -265,9 +260,9 @@ public class Login extends javax.swing.JFrame {
                                 .addGroup(contentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(userLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(contraseñaLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                            .addComponent(jTextFieldUser)
-                            .addComponent(jTextFieldPassword, javax.swing.GroupLayout.DEFAULT_SIZE, 272, Short.MAX_VALUE)
-                            .addComponent(jLabelRespuesta, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                            .addComponent(jTextFieldUser, javax.swing.GroupLayout.DEFAULT_SIZE, 272, Short.MAX_VALUE)
+                            .addComponent(jLabelRespuesta, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jPasswordField1))))
                 .addContainerGap(72, Short.MAX_VALUE))
         );
         contentLayout.setVerticalGroup(
@@ -284,10 +279,10 @@ public class Login extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addComponent(contraseñaLabel)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jTextFieldPassword, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jPasswordField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(20, 20, 20)
                 .addComponent(jLabelRespuesta)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 26, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 20, Short.MAX_VALUE)
                 .addGroup(contentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(iniciarBtt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(registrarBtt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -351,8 +346,8 @@ public class Login extends javax.swing.JFrame {
         Usuario userA = sqlUser.selecionar(""+jTextFieldUser.getText());
         System.out.println(userA);
         if(userA != null){
-            if(userA.verificarLogueo(""+jTextFieldUser.getText(),""+jTextFieldPassword.getText())){
-                new Inicio().setVisible(true);               
+            if(userA.verificarLogueo(""+jTextFieldUser.getText(),""+jPasswordField1.getText())){
+                new Inicio(userA).setVisible(true);               
                 System.out.println("Logueo Exitoso");
             }
             else{
@@ -368,7 +363,7 @@ public class Login extends javax.swing.JFrame {
         Usuario userA = sqlUser.selecionar(""+jTextFieldUser.getText());
         if(userA == null){
             String ID = ""+(sqlUser.selecionarTodo()+1);
-            sqlUser.registrar(ID,jTextFieldUser.getText(),jTextFieldPassword.getText());
+            sqlUser.registrar(ID,jTextFieldUser.getText(),jPasswordField1.getText());
             jLabelRespuesta.setText("Registro Exitoso");
         }
         else{
@@ -392,10 +387,6 @@ public class Login extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_iniciarTxtMouseClicked
 
-    private void jTextFieldPasswordActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldPasswordActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jTextFieldPasswordActionPerformed
-
     private void jTextFieldUserMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTextFieldUserMouseClicked
         if(jTextFieldUser.getText().equals("Nombre de usuario")){
             jTextFieldUser.setText("");
@@ -403,12 +394,11 @@ public class Login extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_jTextFieldUserMouseClicked
 
-    private void jTextFieldPasswordMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTextFieldPasswordMouseClicked
-        if(jTextFieldPassword.getText().equals("Contraseña")){
-            jTextFieldPassword.setText("");
-            jTextFieldPassword.setForeground(Color.BLACK);
-        }
-    }//GEN-LAST:event_jTextFieldPasswordMouseClicked
+    private void jPasswordField1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPasswordField1MouseClicked
+            jPasswordField1.setText("");
+            jTextFieldUser.setForeground(Color.BLACK);
+
+    }//GEN-LAST:event_jPasswordField1MouseClicked
 
     /**
      * @param args the command line arguments
@@ -456,7 +446,7 @@ public class Login extends javax.swing.JFrame {
     private java.awt.Panel iniciarBtt;
     private javax.swing.JLabel iniciarTxt;
     private javax.swing.JLabel jLabelRespuesta;
-    private javax.swing.JTextField jTextFieldPassword;
+    private javax.swing.JPasswordField jPasswordField1;
     private javax.swing.JTextField jTextFieldUser;
     private javax.swing.JLabel logoLogin;
     private javax.swing.JLabel morty;

@@ -1,7 +1,5 @@
 package ViewModel;
 
-import java.util.Vector;
-
 public class Usuario {
     
     private String id;
@@ -34,7 +32,12 @@ public class Usuario {
     public boolean verificarLogueo(String nombre , String password){
         return this.nickName.equals(nombre) && this.contrasena.equals(password);
     }
+
+    public String getId() {
+        return id;
+    }
     
+     
     @Override
     public String toString() {
         return "Usuario{" + "id=" + id + ", nickName=" + nickName + ", contrasena=" + contrasena + '}';

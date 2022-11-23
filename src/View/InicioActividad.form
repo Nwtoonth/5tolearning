@@ -127,7 +127,7 @@
               <Color blue="66" green="66" red="66" type="rgb"/>
             </Property>
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="3" name="/iconos/squirtle_72.png"/>
+              <Image iconType="3" name="/imagenes/Icono java.jpg"/>
             </Property>
             <Property name="text" type="java.lang.String" value="Actividad 2"/>
             <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
@@ -135,10 +135,10 @@
             </Property>
             <Property name="horizontalTextPosition" type="int" value="0"/>
             <Property name="pressedIcon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="3" name="/iconos/squirtle_72.png"/>
+              <Image iconType="3" name="/imagenes/Icono java.jpg"/>
             </Property>
             <Property name="rolloverIcon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="3" name="/iconos/squirtle_96.png"/>
+              <Image iconType="3" name="/imagenes/Icono java 95.jpg"/>
             </Property>
             <Property name="verticalTextPosition" type="int" value="3"/>
           </Properties>
@@ -217,7 +217,7 @@
               <Color blue="66" green="66" red="66" type="rgb"/>
             </Property>
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="3" name="/iconos/charmander_72.png"/>
+              <Image iconType="3" name="/imagenes/Arreglos.jpg"/>
             </Property>
             <Property name="text" type="java.lang.String" value="Actividad 4"/>
             <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
@@ -225,10 +225,10 @@
             </Property>
             <Property name="horizontalTextPosition" type="int" value="0"/>
             <Property name="pressedIcon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="3" name="/iconos/charmander_72.png"/>
+              <Image iconType="3" name="/imagenes/Arreglos.jpg"/>
             </Property>
             <Property name="rolloverIcon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="3" name="/iconos/charmander_96.png"/>
+              <Image iconType="3" name="/imagenes/Arreglos95.jpg"/>
             </Property>
             <Property name="verticalTextPosition" type="int" value="3"/>
           </Properties>
@@ -247,7 +247,7 @@
               <Color blue="66" green="66" red="66" type="rgb"/>
             </Property>
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="3" name="/iconos/charmander_72.png"/>
+              <Image iconType="3" name="/imagenes/ArrayList.png"/>
             </Property>
             <Property name="text" type="java.lang.String" value="Actividad 5"/>
             <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
@@ -255,10 +255,10 @@
             </Property>
             <Property name="horizontalTextPosition" type="int" value="0"/>
             <Property name="pressedIcon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="3" name="/iconos/charmander_72.png"/>
+              <Image iconType="3" name="/imagenes/ArrayList.png"/>
             </Property>
             <Property name="rolloverIcon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="3" name="/iconos/charmander_96.png"/>
+              <Image iconType="3" name="/imagenes/ArrayList95.png"/>
             </Property>
             <Property name="verticalTextPosition" type="int" value="3"/>
           </Properties>
@@ -277,7 +277,7 @@
               <Color blue="66" green="66" red="66" type="rgb"/>
             </Property>
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="3" name="/iconos/charmander_72.png"/>
+              <Image iconType="3" name="/imagenes/Objetos.jpg"/>
             </Property>
             <Property name="text" type="java.lang.String" value="Actividad 6"/>
             <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
@@ -285,10 +285,10 @@
             </Property>
             <Property name="horizontalTextPosition" type="int" value="0"/>
             <Property name="pressedIcon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="3" name="/iconos/charmander_72.png"/>
+              <Image iconType="3" name="/imagenes/Objetos.jpg"/>
             </Property>
             <Property name="rolloverIcon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="3" name="/iconos/charmander_96.png"/>
+              <Image iconType="3" name="/imagenes/Objetos95.jpg"/>
             </Property>
             <Property name="verticalTextPosition" type="int" value="3"/>
           </Properties>

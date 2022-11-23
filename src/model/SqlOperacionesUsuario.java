@@ -57,10 +57,10 @@ public class SqlOperacionesUsuario {
         try {
             
             PreparedStatement consulta;
-            consulta = (PreparedStatement) conexion.prepareStatement("UPDATE " +this.tabla +" SET NICKNAME = ? SET PASSWORD = ? WHERE ID = ?");
+            consulta = (PreparedStatement) conexion.prepareStatement("UPDATE " +this.tabla +" SET NICKNAME = ? SET PASSWORD = ? WHERE ID = ? ");
             consulta.setString(1,nickName);
             consulta.setString(2,Password);
-            consulta.setString(3, ID);
+            consulta.setString(3,ID);
             consulta.executeUpdate();
             System.out.println("Datos actualizados");
             

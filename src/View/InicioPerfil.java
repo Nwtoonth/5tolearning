@@ -1,14 +1,22 @@
 package View;
 
-import java.awt.Color;
+import ViewModel.Usuario;
+import model.SqlOperacionesUsuario;
+
 /**
  *
- * @author Admin
+ * @author Duvan
  */
 public class InicioPerfil extends javax.swing.JPanel {
-
-    public InicioPerfil() {
+    private SqlOperacionesUsuario sqlUser;
+    
+    private Usuario userA;
+    public InicioPerfil(Usuario us1) {
+        sqlUser = new SqlOperacionesUsuario();
+        sqlUser.realizarConexion();
+        this.userA=us1;      
         initComponents();
+        LabelUserName.setText(userA.getNick());
     }
     
     @SuppressWarnings("unchecked")
@@ -17,7 +25,7 @@ public class InicioPerfil extends javax.swing.JPanel {
 
         jPanel1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
-        LabelUserName = new javax.swing.JLabel();
+        LabelProgreso = new javax.swing.JLabel();
         LabelFechaIngreso = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
@@ -26,11 +34,11 @@ public class InicioPerfil extends javax.swing.JPanel {
         PasswordField = new javax.swing.JPasswordField();
         jButtonConfirmar = new javax.swing.JButton();
         SubirFoto = new javax.swing.JButton();
-        LabelUserName1 = new javax.swing.JLabel();
+        Labeltext = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
-        LabelUserName2 = new javax.swing.JLabel();
+        LabelUserName = new javax.swing.JLabel();
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
 
@@ -38,9 +46,9 @@ public class InicioPerfil extends javax.swing.JPanel {
         jLabel1.setForeground(new java.awt.Color(17, 55, 96));
         jLabel1.setText("NickName:");
 
-        LabelUserName.setFont(new java.awt.Font("Roboto", 0, 48)); // NOI18N
-        LabelUserName.setForeground(new java.awt.Color(252, 161, 3));
-        LabelUserName.setText("%");
+        LabelProgreso.setFont(new java.awt.Font("Roboto", 0, 48)); // NOI18N
+        LabelProgreso.setForeground(new java.awt.Color(252, 161, 3));
+        LabelProgreso.setText("%");
 
         LabelFechaIngreso.setFont(new java.awt.Font("Roboto", 2, 18)); // NOI18N
         LabelFechaIngreso.setForeground(new java.awt.Color(17, 55, 96));
@@ -117,9 +125,9 @@ public class InicioPerfil extends javax.swing.JPanel {
             }
         });
 
-        LabelUserName1.setFont(new java.awt.Font("Roboto", 0, 24)); // NOI18N
-        LabelUserName1.setForeground(new java.awt.Color(17, 55, 96));
-        LabelUserName1.setText("Progreso:");
+        Labeltext.setFont(new java.awt.Font("Roboto", 0, 24)); // NOI18N
+        Labeltext.setForeground(new java.awt.Color(17, 55, 96));
+        Labeltext.setText("Progreso:");
 
         jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/user (1).png"))); // NOI18N
 
@@ -127,9 +135,9 @@ public class InicioPerfil extends javax.swing.JPanel {
 
         jLabel6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/lock.png"))); // NOI18N
 
-        LabelUserName2.setFont(new java.awt.Font("Roboto", 0, 36)); // NOI18N
-        LabelUserName2.setForeground(new java.awt.Color(17, 55, 96));
-        LabelUserName2.setText("userName");
+        LabelUserName.setFont(new java.awt.Font("Roboto", 0, 36)); // NOI18N
+        LabelUserName.setForeground(new java.awt.Color(17, 55, 96));
+        LabelUserName.setText("userName");
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -141,10 +149,6 @@ public class InicioPerfil extends javax.swing.JPanel {
                     .addComponent(SubirFoto, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, 237, Short.MAX_VALUE))
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(18, 18, 18)
-                        .addComponent(jLabel3)
-                        .addGap(0, 0, Short.MAX_VALUE))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanel1Layout.createSequentialGroup()
@@ -171,18 +175,22 @@ public class InicioPerfil extends javax.swing.JPanel {
                                     .addGroup(jPanel1Layout.createSequentialGroup()
                                         .addGap(36, 36, 36)
                                         .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 570, javax.swing.GroupLayout.PREFERRED_SIZE)))))
-                        .addContainerGap(75, Short.MAX_VALUE))))
+                        .addContainerGap(75, Short.MAX_VALUE))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addGap(18, 18, 18)
+                                .addComponent(jLabel3))
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addGap(97, 97, 97)
+                                .addComponent(LabelUserName)))
+                        .addGap(0, 0, Short.MAX_VALUE))))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(LabelUserName1)
+                .addComponent(Labeltext)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(LabelUserName)
+                .addComponent(LabelProgreso)
                 .addGap(82, 82, 82))
-            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(jPanel1Layout.createSequentialGroup()
-                    .addGap(354, 354, 354)
-                    .addComponent(LabelUserName2)
-                    .addContainerGap(418, Short.MAX_VALUE)))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -193,19 +201,22 @@ public class InicioPerfil extends javax.swing.JPanel {
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addComponent(jLabel1)
                             .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(55, 55, 55)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(LabelUserName)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(LabelFechaIngreso)
                         .addGap(41, 41, 41)
                         .addComponent(jLabel3)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE, false)
-                            .addComponent(PasswordField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jButtonConfirmar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(jLabel5)
-                            .addComponent(TextFieldNewUser)
-                            .addComponent(jLabel6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                            .addComponent(jLabel6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                .addComponent(PasswordField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(jButtonConfirmar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(TextFieldNewUser))))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(28, 28, 28)
                         .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 247, javax.swing.GroupLayout.PREFERRED_SIZE)))
@@ -213,16 +224,11 @@ public class InicioPerfil extends javax.swing.JPanel {
                 .addComponent(SubirFoto)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 202, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(LabelUserName)
+                    .addComponent(LabelProgreso)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                        .addComponent(LabelUserName1)
+                        .addComponent(Labeltext)
                         .addGap(15, 15, 15)))
                 .addGap(18, 18, 18))
-            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(jPanel1Layout.createSequentialGroup()
-                    .addGap(96, 96, 96)
-                    .addComponent(LabelUserName2)
-                    .addContainerGap(446, Short.MAX_VALUE)))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
@@ -250,7 +256,14 @@ public class InicioPerfil extends javax.swing.JPanel {
     }//GEN-LAST:event_jButtonConfirmarMouseEntered
 
     private void jButtonConfirmarMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButtonConfirmarMouseExited
-
+        Usuario userB = sqlUser.selecionar(""+TextFieldNewUser.getText());
+        if(userB == null && !userA.getContrasena().equals(PasswordField.getText())){
+            sqlUser.actualizar(userA.getId(),TextFieldNewUser.getText(),PasswordField.getText());
+            System.out.println("Informacion actualizada");
+        }
+        else{
+            System.out.println("Datos de entrada no validos");
+        }
     }//GEN-LAST:event_jButtonConfirmarMouseExited
 
     private void jButtonConfirmarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonConfirmarActionPerformed
@@ -286,9 +299,9 @@ public class InicioPerfil extends javax.swing.JPanel {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel LabelFechaIngreso;
+    private javax.swing.JLabel LabelProgreso;
     private javax.swing.JLabel LabelUserName;
-    private javax.swing.JLabel LabelUserName1;
-    private javax.swing.JLabel LabelUserName2;
+    private javax.swing.JLabel Labeltext;
     private javax.swing.JPasswordField PasswordField;
     public javax.swing.JButton SubirFoto;
     private javax.swing.JTextField TextFieldNewUser;

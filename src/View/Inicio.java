@@ -1,9 +1,6 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
- */
 package View;
 
+import ViewModel.Usuario;
 import java.awt.Color;
 
 /**
@@ -11,12 +8,12 @@ import java.awt.Color;
  * @author Admin
  */
 public class Inicio extends javax.swing.JFrame {
-
+    private Usuario userA;
     /**
      * Creates new form Inicio
      */
-    public Inicio() {
-        
+    public Inicio(Usuario us1) {
+        this.userA = us1;
         initComponents();
         
         this.setLocationRelativeTo(null);
@@ -303,7 +300,7 @@ public class Inicio extends javax.swing.JFrame {
     }//GEN-LAST:event_btn_perfilMouseExited
 
     private void btn_perfilMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_perfilMousePressed
-        InicioPerfil p2= new InicioPerfil();
+        InicioPerfil p2= new InicioPerfil(userA);
         p2.setSize(920, 585);
         p2.setLocation(0,0);
         

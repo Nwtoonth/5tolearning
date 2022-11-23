@@ -57,12 +57,12 @@ public class InicioActividad extends javax.swing.JPanel {
 
         Actividad2.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         Actividad2.setForeground(new java.awt.Color(102, 102, 102));
-        Actividad2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/squirtle_72.png"))); // NOI18N
+        Actividad2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/Icono java.jpg"))); // NOI18N
         Actividad2.setText("Actividad 2");
         Actividad2.setBorder(null);
         Actividad2.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        Actividad2.setPressedIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/squirtle_72.png"))); // NOI18N
-        Actividad2.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/squirtle_96.png"))); // NOI18N
+        Actividad2.setPressedIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/Icono java.jpg"))); // NOI18N
+        Actividad2.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/Icono java 95.jpg"))); // NOI18N
         Actividad2.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
         Actividad2.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -126,12 +126,12 @@ public class InicioActividad extends javax.swing.JPanel {
 
         Actividad4.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         Actividad4.setForeground(new java.awt.Color(102, 102, 102));
-        Actividad4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/charmander_72.png"))); // NOI18N
+        Actividad4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/Arreglos.jpg"))); // NOI18N
         Actividad4.setText("Actividad 4");
         Actividad4.setBorder(null);
         Actividad4.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        Actividad4.setPressedIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/charmander_72.png"))); // NOI18N
-        Actividad4.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/charmander_96.png"))); // NOI18N
+        Actividad4.setPressedIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/Arreglos.jpg"))); // NOI18N
+        Actividad4.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/Arreglos95.jpg"))); // NOI18N
         Actividad4.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
         Actividad4.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -149,12 +149,12 @@ public class InicioActividad extends javax.swing.JPanel {
 
         Actividad5.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         Actividad5.setForeground(new java.awt.Color(102, 102, 102));
-        Actividad5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/charmander_72.png"))); // NOI18N
+        Actividad5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/ArrayList.png"))); // NOI18N
         Actividad5.setText("Actividad 5");
         Actividad5.setBorder(null);
         Actividad5.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        Actividad5.setPressedIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/charmander_72.png"))); // NOI18N
-        Actividad5.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/charmander_96.png"))); // NOI18N
+        Actividad5.setPressedIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/ArrayList.png"))); // NOI18N
+        Actividad5.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/ArrayList95.png"))); // NOI18N
         Actividad5.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
         Actividad5.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -172,12 +172,12 @@ public class InicioActividad extends javax.swing.JPanel {
 
         Actividad6.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         Actividad6.setForeground(new java.awt.Color(102, 102, 102));
-        Actividad6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/charmander_72.png"))); // NOI18N
+        Actividad6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/Objetos.jpg"))); // NOI18N
         Actividad6.setText("Actividad 6");
         Actividad6.setBorder(null);
         Actividad6.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        Actividad6.setPressedIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/charmander_72.png"))); // NOI18N
-        Actividad6.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/charmander_96.png"))); // NOI18N
+        Actividad6.setPressedIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/Objetos.jpg"))); // NOI18N
+        Actividad6.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/Objetos95.jpg"))); // NOI18N
         Actividad6.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
         Actividad6.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
