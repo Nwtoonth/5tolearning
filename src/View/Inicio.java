@@ -284,7 +284,7 @@ public class Inicio extends javax.swing.JFrame {
     }//GEN-LAST:event_btn_configuracionMouseExited
 
     private void btn_configuracionMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_configuracionMousePressed
-        Config p3= new Config();
+        InicioConfig p3= new InicioConfig();
         p3.setSize(920, 585);
         p3.setLocation(0,0);
         

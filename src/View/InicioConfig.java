@@ -8,12 +8,12 @@ package View;
  *
  * @author Admin
  */
-public class Config extends javax.swing.JPanel {
+public class InicioConfig extends javax.swing.JPanel {
 
     /**
      * Creates new form Configuracion
      */
-    public Config() {
+    public InicioConfig() {
         initComponents();
     }
 

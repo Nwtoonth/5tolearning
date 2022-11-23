@@ -6,15 +6,15 @@ import java.util.StringTokenizer;
 public class Respuestas {
 
     String[] respuestas = {
-      "1","2","3","4","5"
+      "java","int","System.out.println()","String","Double"
     };
     
     String[] radioR = {
-        "1,2,3,4",
-        "1,2,3,4",
-        "1,2,3,4",
-        "1,2,3,4",
-        "1,2,3,4",
+        "java,visual studio ,HTML,Android",
+        "int,byte,double,string",
+        "System.out.println(),System.in.println(),System.in(),System.in.println()",
+        "String,Cadena,Char,Word",
+        "Double,Char,Int,Byte",
     };
     
     public String getRespuesta(int posicion){
