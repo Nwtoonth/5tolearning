@@ -21,6 +21,7 @@ public class ActividadStrings {
         this.respuestaUsuario = new ArrayList<>();
     }
     
+    /*verifica si la respuesta del usuario es igual que la de la aplicacion*/
     public boolean verificarOrden(){
         return this.respuestaUsuario.equals(this.respuestaCorrecta);
     }
@@ -56,8 +57,8 @@ public class ActividadStrings {
     /*Pone palabras al azar hasta completar 10*/
     private void ponerPalabrasAzar(){
         String palabra = "";
-        for (Iterator<String> iterator = respuestaCorrecta.iterator(); iterator.hasNext();) {
-            String next = iterator.next();
+        for (Iterator<String> i = respuestaCorrecta.iterator(); i.hasNext();) {
+            String next = i.next();
             this.palabrasBotones.add(next);
         }
         while (palabrasBotones.size() < 10) {
@@ -70,9 +71,12 @@ public class ActividadStrings {
     /*Seleciona una palabra al azar*/
     private String palabraAlAzar() {
         Random r = new Random();
-        String[] opciones = {"Private","(Boolean)",">=","Public","Boolean","next","Iterator","for","if",
-             "else","while","switch","(32,num)","(Float)",".split",".add",".remove",".delete","Try","Return",
-            "(-1,sum)","-=","+=",".contains","(casa)","(-5)",".sort","Break","Continue","(int)"};
+        String[] opciones = {"Private","(Boolean)",">=","Public"
+                ,"Boolean","next","Iterator","for","if",
+             "else","while","switch","(32,num)","(Float)"
+                ,".split",".add",".remove",".delete","Try","Return",
+            "(-1,sum)","-=","+=",".contains","(casa)","(-5)"
+                ,".sort","Break","Continue","(int)"};
         return opciones[r.nextInt(30)];
     }
     

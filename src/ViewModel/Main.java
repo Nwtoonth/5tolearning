@@ -1,7 +1,6 @@
-
 package ViewModel;
 
-import java.util.ArrayList;
+import model.SqlOperacionesUsuario;
 
 /**
  *
@@ -9,9 +8,11 @@ import java.util.ArrayList;
  */
 public class Main {
     public static void main(String[] args) {
-    tipos_dato.crear_ejercicio(0,0,0);
-    tipos_dato.resultado();
-    //Examen e = new Examen();
-    
+        
+        SqlOperacionesUsuario sql1 = new SqlOperacionesUsuario();
+        sql1.realizarConexion();
+        //sql1.registrar("1", "DuvanTique", "123456");
+        System.out.println(sql1.selecionarTodo());
+
     }
 }

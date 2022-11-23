@@ -15,14 +15,7 @@ import view.Actividad3;
  * @author Duvan
  */
 public class ControladorActividad implements ActionListener{
-    
-    /*clases que controla*/
-    private ActividadStrings actividad;
-    private ArrayList<ActividadStrings> actividades;
-    private Actividad3 vista;
-    private ArrayList<String> enunciados;
-    private ArrayList<Integer> ordenActividades;
-    
+       
     /*Atributos de los botones */
     private ArrayList<JButton> botones;
     private ArrayList<Integer> listaNumerosAleatoria;
@@ -33,6 +26,16 @@ public class ControladorActividad implements ActionListener{
     private final int yPositionRespuesta = 140;
     private final int anchoBoton = 98;
     private final int alturaBoton = 26;
+    private final String fuenteBotones = "SANSSERIF";
+    private final String colorBotones = "#113760";
+    private final int tamañoFuente = 11;
+    
+    /*clases que controla*/
+    private ActividadStrings actividad;
+    private ArrayList<ActividadStrings> actividades;
+    private Actividad3 vista;
+    private ArrayList<String> enunciados;
+    private ArrayList<Integer> ordenActividades;
     
     /*Puntuacion*/
     private int puntuacion = 0;
@@ -83,8 +86,8 @@ public class ControladorActividad implements ActionListener{
         for (Iterator<JButton> iterator = botones.iterator(); iterator.hasNext();) {
             JButton next = iterator.next();
             /*Se configura la posicion y la fuente del boton*/
-            next.setFont(new Font("SANSSERIF",Font.BOLD,11));
-            next.setForeground(Color.decode("#113760"));
+            next.setFont(new Font(fuenteBotones,Font.BOLD,tamañoFuente));
+            next.setForeground(Color.decode(colorBotones));
             next.setBounds((xPosition2 + anchoBoton * this.listaNumerosAleatoria.get(i))-anchoBoton,
                     yPositionOpciones,anchoBoton,alturaBoton);
             vista.jPanel1.add(next);

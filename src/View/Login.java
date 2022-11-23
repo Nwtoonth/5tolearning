@@ -2,16 +2,18 @@ package View;
 
 import ViewModel.Usuario;
 import java.awt.Color;
-import java.util.List;
-import javax.swing.JOptionPane;
+import model.SqlOperacionesUsuario;
 
 
 public class Login extends javax.swing.JFrame {
     
     //encabezado
     int xMouse, yMouse;
+    private SqlOperacionesUsuario sqlUser;
     
     public Login() {
+        sqlUser = new SqlOperacionesUsuario();
+        sqlUser.realizarConexion();
         initComponents();
         
         //logo
@@ -39,10 +41,11 @@ public class Login extends javax.swing.JFrame {
         registrarBtt = new java.awt.Panel();
         registrarTxt = new javax.swing.JLabel();
         titulo = new javax.swing.JLabel();
-        userTxt = new javax.swing.JTextField();
         userLabel = new javax.swing.JLabel();
         contraseñaLabel = new javax.swing.JLabel();
-        contrasenaTxt = new javax.swing.JPasswordField();
+        jTextFieldUser = new javax.swing.JTextField();
+        jTextFieldPassword = new javax.swing.JTextField();
+        jLabelRespuesta = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setLocationByPlatform(true);
@@ -144,6 +147,11 @@ public class Login extends javax.swing.JFrame {
 
         iniciarTxt.setFont(new java.awt.Font("Segoe Print", 1, 14)); // NOI18N
         iniciarTxt.setText("INICIAR");
+        iniciarTxt.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                iniciarTxtMouseClicked(evt);
+            }
+        });
 
         javax.swing.GroupLayout iniciarBttLayout = new javax.swing.GroupLayout(iniciarBtt);
         iniciarBtt.setLayout(iniciarBttLayout);
@@ -203,27 +211,34 @@ public class Login extends javax.swing.JFrame {
         titulo.setText("INICIAR SESION");
         titulo.setToolTipText("");
 
-        userTxt.setForeground(new java.awt.Color(204, 204, 204));
-        userTxt.setText("Ingresar usuario");
-        userTxt.setBorder(null);
-        userTxt.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mousePressed(java.awt.event.MouseEvent evt) {
-                userTxtMousePressed(evt);
-            }
-        });
-
         userLabel.setFont(new java.awt.Font("Segoe Print", 0, 14)); // NOI18N
         userLabel.setText("Usuario");
 
         contraseñaLabel.setFont(new java.awt.Font("Segoe Print", 0, 14)); // NOI18N
         contraseñaLabel.setText("Contraseña");
 
-        contrasenaTxt.setForeground(new java.awt.Color(204, 204, 204));
-        contrasenaTxt.setText("********");
-        contrasenaTxt.setBorder(null);
-        contrasenaTxt.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mousePressed(java.awt.event.MouseEvent evt) {
-                contrasenaTxtMousePressed(evt);
+        jTextFieldUser.setBackground(new java.awt.Color(255, 255, 255));
+        jTextFieldUser.setFont(new java.awt.Font("Segoe Print", 0, 12)); // NOI18N
+        jTextFieldUser.setForeground(new java.awt.Color(204, 204, 204));
+        jTextFieldUser.setText("Nombre de usuario");
+        jTextFieldUser.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jTextFieldUserMouseClicked(evt);
+            }
+        });
+
+        jTextFieldPassword.setBackground(new java.awt.Color(255, 255, 255));
+        jTextFieldPassword.setFont(new java.awt.Font("Segoe Print", 0, 12)); // NOI18N
+        jTextFieldPassword.setForeground(new java.awt.Color(153, 153, 153));
+        jTextFieldPassword.setText("Contraseña");
+        jTextFieldPassword.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jTextFieldPasswordMouseClicked(evt);
+            }
+        });
+        jTextFieldPassword.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTextFieldPasswordActionPerformed(evt);
             }
         });
 
@@ -243,15 +258,16 @@ public class Login extends javax.swing.JFrame {
                                 .addComponent(registrarBtt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
                     .addGroup(contentLayout.createSequentialGroup()
                         .addGap(82, 82, 82)
-                        .addGroup(contentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(contentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(titulo, javax.swing.GroupLayout.PREFERRED_SIZE, 260, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(userTxt, javax.swing.GroupLayout.PREFERRED_SIZE, 310, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(contrasenaTxt, javax.swing.GroupLayout.PREFERRED_SIZE, 310, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGroup(contentLayout.createSequentialGroup()
                                 .addGap(10, 10, 10)
                                 .addGroup(contentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(userLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(contraseñaLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE))))))
+                                    .addComponent(contraseñaLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addComponent(jTextFieldUser)
+                            .addComponent(jTextFieldPassword, javax.swing.GroupLayout.DEFAULT_SIZE, 272, Short.MAX_VALUE)
+                            .addComponent(jLabelRespuesta, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
                 .addContainerGap(72, Short.MAX_VALUE))
         );
         contentLayout.setVerticalGroup(
@@ -263,13 +279,15 @@ public class Login extends javax.swing.JFrame {
                 .addComponent(titulo, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(20, 20, 20)
                 .addComponent(userLabel)
-                .addGap(4, 4, 4)
-                .addComponent(userTxt, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(10, 10, 10)
+                .addGap(2, 2, 2)
+                .addComponent(jTextFieldUser, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
                 .addComponent(contraseñaLabel)
-                .addGap(4, 4, 4)
-                .addComponent(contrasenaTxt, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 46, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jTextFieldPassword, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jLabelRespuesta)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 26, Short.MAX_VALUE)
                 .addGroup(contentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(iniciarBtt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(registrarBtt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -283,14 +301,16 @@ public class Login extends javax.swing.JFrame {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
                 .addComponent(bg, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(bg, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
+                .addContainerGap())
         );
 
         pack();
@@ -328,25 +348,32 @@ public class Login extends javax.swing.JFrame {
     }//GEN-LAST:event_iniciarBttMouseExited
 
     private void iniciarBttMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_iniciarBttMouseClicked
-        //javax.swing.JOptionPane.showMessageDialog(this, "intento de inicio con : "+ userTxt.getText() + "\nContraseña: " + String.valueOf(contrasenaTxt.getPassword()), "INICIAR",javax.swing.JOptionPane.INFORMATION_MESSAGE);
-        //String usuario = userTxt.getText();
-        //String paswd = contrasenaTxt.getText();
-        String usuario=userTxt.getText();
-        String contrasena=contrasenaTxt.getText();
-        int pos = Usuario.verificarLogueo(usuario, contrasena);
-        if (pos==-1){
-            JOptionPane.showMessageDialog(this,"Usuario o contraseña inconrrecta");
-        }else{
-            Inicio p1 = new Inicio();
-            p1.setVisible(true);
-            this.dispose();
+        Usuario userA = sqlUser.selecionar(""+jTextFieldUser.getText());
+        System.out.println(userA);
+        if(userA != null){
+            if(userA.verificarLogueo(""+jTextFieldUser.getText(),""+jTextFieldPassword.getText())){
+                new Inicio().setVisible(true);               
+                System.out.println("Logueo Exitoso");
+            }
+            else{
+                System.out.println("Usuario o contraseña invalida"); 
+            }
         }
-        
-        //System.exit(0);
+        else{
+            System.out.println("Usuario o contraseña invalida");
+        }
     }//GEN-LAST:event_iniciarBttMouseClicked
 
     private void registrarBttMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_registrarBttMouseClicked
-        
+        Usuario userA = sqlUser.selecionar(""+jTextFieldUser.getText());
+        if(userA == null){
+            String ID = ""+(sqlUser.selecionarTodo()+1);
+            sqlUser.registrar(ID,jTextFieldUser.getText(),jTextFieldPassword.getText());
+            jLabelRespuesta.setText("Registro Exitoso");
+        }
+        else{
+            jLabelRespuesta.setText("El nombre de usuario ya existe");
+        }
     }//GEN-LAST:event_registrarBttMouseClicked
 
     private void registrarBttMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_registrarBttMouseEntered
@@ -358,37 +385,30 @@ public class Login extends javax.swing.JFrame {
     }//GEN-LAST:event_registrarBttMouseExited
 
     private void registrarBttMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_registrarBttMousePressed
-        LoginRegistro p2= new LoginRegistro();
-        p2.setSize(530, 420);
-        p2.setLocation(0,0);
-        
-        content.removeAll();
-        content.add(p2);
-        content.revalidate();
-        content.repaint();
+
     }//GEN-LAST:event_registrarBttMousePressed
 
-    private void userTxtMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_userTxtMousePressed
-        if (userTxt.getText().equals("Ingresar usuario")){
-            userTxt.setText("");
-            userTxt.setForeground(Color.BLACK);
-        }
-        if (String.valueOf(contrasenaTxt.getPassword()).isEmpty()){
-            contrasenaTxt.setText("********");
-            contrasenaTxt.setForeground(Color.gray);
-        }
-    }//GEN-LAST:event_userTxtMousePressed
+    private void iniciarTxtMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_iniciarTxtMouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_iniciarTxtMouseClicked
 
-    private void contrasenaTxtMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_contrasenaTxtMousePressed
-        if (String.valueOf( contrasenaTxt.getPassword()).equals("********")){
-            contrasenaTxt.setText("");
-            contrasenaTxt.setForeground(Color.BLACK);
+    private void jTextFieldPasswordActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldPasswordActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextFieldPasswordActionPerformed
+
+    private void jTextFieldUserMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTextFieldUserMouseClicked
+        if(jTextFieldUser.getText().equals("Nombre de usuario")){
+            jTextFieldUser.setText("");
+            jTextFieldUser.setForeground(Color.BLACK);
         }
-        if (userTxt.getText().isEmpty()){
-            userTxt.setText("Ingresar usuario");
-            userTxt.setForeground(Color.gray);
+    }//GEN-LAST:event_jTextFieldUserMouseClicked
+
+    private void jTextFieldPasswordMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTextFieldPasswordMouseClicked
+        if(jTextFieldPassword.getText().equals("Contraseña")){
+            jTextFieldPassword.setText("");
+            jTextFieldPassword.setForeground(Color.BLACK);
         }
-    }//GEN-LAST:event_contrasenaTxtMousePressed
+    }//GEN-LAST:event_jTextFieldPasswordMouseClicked
 
     /**
      * @param args the command line arguments
@@ -428,7 +448,6 @@ public class Login extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel bg;
     private javax.swing.JPanel content;
-    private javax.swing.JPasswordField contrasenaTxt;
     private javax.swing.JLabel contraseñaLabel;
     private java.awt.Panel exitBtt;
     private javax.swing.JLabel exitTxt;
@@ -436,12 +455,14 @@ public class Login extends javax.swing.JFrame {
     private javax.swing.JLabel headerTitulo;
     private java.awt.Panel iniciarBtt;
     private javax.swing.JLabel iniciarTxt;
+    private javax.swing.JLabel jLabelRespuesta;
+    private javax.swing.JTextField jTextFieldPassword;
+    private javax.swing.JTextField jTextFieldUser;
     private javax.swing.JLabel logoLogin;
     private javax.swing.JLabel morty;
     private java.awt.Panel registrarBtt;
     private javax.swing.JLabel registrarTxt;
     private javax.swing.JLabel titulo;
     private javax.swing.JLabel userLabel;
-    private javax.swing.JTextField userTxt;
     // End of variables declaration//GEN-END:variables
 }

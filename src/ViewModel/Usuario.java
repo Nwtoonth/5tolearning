@@ -1,20 +1,28 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
 package ViewModel;
 
 import java.util.Vector;
 
 public class Usuario {
-    private String nick;
-    private String contrasena;
     
+    private String id;
+    private String nickName;
+    private String contrasena;
+
+    public Usuario(String id, String nickName, String contrasena) {
+        this.id = id;
+        this.nickName = nickName;
+        this.contrasena = contrasena;
+    }
+   
+    public void setId(String id) {
+        this.id = id;
+    }
+       
     public String getNick(){
-        return nick;
+        return nickName;
     }
     public void setNick(String nick){
-        this.nick = nick;
+        this.nickName = nick;
     }
     public String getContrasena(){
         return contrasena;
@@ -22,29 +30,13 @@ public class Usuario {
     public void setContrasena(String contrasena){
         this.contrasena = contrasena;
     }
-    public static int verificarUsuarioNuevo(String usuario){
-        Vector lista = mostrar();
-        Usuario obj;
-        for(int i = 0 ; i<lista.size(); i++){
-            obj =(Usuario) lista.elementAt(i);
-            if (obj.getNick().equalsIgnoreCase(usuario)){
-                return i;
-            }
-        }
-        return -1;
+    
+    public boolean verificarLogueo(String nombre , String password){
+        return this.nickName.equals(nombre) && this.contrasena.equals(password);
     }
-    public static int verificarLogueo(String usuario, String contrasena){
-        Vector lista = mostrar();
-        Usuario obj;
-        for (int i=0 ; i<lista.size();i++){
-            obj =(Usuario)lista.elementAt(i);
-            if (obj.getNick().equalsIgnoreCase(usuario)&&obj.getContrasena().equalsIgnoreCase(contrasena)){
-                return i;
-            }
-        }
-        return -1;
-    }
-    public static Vector mostrar(){
-    return UsuarioLista.mostrar();
-    }
+    
+    @Override
+    public String toString() {
+        return "Usuario{" + "id=" + id + ", nickName=" + nickName + ", contrasena=" + contrasena + '}';
+    }      
 }
