@@ -8,7 +8,7 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.Random;
 import javax.swing.JButton;
-import view.VistaActividades;
+import view.Actividad3;
 
 /**
  *
@@ -19,7 +19,7 @@ public class ControladorActividad implements ActionListener{
     /*clases que controla*/
     private ActividadStrings actividad;
     private ArrayList<ActividadStrings> actividades;
-    private VistaActividades vista;
+    private Actividad3 vista;
     private ArrayList<String> enunciados;
     private ArrayList<Integer> ordenActividades;
     
@@ -44,13 +44,12 @@ public class ControladorActividad implements ActionListener{
         this.listaNumerosAleatoria=new ArrayList<>();
         this.ordenActividades = new ArrayList<>();
         this.actividades = acts;
-        this.vista = new VistaActividades();
+        this.vista = new Actividad3();
         listaAleatoriaActividades();
         escucharBotonesMenu();
         crearActividad(ordenActividades.get(0));
         vista.setLocationRelativeTo(null);
         vista.setVisible(true);
-        System.out.println("Se creo");
     }
     
     /*Crea los botones a partir de la actividad*/

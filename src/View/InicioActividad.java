@@ -36,6 +36,9 @@ public class InicioActividad extends javax.swing.JPanel {
         Actividad2 = new javax.swing.JButton();
         Actividad3 = new javax.swing.JButton();
         Actividad1 = new javax.swing.JButton();
+        Actividad4 = new javax.swing.JButton();
+        Actividad5 = new javax.swing.JButton();
+        Actividad6 = new javax.swing.JButton();
 
         setBackground(new java.awt.Color(255, 255, 255));
         setMinimumSize(new java.awt.Dimension(750, 430));
@@ -121,6 +124,75 @@ public class InicioActividad extends javax.swing.JPanel {
             }
         });
 
+        Actividad4.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        Actividad4.setForeground(new java.awt.Color(102, 102, 102));
+        Actividad4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/charmander_72.png"))); // NOI18N
+        Actividad4.setText("Actividad 4");
+        Actividad4.setBorder(null);
+        Actividad4.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        Actividad4.setPressedIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/charmander_72.png"))); // NOI18N
+        Actividad4.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/charmander_96.png"))); // NOI18N
+        Actividad4.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        Actividad4.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                Actividad4MouseClicked(evt);
+            }
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                Actividad4MousePressed(evt);
+            }
+        });
+        Actividad4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                Actividad4ActionPerformed(evt);
+            }
+        });
+
+        Actividad5.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        Actividad5.setForeground(new java.awt.Color(102, 102, 102));
+        Actividad5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/charmander_72.png"))); // NOI18N
+        Actividad5.setText("Actividad 5");
+        Actividad5.setBorder(null);
+        Actividad5.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        Actividad5.setPressedIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/charmander_72.png"))); // NOI18N
+        Actividad5.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/charmander_96.png"))); // NOI18N
+        Actividad5.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        Actividad5.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                Actividad5MouseClicked(evt);
+            }
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                Actividad5MousePressed(evt);
+            }
+        });
+        Actividad5.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                Actividad5ActionPerformed(evt);
+            }
+        });
+
+        Actividad6.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        Actividad6.setForeground(new java.awt.Color(102, 102, 102));
+        Actividad6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/charmander_72.png"))); // NOI18N
+        Actividad6.setText("Actividad 6");
+        Actividad6.setBorder(null);
+        Actividad6.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        Actividad6.setPressedIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/charmander_72.png"))); // NOI18N
+        Actividad6.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/charmander_96.png"))); // NOI18N
+        Actividad6.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        Actividad6.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                Actividad6MouseClicked(evt);
+            }
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                Actividad6MousePressed(evt);
+            }
+        });
+        Actividad6.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                Actividad6ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout contentLayout = new javax.swing.GroupLayout(content);
         content.setLayout(contentLayout);
         contentLayout.setHorizontalGroup(
@@ -132,15 +204,21 @@ public class InicioActividad extends javax.swing.JPanel {
             .addGroup(contentLayout.createSequentialGroup()
                 .addGap(50, 50, 50)
                 .addGroup(contentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(contentLayout.createSequentialGroup()
                         .addGap(6, 6, 6)
                         .addComponent(Actividad1, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
                         .addComponent(Actividad2, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
-                        .addComponent(Actividad3, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(528, Short.MAX_VALUE))
+                        .addComponent(Actividad3, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(Actividad4, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(Actividad5, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(Actividad6, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(174, Short.MAX_VALUE))
         );
         contentLayout.setVerticalGroup(
             contentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -151,9 +229,12 @@ public class InicioActividad extends javax.swing.JPanel {
                 .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(contentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(Actividad3, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(Actividad1, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(Actividad2, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(Actividad2, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(Actividad3, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(Actividad4, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(Actividad5, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(Actividad6, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(364, 364, 364))
         );
 
@@ -165,10 +246,10 @@ public class InicioActividad extends javax.swing.JPanel {
     }//GEN-LAST:event_Actividad2MousePressed
 
     private void Actividad2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Actividad2MouseClicked
-        String rutaAchivoString = "src\\model\\data\\strings1";
-        String rutaArchivoEnunciados = "src\\model\\data\\enunciados1";
-        ActividadStringModel a1 = new ActividadStringModel(rutaAchivoString,rutaArchivoEnunciados);
-        ControladorActividad c1 = new ControladorActividad(a1.getActividades(),a1.getEnunciados());
+        String rutaAchivoString = "src/model/data/strings1";
+        String rutaArchivoEnunciados = "src/model/data/enunciados1";
+        ActividadStringModel act1 = new ActividadStringModel(rutaAchivoString,rutaArchivoEnunciados);
+        ControladorActividad ctr1 = new ControladorActividad(act1.getActividades(),act1.getEnunciados());
     }//GEN-LAST:event_Actividad2MouseClicked
 
     private void Actividad3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Actividad3MouseClicked
@@ -212,11 +293,59 @@ public class InicioActividad extends javax.swing.JPanel {
         // TODO add your handling code here:
     }//GEN-LAST:event_Actividad1ActionPerformed
 
+    private void Actividad4MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Actividad4MouseClicked
+        String rutaAchivoString2 = "src/model/data/strings2";
+        String rutaArchivoEnunciados2 = "src/model/data/enunciados2";
+        ActividadStringModel act2 = new ActividadStringModel(rutaAchivoString2, rutaArchivoEnunciados2);
+        ControladorActividad ctr2 = new ControladorActividad(act2.getActividades(),act2.getEnunciados());
+    }//GEN-LAST:event_Actividad4MouseClicked
+
+    private void Actividad4MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Actividad4MousePressed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_Actividad4MousePressed
+
+    private void Actividad4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Actividad4ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_Actividad4ActionPerformed
+
+    private void Actividad5MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Actividad5MouseClicked
+        String rutaAchivoString3 = "src/model/data/strings3";
+        String rutaArchivoEnunciados3 = "src/model/data/enunciados3";
+        ActividadStringModel act3 = new ActividadStringModel(rutaAchivoString3, rutaArchivoEnunciados3);
+        ControladorActividad ctr3 = new ControladorActividad(act3.getActividades(), act3.getEnunciados());
+    }//GEN-LAST:event_Actividad5MouseClicked
+
+    private void Actividad5MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Actividad5MousePressed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_Actividad5MousePressed
+
+    private void Actividad5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Actividad5ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_Actividad5ActionPerformed
+
+    private void Actividad6MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Actividad6MouseClicked
+        String rutaAchivoString4 = "src/model/data/strings4";
+        String rutaArchivoEnunciados4 = "src/model/data/enunciados4";
+        ActividadStringModel act4 = new ActividadStringModel(rutaAchivoString4, rutaArchivoEnunciados4);
+        ControladorActividad ctr4 = new ControladorActividad(act4.getActividades(),act4.getEnunciados());
+    }//GEN-LAST:event_Actividad6MouseClicked
+
+    private void Actividad6MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Actividad6MousePressed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_Actividad6MousePressed
+
+    private void Actividad6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Actividad6ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_Actividad6ActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton Actividad1;
     private javax.swing.JButton Actividad2;
     private javax.swing.JButton Actividad3;
+    private javax.swing.JButton Actividad4;
+    private javax.swing.JButton Actividad5;
+    private javax.swing.JButton Actividad6;
     private javax.swing.JLabel Title;
     private javax.swing.JPanel content;
     private javax.swing.JLabel jLabel1;
