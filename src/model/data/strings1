@@ -1,7 +1,7 @@
-public static void main( String[] args) {}#
-public int getNum,() {}#
-public void setNum (Int Num) {}#
-public static void Name () {}#
+Public static void main( String[] args) {}#
+Public int getNum,() {}#
+Public void setNum (Int Num) {}#
+Public static void Name () {}#
 System .out printIn () ;#
-private void name () {}#
-protected boolean name () {}#
+Private void name () {}#
+Protected boolean name () {}#
