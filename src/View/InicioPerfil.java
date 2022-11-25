@@ -1,22 +1,15 @@
 package View;
 
 import ViewModel.Usuario;
-import model.SqlOperacionesUsuario;
 
 /**
  *
  * @author Duvan
  */
 public class InicioPerfil extends javax.swing.JPanel {
-    private SqlOperacionesUsuario sqlUser;
     
-    private Usuario userA;
-    public InicioPerfil(Usuario us1) {
-        sqlUser = new SqlOperacionesUsuario();
-        sqlUser.realizarConexion();
-        this.userA=us1;      
+    public InicioPerfil(Usuario us1) {   
         initComponents();
-        LabelUserName.setText(userA.getNick());
     }
     
     @SuppressWarnings("unchecked")
@@ -256,14 +249,7 @@ public class InicioPerfil extends javax.swing.JPanel {
     }//GEN-LAST:event_jButtonConfirmarMouseEntered
 
     private void jButtonConfirmarMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButtonConfirmarMouseExited
-        Usuario userB = sqlUser.selecionar(""+TextFieldNewUser.getText());
-        if(userB == null && !userA.getContrasena().equals(PasswordField.getText())){
-            sqlUser.actualizar(userA.getId(),TextFieldNewUser.getText(),PasswordField.getText());
-            System.out.println("Informacion actualizada");
-        }
-        else{
-            System.out.println("Datos de entrada no validos");
-        }
+
     }//GEN-LAST:event_jButtonConfirmarMouseExited
 
     private void jButtonConfirmarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonConfirmarActionPerformed

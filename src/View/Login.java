@@ -1,19 +1,27 @@
 package View;
 
+import ViewModel.Main;
 import ViewModel.Usuario;
 import java.awt.Color;
-import model.SqlOperacionesUsuario;
-
+import java.io.FileNotFoundException;
+import java.io.IOException;
+import java.util.concurrent.ExecutionException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import model.FirebaseOperaciones;
 
 public class Login extends javax.swing.JFrame {
     
     //encabezado
-    int xMouse, yMouse;
-    private SqlOperacionesUsuario sqlUser;
-    
+    int xMouse, yMouse;  
     public Login() {
-        sqlUser = new SqlOperacionesUsuario();
-        sqlUser.realizarConexion();
+        try {
+            FirebaseOperaciones.conectar();
+        } catch (FileNotFoundException e){
+            System.out.println("No se encontro la el archivo de acceso " + e);          
+        } catch (IOException ex) {
+            Logger.getLogger(Main.class.getName()).log(Level.SEVERE, null, ex);
+        }
         initComponents();
         
         //logo
@@ -22,9 +30,7 @@ public class Login extends javax.swing.JFrame {
         
     }
 
-    @SuppressWarnings("unchecked")
-    
-    
+    @SuppressWarnings("unchecked")   
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
@@ -46,6 +52,7 @@ public class Login extends javax.swing.JFrame {
         jTextFieldUser = new javax.swing.JTextField();
         jLabelRespuesta = new javax.swing.JLabel();
         jPasswordField1 = new javax.swing.JPasswordField();
+        jLabelMensajes = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setLocationByPlatform(true);
@@ -237,32 +244,33 @@ public class Login extends javax.swing.JFrame {
             }
         });
 
+        jLabelMensajes.setFont(new java.awt.Font("SansSerif", 0, 14)); // NOI18N
+
         javax.swing.GroupLayout contentLayout = new javax.swing.GroupLayout(content);
         content.setLayout(contentLayout);
         contentLayout.setHorizontalGroup(
             contentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(contentLayout.createSequentialGroup()
-                .addGroup(contentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(contentLayout.createSequentialGroup()
-                        .addGap(36, 36, 36)
-                        .addGroup(contentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(logoLogin, javax.swing.GroupLayout.PREFERRED_SIZE, 318, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(contentLayout.createSequentialGroup()
-                                .addComponent(iniciarBtt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(92, 92, 92)
-                                .addComponent(registrarBtt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                    .addGroup(contentLayout.createSequentialGroup()
-                        .addGap(82, 82, 82)
-                        .addGroup(contentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(titulo, javax.swing.GroupLayout.PREFERRED_SIZE, 260, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(contentLayout.createSequentialGroup()
-                                .addGap(10, 10, 10)
-                                .addGroup(contentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(userLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(contraseñaLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                            .addComponent(jTextFieldUser, javax.swing.GroupLayout.DEFAULT_SIZE, 272, Short.MAX_VALUE)
-                            .addComponent(jLabelRespuesta, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jPasswordField1))))
+                .addGroup(contentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jLabelMensajes, javax.swing.GroupLayout.PREFERRED_SIZE, 376, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(contentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(contentLayout.createSequentialGroup()
+                            .addGap(36, 36, 36)
+                            .addGroup(contentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(logoLogin, javax.swing.GroupLayout.PREFERRED_SIZE, 318, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGroup(contentLayout.createSequentialGroup()
+                                    .addComponent(iniciarBtt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addGap(92, 92, 92)
+                                    .addComponent(registrarBtt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                        .addGroup(contentLayout.createSequentialGroup()
+                            .addGap(82, 82, 82)
+                            .addGroup(contentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                .addComponent(titulo, javax.swing.GroupLayout.PREFERRED_SIZE, 260, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(jTextFieldUser, javax.swing.GroupLayout.DEFAULT_SIZE, 272, Short.MAX_VALUE)
+                                .addComponent(jLabelRespuesta, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(jPasswordField1)
+                                .addComponent(userLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(contraseñaLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)))))
                 .addContainerGap(72, Short.MAX_VALUE))
         );
         contentLayout.setVerticalGroup(
@@ -272,17 +280,19 @@ public class Login extends javax.swing.JFrame {
                 .addComponent(logoLogin, javax.swing.GroupLayout.PREFERRED_SIZE, 116, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(titulo, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(20, 20, 20)
-                .addComponent(userLabel)
-                .addGap(2, 2, 2)
-                .addComponent(jTextFieldUser, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
+                .addComponent(userLabel)
+                .addGap(4, 4, 4)
+                .addComponent(jTextFieldUser, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(contraseñaLabel)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jPasswordField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(20, 20, 20)
+                .addGap(10, 10, 10)
                 .addComponent(jLabelRespuesta)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 20, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jLabelMensajes, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(contentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(iniciarBtt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(registrarBtt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -343,31 +353,40 @@ public class Login extends javax.swing.JFrame {
     }//GEN-LAST:event_iniciarBttMouseExited
 
     private void iniciarBttMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_iniciarBttMouseClicked
-        Usuario userA = sqlUser.selecionar(""+jTextFieldUser.getText());
-        System.out.println(userA);
-        if(userA != null){
-            if(userA.verificarLogueo(""+jTextFieldUser.getText(),""+jPasswordField1.getText())){
-                new Inicio(userA).setVisible(true);               
-                System.out.println("Logueo Exitoso");
-            }
-            else{
-                System.out.println("Usuario o contraseña invalida"); 
-            }
+        Usuario userData = null;
+        try {
+            userData = FirebaseOperaciones.buscar(jTextFieldUser.getText(),jPasswordField1.getText());
+        } catch (InterruptedException ex) {
+            Logger.getLogger(Login.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (ExecutionException ex) {
+            Logger.getLogger(Login.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        if(userData != null){
+            new Inicio(userData).setVisible(true);
+            this.dispose();
         }
         else{
-            System.out.println("Usuario o contraseña invalida");
+            jLabelMensajes.setForeground(Color.red);
+            jLabelMensajes.setText("Daatos de entrada incorrectos...");
         }
     }//GEN-LAST:event_iniciarBttMouseClicked
 
     private void registrarBttMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_registrarBttMouseClicked
-        Usuario userA = sqlUser.selecionar(""+jTextFieldUser.getText());
-        if(userA == null){
-            String ID = ""+(sqlUser.selecionarTodo()+1);
-            sqlUser.registrar(ID,jTextFieldUser.getText(),jPasswordField1.getText());
-            jLabelRespuesta.setText("Registro Exitoso");
+        boolean isRegistrado = false;
+        try {
+            isRegistrado = FirebaseOperaciones.insertarDatos(jTextFieldUser.getText(),jPasswordField1.getText());
+        } catch (InterruptedException ex) {
+            Logger.getLogger(Login.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (ExecutionException ex) {
+            Logger.getLogger(Login.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        if(isRegistrado){
+            jLabelMensajes.setForeground(Color.green);
+            jLabelMensajes.setText("Se realizo el registro con exito ...");
         }
         else{
-            jLabelRespuesta.setText("El nombre de usuario ya existe");
+            jLabelMensajes.setForeground(Color.red);
+            jLabelMensajes.setText("El nombre de usuario ya existe ...");            
         }
     }//GEN-LAST:event_registrarBttMouseClicked
 
@@ -445,6 +464,7 @@ public class Login extends javax.swing.JFrame {
     private javax.swing.JLabel headerTitulo;
     private java.awt.Panel iniciarBtt;
     private javax.swing.JLabel iniciarTxt;
+    private javax.swing.JLabel jLabelMensajes;
     private javax.swing.JLabel jLabelRespuesta;
     private javax.swing.JPasswordField jPasswordField1;
     private javax.swing.JTextField jTextFieldUser;

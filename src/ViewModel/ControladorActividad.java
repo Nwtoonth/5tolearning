@@ -38,11 +38,15 @@ public class ControladorActividad implements ActionListener{
     private ArrayList<Integer> ordenActividades;
     
     /*Puntuacion*/
+    private final int idActividad;
+    private Usuario usuario;
     private int puntuacion = 0;
 
     /*Constructor*/
-    public ControladorActividad(ArrayList<ActividadStrings> acts,ArrayList<String> pregutas) {
+    public ControladorActividad(int id,ArrayList<ActividadStrings> acts,ArrayList<String> pregutas,Usuario user) {
+        this.idActividad = id;
         this.enunciados = pregutas;
+        this.usuario = user;
         this.botones = new ArrayList<>();
         this.listaNumerosAleatoria=new ArrayList<>();
         this.ordenActividades = new ArrayList<>();
@@ -71,6 +75,7 @@ public class ControladorActividad implements ActionListener{
         vista.jRadioButton6.addActionListener(this);
         vista.jRadioButton7.addActionListener(this);
         vista.jButtonCheck.addActionListener(this);
+        vista.ExitButton.addActionListener(this);
     }
     /*agrega listener a todos los botones*/
     private void escucharBotones(){
@@ -212,6 +217,11 @@ public class ControladorActividad implements ActionListener{
         this.ordenActividades = numbers;
     }
     
+    private void subirPuntuacion(){
+        usuario.setPuntuaciones(idActividad,puntuacion);
+        System.out.println("Puntuacion actualizada");
+    }
+    
     @Override
     public void actionPerformed(ActionEvent e) {
         /*Verifica la respuesta al pulsar el boton*/
@@ -222,6 +232,10 @@ public class ControladorActividad implements ActionListener{
                 puntuacion +=100;
             }
             vista.jTextFieldPuntuacion.setText(""+puntuacion);
+        }
+        else if (e.getSource() == vista.ExitButton){
+            subirPuntuacion();
+            vista.dispose();
         }
         /*Verifica cuando un radioButton se pulsa y crea una actividad para el mismo*/
         else if (e.getSource() == vista.jRadioButton1) {

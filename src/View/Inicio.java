@@ -2,6 +2,7 @@ package View;
 
 import ViewModel.Usuario;
 import java.awt.Color;
+import model.FirebaseOperaciones;
 
 /**
  *
@@ -20,7 +21,7 @@ public class Inicio extends javax.swing.JFrame {
         rsscalelabel.RSScaleLabel.setScaleLabel(logoInicio,"src/logo/to5learning.png");
         //rsscalelabel.RSScaleLabel.setScaleLabel(fondoContent,"src/imagenes/cafe.jpeg");
         
-        InicioActividad p1= new InicioActividad();
+        InicioActividad p1= new InicioActividad(userA);
         p1.setSize(920, 585);
         p1.setLocation(0,0);
         
@@ -233,7 +234,7 @@ public class Inicio extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void exitIniciBttMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_exitIniciBttMouseClicked
-        // TODO add your handling code here:
+
     }//GEN-LAST:event_exitIniciBttMouseClicked
 
     private void exitIniciBttMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_exitIniciBttMouseEntered
@@ -245,11 +246,10 @@ public class Inicio extends javax.swing.JFrame {
     }//GEN-LAST:event_exitIniciBttMouseExited
 
     private void exitIniciBttMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_exitIniciBttMousePressed
+        FirebaseOperaciones.agregarPuntuacion(userA);
         Login pc = new Login();
         pc.setVisible(true);
         this.dispose();
-        
-        //System.exit(0);
     }//GEN-LAST:event_exitIniciBttMousePressed
 
     private void btn_inicioMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_inicioMouseEntered
@@ -261,7 +261,7 @@ public class Inicio extends javax.swing.JFrame {
     }//GEN-LAST:event_btn_inicioMouseExited
 
     private void btn_inicioMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_inicioMousePressed
-        InicioActividad p1= new InicioActividad();
+        InicioActividad p1= new InicioActividad(userA);
         p1.setSize(920, 585);
         p1.setLocation(0,0);
         

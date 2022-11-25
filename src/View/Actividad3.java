@@ -439,7 +439,7 @@ public class Actividad3 extends javax.swing.JFrame {
     }//GEN-LAST:event_jButtonCheckActionPerformed
 
     private void ExitButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ExitButtonActionPerformed
-        this.dispose();
+
     }//GEN-LAST:event_ExitButtonActionPerformed
 
     private void jRadioButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButton1ActionPerformed
@@ -491,7 +491,7 @@ public class Actividad3 extends javax.swing.JFrame {
     }//GEN-LAST:event_jButtonCheckMouseExited
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JToggleButton ExitButton;
+    public javax.swing.JToggleButton ExitButton;
     public javax.swing.ButtonGroup buttonGroup1;
     public javax.swing.JButton jButtonCheck;
     private javax.swing.JLabel jLabel1;

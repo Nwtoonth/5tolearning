@@ -1,24 +1,35 @@
 package ViewModel;
 
+import java.util.ArrayList;
+
 public class Usuario {
     
-    private String id;
     private String nickName;
     private String contrasena;
+    private ArrayList<Integer> puntuaciones;
 
-    public Usuario(String id, String nickName, String contrasena) {
-        this.id = id;
+    public Usuario(String nickName, String contrasena,ArrayList<Integer> scores) {
+        this.puntuaciones = scores;
         this.nickName = nickName;
         this.contrasena = contrasena;
     }
-   
-    public void setId(String id) {
-        this.id = id;
-    }
-       
-    public String getNick(){
+
+    public String getNickName() {
         return nickName;
     }
+
+    public void setNickName(String nickName) {
+        this.nickName = nickName;
+    }
+
+    public ArrayList getPuntuaciones() {
+        return puntuaciones;
+    }
+
+    public void setPuntuaciones(int posicion,int puntuacion) {
+        this.puntuaciones.set(posicion,puntuacion);
+    }
+
     public void setNick(String nick){
         this.nickName = nick;
     }
@@ -33,13 +44,9 @@ public class Usuario {
         return this.nickName.equals(nombre) && this.contrasena.equals(password);
     }
 
-    public String getId() {
-        return id;
-    }
-    
-     
     @Override
     public String toString() {
-        return "Usuario{" + "id=" + id + ", nickName=" + nickName + ", contrasena=" + contrasena + '}';
-    }      
+        return "Usuario{" + "nickName=" + nickName + ", contrasena=" + contrasena + ", puntuaciones=" + puntuaciones + '}';
+    }
+    
 }

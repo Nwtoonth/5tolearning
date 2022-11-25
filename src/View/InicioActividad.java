@@ -6,6 +6,7 @@
 package View;
 
 import ViewModel.ControladorActividad;
+import ViewModel.Usuario;
 import model.ActividadStringModel;
 
 /**
@@ -13,11 +14,13 @@ import model.ActividadStringModel;
  * @author Antonio
  */
 public class InicioActividad extends javax.swing.JPanel {
-
     /**
      * Creates new form Principal
      */
-    public InicioActividad() {
+    private Usuario usuario;
+    
+    public InicioActividad(Usuario user) {
+        this.usuario = user;
         initComponents();
     }
 
@@ -249,7 +252,7 @@ public class InicioActividad extends javax.swing.JPanel {
         String rutaAchivoString = "src/model/data/strings1";
         String rutaArchivoEnunciados = "src/model/data/enunciados1";
         ActividadStringModel act1 = new ActividadStringModel(rutaAchivoString,rutaArchivoEnunciados);
-        ControladorActividad ctr1 = new ControladorActividad(act1.getActividades(),act1.getEnunciados());
+        ControladorActividad ctr1 = new ControladorActividad(2,act1.getActividades(),act1.getEnunciados(),usuario);       
     }//GEN-LAST:event_Actividad2MouseClicked
 
     private void Actividad3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Actividad3MouseClicked
@@ -294,10 +297,7 @@ public class InicioActividad extends javax.swing.JPanel {
     }//GEN-LAST:event_Actividad1ActionPerformed
 
     private void Actividad4MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Actividad4MouseClicked
-        String rutaAchivoString2 = "src/model/data/strings2";
-        String rutaArchivoEnunciados2 = "src/model/data/enunciados2";
-        ActividadStringModel act2 = new ActividadStringModel(rutaAchivoString2, rutaArchivoEnunciados2);
-        ControladorActividad ctr2 = new ControladorActividad(act2.getActividades(),act2.getEnunciados());
+
     }//GEN-LAST:event_Actividad4MouseClicked
 
     private void Actividad4MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Actividad4MousePressed
@@ -305,14 +305,17 @@ public class InicioActividad extends javax.swing.JPanel {
     }//GEN-LAST:event_Actividad4MousePressed
 
     private void Actividad4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Actividad4ActionPerformed
-        // TODO add your handling code here:
+        String rutaAchivoString2 = "src/model/data/strings2";
+        String rutaArchivoEnunciados2 = "src/model/data/enunciados2";
+        ActividadStringModel act2 = new ActividadStringModel(rutaAchivoString2, rutaArchivoEnunciados2);
+        ControladorActividad ctr2 = new ControladorActividad(4,act2.getActividades(),act2.getEnunciados(),usuario);
     }//GEN-LAST:event_Actividad4ActionPerformed
 
     private void Actividad5MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Actividad5MouseClicked
         String rutaAchivoString3 = "src/model/data/strings3";
         String rutaArchivoEnunciados3 = "src/model/data/enunciados3";
         ActividadStringModel act3 = new ActividadStringModel(rutaAchivoString3, rutaArchivoEnunciados3);
-        ControladorActividad ctr3 = new ControladorActividad(act3.getActividades(), act3.getEnunciados());
+        ControladorActividad ctr3 = new ControladorActividad(5,act3.getActividades(), act3.getEnunciados(),usuario);
     }//GEN-LAST:event_Actividad5MouseClicked
 
     private void Actividad5MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Actividad5MousePressed
@@ -327,7 +330,7 @@ public class InicioActividad extends javax.swing.JPanel {
         String rutaAchivoString4 = "src/model/data/strings4";
         String rutaArchivoEnunciados4 = "src/model/data/enunciados4";
         ActividadStringModel act4 = new ActividadStringModel(rutaAchivoString4, rutaArchivoEnunciados4);
-        ControladorActividad ctr4 = new ControladorActividad(act4.getActividades(),act4.getEnunciados());
+        ControladorActividad ctr4 = new ControladorActividad(6,act4.getActividades(),act4.getEnunciados(),usuario);
     }//GEN-LAST:event_Actividad6MouseClicked
 
     private void Actividad6MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Actividad6MousePressed
