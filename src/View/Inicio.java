@@ -56,6 +56,7 @@ public class Inicio extends javax.swing.JFrame {
         content = new java.awt.Panel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("5toLearning ");
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         Header.setBackground(new java.awt.Color(255, 255, 204));

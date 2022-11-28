@@ -19,6 +19,7 @@ import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.LinkedHashMap;
 import java.util.Map;
 import java.util.concurrent.ExecutionException;
 /**
@@ -50,7 +51,8 @@ public class FirebaseOperaciones {
     }
     
     /*Crea un nuevo usuario en la base de datos; es utilizado para registrar a los usuarios*/
-    public static boolean insertarDatos(String nickName , String password) throws InterruptedException, ExecutionException {
+    public static boolean insertarDatos(String nickName , String password) throws InterruptedException
+            , ExecutionException {
         boolean disponible = true;
         String collection = "Usuarios";
         String documento = nickName;
@@ -58,6 +60,7 @@ public class FirebaseOperaciones {
         data.put("nombre", nickName);
         data.put("Contrasena", password);
         data.put("Puntaje",llenarArray());
+        data.put("puntuacionGlobal",0);
         CollectionReference usuarios = dataBase.collection("Usuarios");
         DocumentReference usuario = usuarios.document(nickName);
         ApiFuture<DocumentSnapshot> future = usuario.get();
@@ -79,7 +82,8 @@ public class FirebaseOperaciones {
     }
     
     /*Busca un usuario mediante su nickName utilizado para verificar las credenciales de logueo*/
-    public static Usuario buscar(String nickName,String password) throws InterruptedException, ExecutionException{
+    public static Usuario buscar(String nickName,String password) throws InterruptedException,
+            ExecutionException{
         Usuario logueo = null;
         CollectionReference usuarios = dataBase.collection("Usuarios");
         DocumentReference usuario = usuarios.document(nickName);
@@ -112,21 +116,16 @@ public class FirebaseOperaciones {
         }
     }
 
-    public static String[] buscarTodo(int limite) throws InterruptedException, ExecutionException{
-        String[] datos = new String[2];
-        datos[0] = "NickName: \n";
-        datos[1] = "Puntaje: \n";
-        int i = 1;
+    public static LinkedHashMap buscarTodo(int limite) throws InterruptedException, ExecutionException{
+        LinkedHashMap<String,Long> tablaPosiciones = new LinkedHashMap<>();
         CollectionReference usuarios= dataBase.collection("Usuarios");
         Query query =usuarios.orderBy("puntuacionGlobal",Query.Direction.DESCENDING).limit(limite);
         ApiFuture<QuerySnapshot> querySnapshot = query.get();
         for (DocumentSnapshot document : querySnapshot.get().getDocuments()){
-            datos[0] += i+" "+document.get("nombre")+"\n";
-            datos[1] += ":"+document.get("puntuacionGlobal")+"\n";
-            i++;
+            tablaPosiciones.put(document.get("nombre").toString(),(long)document.get("puntuacionGlobal"));
         }
         System.out.println("Tiempo de carga " + querySnapshot.get().getReadTime());
-        return datos;
+        return tablaPosiciones;
     }    
     
     /*crea la puntuacion por defecto de un usuario nuevo*/
@@ -138,10 +137,9 @@ public class FirebaseOperaciones {
         return numeros;
     }
     
-    /*
-    public static void eliminar(){
+    public static void eliminar(String nickName){
         String collection = "Usuarios";
-        String documento = "juan";
+        String documento = nickName;
         try {
             DocumentReference docRef = dataBase.collection(collection).document(documento);
             ApiFuture<WriteResult> result = docRef.delete();
@@ -152,6 +150,7 @@ public class FirebaseOperaciones {
         }
     }
     
+    /*   
     public static void eliminarCampos(String campo){
         String collection = "Usuarios";
         String documento = "juan";

@@ -37,6 +37,7 @@ public class InicioActividad extends javax.swing.JPanel {
         Actividad4 = new javax.swing.JButton();
         Actividad5 = new javax.swing.JButton();
         Actividad6 = new javax.swing.JButton();
+        Actividad7 = new javax.swing.JButton();
 
         setBackground(new java.awt.Color(255, 255, 255));
         setMinimumSize(new java.awt.Dimension(750, 430));
@@ -199,6 +200,33 @@ public class InicioActividad extends javax.swing.JPanel {
             }
         });
 
+        Actividad7.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        Actividad7.setForeground(new java.awt.Color(102, 102, 102));
+        Actividad7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/75.jpg"))); // NOI18N
+        Actividad7.setText("Actividad7");
+        Actividad7.setBorder(null);
+        Actividad7.setEnabled(false);
+        Actividad7.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        Actividad7.setPressedIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/75.jpg"))); // NOI18N
+        Actividad7.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/hasmap 95.jpg"))); // NOI18N
+        Actividad7.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        Actividad7.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                Actividad7MouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                Actividad7MouseEntered(evt);
+            }
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                Actividad7MousePressed(evt);
+            }
+        });
+        Actividad7.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                Actividad7ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout contentLayout = new javax.swing.GroupLayout(content);
         content.setLayout(contentLayout);
         contentLayout.setHorizontalGroup(
@@ -215,9 +243,12 @@ public class InicioActividad extends javax.swing.JPanel {
                         .addGap(6, 6, 6)
                         .addComponent(Actividad1, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
-                        .addComponent(Actividad2, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(Actividad3, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGroup(contentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(contentLayout.createSequentialGroup()
+                                .addComponent(Actividad2, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(18, 18, 18)
+                                .addComponent(Actividad3, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(Actividad7, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(18, 18, 18)
                         .addComponent(Actividad4, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
@@ -241,7 +272,9 @@ public class InicioActividad extends javax.swing.JPanel {
                     .addComponent(Actividad4, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(Actividad5, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(Actividad6, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(364, 364, 364))
+                .addGap(18, 18, 18)
+                .addComponent(Actividad7, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
         );
 
         add(content, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 920, 590));
@@ -356,6 +389,27 @@ public class InicioActividad extends javax.swing.JPanel {
         }
     }//GEN-LAST:event_Actividad6MouseEntered
 
+    private void Actividad7MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Actividad7MouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_Actividad7MouseClicked
+
+    private void Actividad7MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Actividad7MousePressed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_Actividad7MousePressed
+
+    private void Actividad7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Actividad7ActionPerformed
+        String rutaAchivoString5 = "src/model/data/strings5";
+        String rutaArchivoEnunciados5 = "src/model/data/enunciados5";
+        ActividadStringModel act5 = new ActividadStringModel(rutaAchivoString5, rutaArchivoEnunciados5);
+        ControladorActividad ctr5 = new ControladorActividad(7,act5.getActividades(),act5.getEnunciados(),usuario);
+    }//GEN-LAST:event_Actividad7ActionPerformed
+
+    private void Actividad7MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Actividad7MouseEntered
+        if((long)usuario.getPuntuaciones().get(6) >= 500){
+           this.Actividad7.setEnabled(true);
+        }
+    }//GEN-LAST:event_Actividad7MouseEntered
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton Actividad1;
@@ -364,6 +418,7 @@ public class InicioActividad extends javax.swing.JPanel {
     private javax.swing.JButton Actividad4;
     private javax.swing.JButton Actividad5;
     private javax.swing.JButton Actividad6;
+    private javax.swing.JButton Actividad7;
     private javax.swing.JLabel Title;
     private javax.swing.JPanel content;
     private javax.swing.JLabel jLabel1;

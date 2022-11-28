@@ -56,6 +56,7 @@ public class Usuario {
     }
     
     public void calcularPuntuacionGlobal(){
+        this.puntuacionGlobal = 0l;
         for (long score : puntuaciones) {
             puntuacionGlobal += score;
         }

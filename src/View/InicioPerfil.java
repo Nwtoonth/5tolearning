@@ -1,13 +1,14 @@
 package View;
 
 import ViewModel.Usuario;
-import java.util.HashMap;
+import java.awt.Color;
+import java.util.ArrayList;
+import java.util.Iterator;
+import java.util.LinkedHashMap;
 import java.util.Map;
 import java.util.concurrent.ExecutionException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import javax.swing.DefaultListModel;
-import javax.swing.ListModel;
 import model.FirebaseOperaciones;
 
 /**
@@ -16,17 +17,60 @@ import model.FirebaseOperaciones;
  */
 public class InicioPerfil extends javax.swing.JPanel {
     
+    private Usuario user;
+    private double progeso = 0;
+    private String nombres = "NickNames: \n";
+    private String score = "Puntuacion: \n";
+    
     public InicioPerfil(Usuario us1) {   
-        try {
+        try {;
+            this.user = us1;
             initComponents();
-            String datos[] = FirebaseOperaciones.buscarTodo(10);
-            RankingNombres.setText(datos[0]);
-            RankingPuntuaciones.setText(datos[1]);
+            LinkedHashMap<String,Long> tablaPosiciones = FirebaseOperaciones.buscarTodo(10);
+            logros(tablaPosiciones);
+            Calcularprogreso();
+            this.LabelProgreso.setText(Math.round(progeso*100)+"%");
+            this.LabelUserName.setText(user.getNickName());
+            this.RankingNombres.setText(nombres);
+            this.RankingPuntuaciones.setText(score);
             
         } catch (InterruptedException ex) {
             Logger.getLogger(InicioPerfil.class.getName()).log(Level.SEVERE, null, ex);
         } catch (ExecutionException ex) {
             Logger.getLogger(InicioPerfil.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+    
+    /*Asigna los logros al jugador dependiendo de su posicion global*/
+    private void logros(LinkedHashMap<String,Long> tablaPosiciones){
+        int i = 1;
+        LogroPrimerLugar.setVisible(false);
+        LogroTop3.setVisible(false);
+        LogroTop10.setVisible(false);
+        for (Map.Entry<String, Long> entry : tablaPosiciones.entrySet()) {
+            String key = entry.getKey();
+            Long value = entry.getValue();
+            this.nombres +=i+" "+ key + "\n";
+            this.score += value + "\n";
+            if (i == 1 && user.getNickName().equals(key)) {
+                LogroPrimerLugar.setVisible(true);
+            } else if (i <= 3 && user.getNickName().equals(key)) {
+                LogroTop3.setVisible(true);
+            } else if (i <= 10 && user.getNickName().equals(key)) {
+                LogroTop10.setVisible(true);
+            }            
+            i++;
+        }
+    }
+    
+    /*Calcula el progreso total que lleva el usuario hasta el momento*/
+    private void Calcularprogreso(){
+        ArrayList<Long> datos = user.getPuntuaciones();
+        for (Iterator<Long> iterator = datos.iterator(); iterator.hasNext();) {
+            Long next = iterator.next();
+            if(next >= 500l){
+                progeso += 0.07;
+            }
         }
     }
     
@@ -57,6 +101,12 @@ public class InicioPerfil extends javax.swing.JPanel {
         RankingNombres = new javax.swing.JTextArea();
         jScrollPane3 = new javax.swing.JScrollPane();
         RankingPuntuaciones = new javax.swing.JTextArea();
+        jLabelMensajes = new javax.swing.JLabel();
+        LabelProgreso2 = new javax.swing.JLabel();
+        LogroPrimerLugar = new javax.swing.JLabel();
+        LogroTop10 = new javax.swing.JLabel();
+        LogroTop3 = new javax.swing.JLabel();
+        jSeparator2 = new javax.swing.JSeparator();
 
         jTextArea1.setColumns(20);
         jTextArea1.setRows(5);
@@ -103,7 +153,12 @@ public class InicioPerfil extends javax.swing.JPanel {
 
         PasswordField.setBackground(new java.awt.Color(255, 255, 255));
         PasswordField.setFont(new java.awt.Font("SansSerif", 0, 14)); // NOI18N
-        PasswordField.setText("jPasswordField1");
+        PasswordField.setText("..........");
+        PasswordField.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                PasswordFieldMouseClicked(evt);
+            }
+        });
 
         jButtonConfirmar.setBackground(new java.awt.Color(255, 255, 255));
         jButtonConfirmar.setFont(new java.awt.Font("SansSerif", 0, 14)); // NOI18N
@@ -161,14 +216,14 @@ public class InicioPerfil extends javax.swing.JPanel {
         LabelUserName.setForeground(new java.awt.Color(17, 55, 96));
         LabelUserName.setText("userName");
 
-        LabelProgreso1.setFont(new java.awt.Font("Roboto", 0, 36)); // NOI18N
-        LabelProgreso1.setForeground(new java.awt.Color(252, 161, 3));
-        LabelProgreso1.setText("Ranking");
+        LabelProgreso1.setFont(new java.awt.Font("Roboto", 0, 24)); // NOI18N
+        LabelProgreso1.setForeground(new java.awt.Color(17, 55, 96));
+        LabelProgreso1.setText("Logros");
 
         RankingNombres.setEditable(false);
         RankingNombres.setColumns(20);
         RankingNombres.setFont(new java.awt.Font("Roboto", 1, 14)); // NOI18N
-        RankingNombres.setForeground(new java.awt.Color(102, 102, 102));
+        RankingNombres.setForeground(new java.awt.Color(17, 55, 96));
         RankingNombres.setLineWrap(true);
         RankingNombres.setRows(5);
         RankingNombres.setBorder(null);
@@ -177,11 +232,33 @@ public class InicioPerfil extends javax.swing.JPanel {
         RankingPuntuaciones.setEditable(false);
         RankingPuntuaciones.setColumns(20);
         RankingPuntuaciones.setFont(new java.awt.Font("Roboto", 1, 14)); // NOI18N
-        RankingPuntuaciones.setForeground(new java.awt.Color(102, 102, 102));
+        RankingPuntuaciones.setForeground(new java.awt.Color(17, 55, 96));
         RankingPuntuaciones.setLineWrap(true);
         RankingPuntuaciones.setRows(5);
         RankingPuntuaciones.setBorder(null);
         jScrollPane3.setViewportView(RankingPuntuaciones);
+
+        jLabelMensajes.setFont(new java.awt.Font("SansSerif", 0, 14)); // NOI18N
+
+        LabelProgreso2.setFont(new java.awt.Font("Roboto", 0, 24)); // NOI18N
+        LabelProgreso2.setForeground(new java.awt.Color(252, 161, 3));
+        LabelProgreso2.setText("Tabla de posiciones");
+
+        LogroPrimerLugar.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        LogroPrimerLugar.setForeground(new java.awt.Color(0, 0, 0));
+        LogroPrimerLugar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/logro1.png"))); // NOI18N
+        LogroPrimerLugar.setText("Top 1");
+        LogroPrimerLugar.setVerticalAlignment(javax.swing.SwingConstants.TOP);
+        LogroPrimerLugar.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+
+        LogroTop10.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
+        LogroTop10.setForeground(new java.awt.Color(255, 51, 51));
+        LogroTop10.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        LogroTop10.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/top10.png"))); // NOI18N
+        LogroTop10.setText("Top 10");
+        LogroTop10.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+
+        LogroTop3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/logro2.png"))); // NOI18N
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -190,25 +267,21 @@ public class InicioPerfil extends javax.swing.JPanel {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(20, 20, 20)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(LabelProgreso1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(0, 0, Short.MAX_VALUE))
                     .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                        .addComponent(SubirFoto, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 240, Short.MAX_VALUE)
-                        .addComponent(jLabel2, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                        .addComponent(SubirFoto, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jLabel2, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(LabelProgreso2, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 240, Short.MAX_VALUE))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(0, 0, 0)
+                        .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addGap(62, 62, 62)
                                 .addComponent(LabelUserName))
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addGap(18, 18, 18)
-                                .addComponent(jLabel3)))
+                            .addComponent(jLabel3))
                         .addGap(0, 0, Short.MAX_VALUE))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -217,7 +290,6 @@ public class InicioPerfil extends javax.swing.JPanel {
                                 .addComponent(LabelFechaIngreso))
                             .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                                 .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel1Layout.createSequentialGroup()
-                                    .addGap(0, 0, 0)
                                     .addComponent(jLabel4)
                                     .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                     .addComponent(jLabel1))
@@ -225,30 +297,48 @@ public class InicioPerfil extends javax.swing.JPanel {
                                     .addGroup(jPanel1Layout.createSequentialGroup()
                                         .addGap(1, 1, 1)
                                         .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 570, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                                        .addGap(19, 19, 19)
-                                        .addComponent(jLabel5)
+                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                                            .addGap(425, 425, 425)
+                                            .addComponent(Labeltext)
+                                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                            .addComponent(LabelProgreso))
+                                        .addGroup(jPanel1Layout.createSequentialGroup()
+                                            .addGap(19, 19, 19)
+                                            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                                .addComponent(jLabelMensajes, javax.swing.GroupLayout.PREFERRED_SIZE, 376, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                .addGroup(jPanel1Layout.createSequentialGroup()
+                                                    .addComponent(jLabel5)
+                                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                                    .addComponent(TextFieldNewUser, javax.swing.GroupLayout.PREFERRED_SIZE, 157, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                                    .addComponent(jLabel6)
+                                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                                    .addComponent(PasswordField, javax.swing.GroupLayout.PREFERRED_SIZE, 168, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                    .addGap(25, 25, 25)
+                                                    .addComponent(jButtonConfirmar, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)))))))
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addGap(18, 18, 18)
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(LabelProgreso1, javax.swing.GroupLayout.PREFERRED_SIZE, 234, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jSeparator2, javax.swing.GroupLayout.PREFERRED_SIZE, 552, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addGroup(jPanel1Layout.createSequentialGroup()
+                                        .addComponent(LogroPrimerLugar, javax.swing.GroupLayout.PREFERRED_SIZE, 146, javax.swing.GroupLayout.PREFERRED_SIZE)
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addComponent(TextFieldNewUser, javax.swing.GroupLayout.PREFERRED_SIZE, 157, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                                                .addComponent(jLabel6)
-                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                                .addComponent(PasswordField, javax.swing.GroupLayout.PREFERRED_SIZE, 168, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                .addGap(25, 25, 25)
-                                                .addComponent(jButtonConfirmar, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                                                .addComponent(Labeltext)
-                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                                .addComponent(LabelProgreso)
-                                                .addGap(7, 7, 7)))))))
-                        .addContainerGap(23, Short.MAX_VALUE))))
+                                        .addComponent(LogroTop3, javax.swing.GroupLayout.PREFERRED_SIZE, 146, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(LogroTop10, javax.swing.GroupLayout.PREFERRED_SIZE, 146, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                        .addContainerGap(29, Short.MAX_VALUE))))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(28, 28, 28)
+                        .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 247, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(SubirFoto))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(46, 46, 46)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
@@ -270,28 +360,37 @@ public class InicioPerfil extends javax.swing.JPanel {
                                 .addComponent(PasswordField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addComponent(jButtonConfirmar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .addComponent(TextFieldNewUser))))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(jLabelMensajes, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(28, 28, 28)
-                        .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 247, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(SubirFoto)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(LabelProgreso2, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(0, 0, Short.MAX_VALUE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 16, Short.MAX_VALUE)
+                        .addComponent(LabelProgreso1, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(LabelProgreso)
+                            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(jScrollPane3, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 210, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 210, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                                .addComponent(Labeltext)
-                                .addGap(15, 15, 15)))
-                        .addGap(18, 18, 18))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 210, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addComponent(LabelProgreso1, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(jSeparator2, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 210, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addContainerGap())))
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(jPanel1Layout.createSequentialGroup()
+                                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                            .addComponent(LogroTop10, javax.swing.GroupLayout.PREFERRED_SIZE, 136, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addComponent(LogroTop3, javax.swing.GroupLayout.PREFERRED_SIZE, 136, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(Labeltext))
+                                    .addComponent(LogroPrimerLugar, javax.swing.GroupLayout.PREFERRED_SIZE, 149, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGap(15, 15, 15)))
+                        .addContainerGap())
+                    .addComponent(LabelProgreso, javax.swing.GroupLayout.Alignment.TRAILING)))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
@@ -323,7 +422,27 @@ public class InicioPerfil extends javax.swing.JPanel {
     }//GEN-LAST:event_jButtonConfirmarMouseExited
 
     private void jButtonConfirmarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonConfirmarActionPerformed
-
+        boolean isRegistrado = false;
+        try {
+            isRegistrado = FirebaseOperaciones.insertarDatos(TextFieldNewUser.getText(),PasswordField.getText());
+        } catch (InterruptedException ex) {
+            Logger.getLogger(Login.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (ExecutionException ex) {
+            Logger.getLogger(Login.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        if(isRegistrado){
+            FirebaseOperaciones.eliminar(user.getNickName());
+            user.setNickName(TextFieldNewUser.getText());
+            LabelUserName.setText(user.getNickName());
+            jLabelMensajes.setForeground(Color.green);
+            TextFieldNewUser.setText("Nuevo Usuario");
+            PasswordField.setText("..........");
+            jLabelMensajes.setText("Se realizo el cambio de datos con exito ...");
+        }
+        else{
+            jLabelMensajes.setForeground(Color.red);
+            jLabelMensajes.setText("El nombre de usuario ya existe ...");            
+        }
     }//GEN-LAST:event_jButtonConfirmarActionPerformed
 
     private void SubirFotoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_SubirFotoMouseClicked
@@ -352,13 +471,21 @@ public class InicioPerfil extends javax.swing.JPanel {
 
     }//GEN-LAST:event_TextFieldNewUserMouseExited
 
+    private void PasswordFieldMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_PasswordFieldMouseClicked
+        PasswordField.setText("");
+    }//GEN-LAST:event_PasswordFieldMouseClicked
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel LabelFechaIngreso;
     private javax.swing.JLabel LabelProgreso;
     private javax.swing.JLabel LabelProgreso1;
+    private javax.swing.JLabel LabelProgreso2;
     private javax.swing.JLabel LabelUserName;
     private javax.swing.JLabel Labeltext;
+    private javax.swing.JLabel LogroPrimerLugar;
+    private javax.swing.JLabel LogroTop10;
+    private javax.swing.JLabel LogroTop3;
     private javax.swing.JPasswordField PasswordField;
     private javax.swing.JTextArea RankingNombres;
     private javax.swing.JTextArea RankingPuntuaciones;
@@ -371,11 +498,13 @@ public class InicioPerfil extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabelMensajes;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JSeparator jSeparator1;
+    private javax.swing.JSeparator jSeparator2;
     private javax.swing.JTextArea jTextArea1;
     // End of variables declaration//GEN-END:variables
 }

@@ -1,0 +1,8 @@
+lista .add (Integer ,String) ;#
+lista .get (1) ;#
+lista .contains key (key) ;#
+lista .contains value ("value") ;#
+lista .size () ;#
+lista .clear() ;#
+lista .clone() ;#
+

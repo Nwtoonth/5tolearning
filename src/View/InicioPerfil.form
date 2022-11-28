@@ -54,20 +54,17 @@
         <DimensionLayout dim="0">
           <Group type="103" groupAlignment="0" attributes="0">
               <Group type="102" alignment="0" attributes="0">
-                  <EmptySpace min="-2" pref="20" max="-2" attributes="0"/>
+                  <EmptySpace min="20" pref="20" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
-                      <Group type="102" attributes="0">
-                          <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                              <Component id="LabelProgreso1" max="32767" attributes="0"/>
-                              <Component id="jScrollPane1" pref="0" max="32767" attributes="0"/>
-                          </Group>
-                          <EmptySpace max="-2" attributes="0"/>
-                          <Component id="jScrollPane3" min="-2" pref="130" max="-2" attributes="0"/>
-                          <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
-                      </Group>
                       <Group type="103" alignment="0" groupAlignment="1" max="-2" attributes="0">
-                          <Component id="SubirFoto" alignment="0" pref="240" max="32767" attributes="0"/>
+                          <Component id="SubirFoto" alignment="0" max="32767" attributes="0"/>
                           <Component id="jLabel2" alignment="0" max="32767" attributes="0"/>
+                          <Component id="LabelProgreso2" alignment="0" pref="240" max="32767" attributes="0"/>
+                      </Group>
+                      <Group type="102" alignment="0" attributes="0">
+                          <Component id="jScrollPane1" min="-2" pref="130" max="-2" attributes="0"/>
+                          <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
+                          <Component id="jScrollPane3" min="-2" pref="130" max="-2" attributes="0"/>
                       </Group>
                   </Group>
                   <Group type="103" groupAlignment="0" attributes="0">
@@ -77,10 +74,7 @@
                                   <EmptySpace min="-2" pref="62" max="-2" attributes="0"/>
                                   <Component id="LabelUserName" min="-2" max="-2" attributes="0"/>
                               </Group>
-                              <Group type="102" alignment="0" attributes="0">
-                                  <EmptySpace type="separate" max="-2" attributes="0"/>
-                                  <Component id="jLabel3" min="-2" max="-2" attributes="0"/>
-                              </Group>
+                              <Component id="jLabel3" alignment="0" min="-2" max="-2" attributes="0"/>
                           </Group>
                           <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                       </Group>
@@ -92,7 +86,6 @@
                               </Group>
                               <Group type="103" groupAlignment="1" attributes="0">
                                   <Group type="102" alignment="0" attributes="0">
-                                      <EmptySpace min="-2" pref="0" max="-2" attributes="0"/>
                                       <Component id="jLabel4" min="-2" max="-2" attributes="0"/>
                                       <EmptySpace max="-2" attributes="0"/>
                                       <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
@@ -102,32 +95,49 @@
                                           <EmptySpace min="-2" pref="1" max="-2" attributes="0"/>
                                           <Component id="jSeparator1" min="-2" pref="570" max="-2" attributes="0"/>
                                       </Group>
-                                      <Group type="102" alignment="1" attributes="0">
-                                          <EmptySpace min="-2" pref="19" max="-2" attributes="0"/>
-                                          <Component id="jLabel5" min="-2" max="-2" attributes="0"/>
-                                          <EmptySpace max="-2" attributes="0"/>
-                                          <Component id="TextFieldNewUser" min="-2" pref="157" max="-2" attributes="0"/>
-                                          <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                                          <Group type="103" groupAlignment="0" attributes="0">
-                                              <Group type="102" alignment="1" attributes="0">
-                                                  <Component id="jLabel6" min="-2" max="-2" attributes="0"/>
-                                                  <EmptySpace max="-2" attributes="0"/>
-                                                  <Component id="PasswordField" min="-2" pref="168" max="-2" attributes="0"/>
-                                                  <EmptySpace min="-2" pref="25" max="-2" attributes="0"/>
-                                                  <Component id="jButtonConfirmar" min="-2" pref="130" max="-2" attributes="0"/>
-                                              </Group>
-                                              <Group type="102" alignment="1" attributes="0">
-                                                  <Component id="Labeltext" min="-2" max="-2" attributes="0"/>
-                                                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                                                  <Component id="LabelProgreso" min="-2" max="-2" attributes="0"/>
-                                                  <EmptySpace min="-2" pref="7" max="-2" attributes="0"/>
+                                      <Group type="103" alignment="1" groupAlignment="0" attributes="0">
+                                          <Group type="102" alignment="1" attributes="0">
+                                              <EmptySpace min="-2" pref="425" max="-2" attributes="0"/>
+                                              <Component id="Labeltext" min="-2" max="-2" attributes="0"/>
+                                              <EmptySpace max="-2" attributes="0"/>
+                                              <Component id="LabelProgreso" min="-2" max="-2" attributes="0"/>
+                                          </Group>
+                                          <Group type="102" attributes="0">
+                                              <EmptySpace min="-2" pref="19" max="-2" attributes="0"/>
+                                              <Group type="103" groupAlignment="0" attributes="0">
+                                                  <Component id="jLabelMensajes" min="-2" pref="376" max="-2" attributes="0"/>
+                                                  <Group type="102" attributes="0">
+                                                      <Component id="jLabel5" min="-2" max="-2" attributes="0"/>
+                                                      <EmptySpace max="-2" attributes="0"/>
+                                                      <Component id="TextFieldNewUser" min="-2" pref="157" max="-2" attributes="0"/>
+                                                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                                                      <Component id="jLabel6" min="-2" max="-2" attributes="0"/>
+                                                      <EmptySpace max="-2" attributes="0"/>
+                                                      <Component id="PasswordField" min="-2" pref="168" max="-2" attributes="0"/>
+                                                      <EmptySpace min="-2" pref="25" max="-2" attributes="0"/>
+                                                      <Component id="jButtonConfirmar" min="-2" pref="130" max="-2" attributes="0"/>
+                                                  </Group>
                                               </Group>
                                           </Group>
                                       </Group>
                                   </Group>
                               </Group>
+                              <Group type="102" alignment="0" attributes="0">
+                                  <EmptySpace type="separate" max="-2" attributes="0"/>
+                                  <Group type="103" groupAlignment="0" attributes="0">
+                                      <Component id="LabelProgreso1" min="-2" pref="234" max="-2" attributes="0"/>
+                                      <Component id="jSeparator2" min="-2" pref="552" max="-2" attributes="0"/>
+                                      <Group type="102" alignment="0" attributes="0">
+                                          <Component id="LogroPrimerLugar" min="-2" pref="146" max="-2" attributes="0"/>
+                                          <EmptySpace max="-2" attributes="0"/>
+                                          <Component id="LogroTop3" min="-2" pref="146" max="-2" attributes="0"/>
+                                          <EmptySpace max="-2" attributes="0"/>
+                                          <Component id="LogroTop10" min="-2" pref="146" max="-2" attributes="0"/>
+                                      </Group>
+                                  </Group>
+                              </Group>
                           </Group>
-                          <EmptySpace pref="23" max="32767" attributes="0"/>
+                          <EmptySpace pref="29" max="32767" attributes="0"/>
                       </Group>
                   </Group>
               </Group>
@@ -137,6 +147,12 @@
           <Group type="103" groupAlignment="0" attributes="0">
               <Group type="102" attributes="0">
                   <Group type="103" groupAlignment="0" attributes="0">
+                      <Group type="102" attributes="0">
+                          <EmptySpace min="-2" pref="28" max="-2" attributes="0"/>
+                          <Component id="jLabel2" min="-2" pref="247" max="-2" attributes="0"/>
+                          <EmptySpace max="-2" attributes="0"/>
+                          <Component id="SubirFoto" min="-2" max="-2" attributes="0"/>
+                      </Group>
                       <Group type="102" attributes="0">
                           <EmptySpace min="-2" pref="46" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="1" attributes="0">
@@ -162,36 +178,49 @@
                               </Group>
                           </Group>
                       </Group>
-                      <Group type="102" alignment="0" attributes="0">
-                          <EmptySpace min="-2" pref="28" max="-2" attributes="0"/>
-                          <Component id="jLabel2" min="-2" pref="247" max="-2" attributes="0"/>
+                      <Group type="102" alignment="1" attributes="0">
+                          <EmptySpace max="-2" attributes="0"/>
+                          <Component id="jLabelMensajes" min="-2" pref="35" max="-2" attributes="0"/>
                       </Group>
                   </Group>
-                  <EmptySpace max="-2" attributes="0"/>
-                  <Component id="SubirFoto" min="-2" max="-2" attributes="0"/>
-                  <EmptySpace max="32767" attributes="0"/>
+                  <Group type="103" groupAlignment="0" attributes="0">
+                      <Group type="102" attributes="0">
+                          <Component id="LabelProgreso2" min="-2" pref="41" max="-2" attributes="0"/>
+                          <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                      </Group>
+                      <Group type="102" alignment="1" attributes="0">
+                          <EmptySpace pref="16" max="32767" attributes="0"/>
+                          <Component id="LabelProgreso1" min="-2" pref="41" max="-2" attributes="0"/>
+                      </Group>
+                  </Group>
+                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Group type="102" alignment="1" attributes="0">
                           <Group type="103" groupAlignment="0" attributes="0">
-                              <Component id="LabelProgreso" min="-2" max="-2" attributes="0"/>
-                              <Group type="102" alignment="1" attributes="0">
-                                  <Component id="Labeltext" min="-2" max="-2" attributes="0"/>
-                                  <EmptySpace min="-2" pref="15" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Component id="jScrollPane3" alignment="1" min="-2" pref="210" max="-2" attributes="0"/>
+                                  <Component id="jScrollPane1" alignment="1" min="-2" pref="210" max="-2" attributes="0"/>
                               </Group>
-                          </Group>
-                          <EmptySpace min="-2" pref="18" max="-2" attributes="0"/>
-                      </Group>
-                      <Group type="102" alignment="1" attributes="0">
-                          <Group type="103" groupAlignment="1" attributes="0">
-                              <Component id="jScrollPane3" min="-2" pref="210" max="-2" attributes="0"/>
-                              <Group type="102" attributes="0">
-                                  <Component id="LabelProgreso1" min="-2" pref="41" max="-2" attributes="0"/>
+                              <Group type="102" alignment="1" attributes="0">
+                                  <Component id="jSeparator2" min="-2" pref="10" max="-2" attributes="0"/>
                                   <EmptySpace max="-2" attributes="0"/>
-                                  <Component id="jScrollPane1" min="-2" pref="210" max="-2" attributes="0"/>
+                                  <Group type="103" groupAlignment="0" attributes="0">
+                                      <Group type="102" attributes="0">
+                                          <Group type="103" groupAlignment="1" attributes="0">
+                                              <Component id="LogroTop10" min="-2" pref="136" max="-2" attributes="0"/>
+                                              <Component id="LogroTop3" min="-2" pref="136" max="-2" attributes="0"/>
+                                          </Group>
+                                          <EmptySpace max="-2" attributes="0"/>
+                                          <Component id="Labeltext" min="-2" max="-2" attributes="0"/>
+                                      </Group>
+                                      <Component id="LogroPrimerLugar" alignment="0" min="-2" pref="149" max="-2" attributes="0"/>
+                                  </Group>
+                                  <EmptySpace min="-2" pref="15" max="-2" attributes="0"/>
                               </Group>
                           </Group>
                           <EmptySpace max="-2" attributes="0"/>
                       </Group>
+                      <Component id="LabelProgreso" alignment="1" min="-2" max="-2" attributes="0"/>
                   </Group>
               </Group>
           </Group>
@@ -281,8 +310,11 @@
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="SansSerif" size="14" style="0"/>
             </Property>
-            <Property name="text" type="java.lang.String" value="jPasswordField1"/>
+            <Property name="text" type="java.lang.String" value=".........."/>
           </Properties>
+          <Events>
+            <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="PasswordFieldMouseClicked"/>
+          </Events>
         </Component>
         <Component class="javax.swing.JButton" name="jButtonConfirmar">
           <Properties>
@@ -376,12 +408,12 @@
         <Component class="javax.swing.JLabel" name="LabelProgreso1">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-              <Font name="Roboto" size="36" style="0"/>
+              <Font name="Roboto" size="24" style="0"/>
             </Property>
             <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-              <Color blue="3" green="a1" red="fc" type="rgb"/>
+              <Color blue="60" green="37" red="11" type="rgb"/>
             </Property>
-            <Property name="text" type="java.lang.String" value="Ranking"/>
+            <Property name="text" type="java.lang.String" value="Logros"/>
           </Properties>
         </Component>
         <Container class="javax.swing.JScrollPane" name="jScrollPane1">
@@ -399,7 +431,7 @@
                   <Font name="Roboto" size="14" style="1"/>
                 </Property>
                 <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-                  <Color blue="66" green="66" red="66" type="rgb"/>
+                  <Color blue="60" green="37" red="11" type="rgb"/>
                 </Property>
                 <Property name="lineWrap" type="boolean" value="true"/>
                 <Property name="rows" type="int" value="5"/>
@@ -425,7 +457,7 @@
                   <Font name="Roboto" size="14" style="1"/>
                 </Property>
                 <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-                  <Color blue="66" green="66" red="66" type="rgb"/>
+                  <Color blue="60" green="37" red="11" type="rgb"/>
                 </Property>
                 <Property name="lineWrap" type="boolean" value="true"/>
                 <Property name="rows" type="int" value="5"/>
@@ -436,6 +468,65 @@
             </Component>
           </SubComponents>
         </Container>
+        <Component class="javax.swing.JLabel" name="jLabelMensajes">
+          <Properties>
+            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+              <Font name="SansSerif" size="14" style="0"/>
+            </Property>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JLabel" name="LabelProgreso2">
+          <Properties>
+            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+              <Font name="Roboto" size="24" style="0"/>
+            </Property>
+            <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+              <Color blue="3" green="a1" red="fc" type="rgb"/>
+            </Property>
+            <Property name="text" type="java.lang.String" value="Tabla de posiciones"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JLabel" name="LogroPrimerLugar">
+          <Properties>
+            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+              <Font name="Dialog" size="14" style="1"/>
+            </Property>
+            <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+              <Color blue="0" green="0" red="0" type="rgb"/>
+            </Property>
+            <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+              <Image iconType="3" name="/iconos/logro1.png"/>
+            </Property>
+            <Property name="text" type="java.lang.String" value="Top 1"/>
+            <Property name="verticalAlignment" type="int" value="1"/>
+            <Property name="horizontalTextPosition" type="int" value="0"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JLabel" name="LogroTop10">
+          <Properties>
+            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+              <Font name="Dialog" size="18" style="1"/>
+            </Property>
+            <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+              <Color blue="33" green="33" red="ff" type="rgb"/>
+            </Property>
+            <Property name="horizontalAlignment" type="int" value="0"/>
+            <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+              <Image iconType="3" name="/iconos/top10.png"/>
+            </Property>
+            <Property name="text" type="java.lang.String" value="Top 10"/>
+            <Property name="horizontalTextPosition" type="int" value="0"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JLabel" name="LogroTop3">
+          <Properties>
+            <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+              <Image iconType="3" name="/iconos/logro2.png"/>
+            </Property>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JSeparator" name="jSeparator2">
+        </Component>
       </SubComponents>
     </Container>
   </SubComponents>
