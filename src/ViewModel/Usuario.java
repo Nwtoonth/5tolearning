@@ -6,12 +6,15 @@ public class Usuario {
     
     private String nickName;
     private String contrasena;
-    private ArrayList<Integer> puntuaciones;
+    private ArrayList<Long> puntuaciones;
+    private long puntuacionGlobal;
 
-    public Usuario(String nickName, String contrasena,ArrayList<Integer> scores) {
+    public Usuario(String nickName, String contrasena,ArrayList<Long> scores) {
         this.puntuaciones = scores;
+        this.puntuacionGlobal = 0L;
         this.nickName = nickName;
         this.contrasena = contrasena;
+        calcularPuntuacionGlobal();
     }
 
     public String getNickName() {
@@ -26,7 +29,7 @@ public class Usuario {
         return puntuaciones;
     }
 
-    public void setPuntuaciones(int posicion,int puntuacion) {
+    public void setPuntuaciones(int posicion,long puntuacion) {
         this.puntuaciones.set(posicion,puntuacion);
     }
 
@@ -44,9 +47,24 @@ public class Usuario {
         return this.nickName.equals(nombre) && this.contrasena.equals(password);
     }
 
+    public Long getPuntuacionGlobal() {
+        return puntuacionGlobal;
+    }
+
+    public void setPuntuacionGlobal(Integer puntuacionGlobar) {
+        this.puntuacionGlobal = puntuacionGlobar;
+    }
+    
+    public void calcularPuntuacionGlobal(){
+        for (long score : puntuaciones) {
+            puntuacionGlobal += score;
+        }
+    }
+
     @Override
     public String toString() {
-        return "Usuario{" + "nickName=" + nickName + ", contrasena=" + contrasena + ", puntuaciones=" + puntuaciones + '}';
+        return "Usuario{" + "nickName=" + nickName + ", contrasena=" + contrasena + ", puntuaciones=" + puntuaciones + ", puntuacionGlobal=" + puntuacionGlobal + '}';
     }
+
     
 }

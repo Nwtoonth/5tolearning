@@ -1,5 +1,5 @@
 numeros .add (1) ;#
-numeros .remove (index) ;#
+numeros .remove (10) ;#
 numeros .size () ;#
 numeros .clear () ;#
 numeros .set (3,num) ;#

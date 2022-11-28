@@ -7,8 +7,8 @@ import com.google.auth.oauth2.GoogleCredentials;
 import com.google.cloud.firestore.CollectionReference;
 import com.google.cloud.firestore.DocumentReference;
 import com.google.cloud.firestore.DocumentSnapshot;
-import com.google.cloud.firestore.FieldValue;
 import com.google.cloud.firestore.Firestore;
+import com.google.cloud.firestore.Query;
 import com.google.cloud.firestore.QuerySnapshot;
 import com.google.cloud.firestore.WriteResult;
 import com.google.firebase.FirebaseApp;
@@ -19,7 +19,6 @@ import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.Iterator;
 import java.util.Map;
 import java.util.concurrent.ExecutionException;
 /**
@@ -30,6 +29,7 @@ public class FirebaseOperaciones {
 
     protected static Firestore dataBase = null;
     
+    /*Se encarga de realizar la coneccion con la base de datos de Firestore*/
     public static void conectar() throws FileNotFoundException, IOException{      
         if(dataBase == null){
         FileInputStream serviceAccount
@@ -49,6 +49,7 @@ public class FirebaseOperaciones {
         }
     }
     
+    /*Crea un nuevo usuario en la base de datos; es utilizado para registrar a los usuarios*/
     public static boolean insertarDatos(String nickName , String password) throws InterruptedException, ExecutionException {
         boolean disponible = true;
         String collection = "Usuarios";
@@ -77,15 +78,7 @@ public class FirebaseOperaciones {
         return disponible;
     }
     
-    public static void buscarTodo() throws InterruptedException, ExecutionException{
-        CollectionReference usuarios= dataBase.collection("Usuarios");
-        ApiFuture<QuerySnapshot> querySnapshot = usuarios.get();
-        for (DocumentSnapshot document : querySnapshot.get().getDocuments()){
-            System.out.println("Tiempo de carga " + querySnapshot.get().getReadTime());
-            System.out.println(document.getId() + " " + document.getString("Contrasena") + " " + document.getString("Puntaje"));
-        }
-    }
-    
+    /*Busca un usuario mediante su nickName utilizado para verificar las credenciales de logueo*/
     public static Usuario buscar(String nickName,String password) throws InterruptedException, ExecutionException{
         Usuario logueo = null;
         CollectionReference usuarios = dataBase.collection("Usuarios");
@@ -93,7 +86,7 @@ public class FirebaseOperaciones {
         ApiFuture<DocumentSnapshot> future = usuario.get();
         DocumentSnapshot document = future.get();
         if (document.exists()) {
-            ArrayList<Integer> score = (ArrayList<Integer>) document.get("Puntaje");
+            ArrayList<Long> score = (ArrayList<Long>) document.get("Puntaje");
             Usuario user = new Usuario(""+document.get("nombre"),""+document.get("Contrasena"),score);
             if(user.verificarLogueo(nickName, password)){
                 logueo = user;
@@ -101,7 +94,51 @@ public class FirebaseOperaciones {
         }
         return logueo;
     }
-       
+    
+    /*Carga a la base de datos el puntaje obtenido por el usuario al cerrar la sesion*/
+    public static void agregarPuntuacion(Usuario usuario){
+        String collection = "Usuarios";
+        String documento = usuario.getNickName();
+        Map<String, Object> updates = new HashMap<>();
+        updates.put("Puntaje",usuario.getPuntuaciones());
+        updates.put("puntuacionGlobal",usuario.getPuntuacionGlobal());
+        try {
+            DocumentReference docRef = dataBase.collection(collection).document(documento);
+            ApiFuture<WriteResult> result = docRef.update(updates);
+            System.out.println("Tiempo de ejecucion: " + result.get().getUpdateTime());
+            System.out.println("Puntajes subidos");
+        } catch (Exception e) {
+            System.out.println("Fallo:" + e);
+        }
+    }
+
+    public static String[] buscarTodo(int limite) throws InterruptedException, ExecutionException{
+        String[] datos = new String[2];
+        datos[0] = "NickName: \n";
+        datos[1] = "Puntaje: \n";
+        int i = 1;
+        CollectionReference usuarios= dataBase.collection("Usuarios");
+        Query query =usuarios.orderBy("puntuacionGlobal",Query.Direction.DESCENDING).limit(limite);
+        ApiFuture<QuerySnapshot> querySnapshot = query.get();
+        for (DocumentSnapshot document : querySnapshot.get().getDocuments()){
+            datos[0] += i+" "+document.get("nombre")+"\n";
+            datos[1] += ":"+document.get("puntuacionGlobal")+"\n";
+            i++;
+        }
+        System.out.println("Tiempo de carga " + querySnapshot.get().getReadTime());
+        return datos;
+    }    
+    
+    /*crea la puntuacion por defecto de un usuario nuevo*/
+    private static ArrayList llenarArray(){
+        ArrayList<Long> numeros = new ArrayList<>();
+        for (int i = 0; i < 15; i++) {
+            numeros.add(0l);
+        }
+        return numeros;
+    }
+    
+    /*
     public static void eliminar(){
         String collection = "Usuarios";
         String documento = "juan";
@@ -129,27 +166,5 @@ public class FirebaseOperaciones {
             System.out.println("Fallo:" + e);
         }
     }
-    
-    public static void agregarPuntuacion(Usuario usuario){
-        String collection = "Usuarios";
-        String documento = usuario.getNickName();
-        Map<String, Object> updates = new HashMap<>();
-        updates.put("Puntaje",usuario.getPuntuaciones());
-        try {
-            DocumentReference docRef = dataBase.collection(collection).document(documento);
-            ApiFuture<WriteResult> result = docRef.update(updates);
-            System.out.println("Tiempo de ejecucion: " + result.get().getUpdateTime());
-            System.out.println("Puntaje subido");
-        } catch (Exception e) {
-            System.out.println("Fallo:" + e);
-        }
-    }
-
-    private static ArrayList llenarArray(){
-        ArrayList<Integer> numeros = new ArrayList<>();
-        for (int i = 0; i < 15; i++) {
-            numeros.add(0);
-        }
-        return numeros;
-    }
+    */
 }

@@ -246,6 +246,7 @@ public class Inicio extends javax.swing.JFrame {
     }//GEN-LAST:event_exitIniciBttMouseExited
 
     private void exitIniciBttMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_exitIniciBttMousePressed
+        userA.calcularPuntuacionGlobal();
         FirebaseOperaciones.agregarPuntuacion(userA);
         Login pc = new Login();
         pc.setVisible(true);

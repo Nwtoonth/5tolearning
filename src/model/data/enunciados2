@@ -1,7 +1,7 @@
-¿Cómo se declara un array de strings#
-¿Cómo se declara un array de enteros#
+¿Cómo se declara un array de strings, que tenga dos items?#
+¿Cómo se declara un array de enteros, que contenga el numero 10 y 20?#
 ¿Cómo se declara una instancia de un arrayList de String#
 ¿Cómo se declara un hashMap que resiba duplas de enteros y strings#
-¿Cómo se declara un hashSet de autos#
-¿Cómo se declara un TreeSet de gatos#
-¿Cómo se declara un TreeMap de booleanos#
+¿Cómo se declara un hashSet que contenga Autos#
+¿Cómo se declara un TreeSet que contenga Gatos#
+¿Cómo se declara un TreeMap que contenga booleanos#

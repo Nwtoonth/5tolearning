@@ -1,9 +1,9 @@
-¿Cómo se declara el metodo main() en java?#
-¿Cuál es el encabezado de un getter?#
-¿Cuál es el encabezado de un setter?#
-¿Cómo se declara un método publico de una clase?#
+¿Cómo se declara el metodo main() de la aplicación?#
+¿Cuál es el encabezado de un getter, que devuelva un entero?#
+¿Cuál es el encabezado de un setter, para agregar un entero?#
+¿Cómo se declara un método publico de una clase llamado sumar y sin retorno?#
 ¿Cuál es el método que imprime una linea de texto en pantalla con un salto de linea#
-¿Cómo se declara una función privada de una clase?#
-¿Cómo se declara una función protegida de una clase?#
+¿Cómo se declara una función privada de una clase sin retorno?#
+¿Cómo se declara una función protegida de una clase que devueba un booleano?#
 
 

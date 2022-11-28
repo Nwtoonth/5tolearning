@@ -55,6 +55,7 @@ public class ControladorActividad implements ActionListener{
         listaAleatoriaActividades();
         escucharBotonesMenu();
         crearActividad(ordenActividades.get(0));
+        vista.jTextFieldPuntajemaximo.setText(" "+usuario.getPuntuaciones().get(idActividad));
         vista.setLocationRelativeTo(null);
         vista.setVisible(true);
     }
@@ -218,8 +219,10 @@ public class ControladorActividad implements ActionListener{
     }
     
     private void subirPuntuacion(){
-        usuario.setPuntuaciones(idActividad,puntuacion);
-        System.out.println("Puntuacion actualizada");
+        if((long)(usuario.getPuntuaciones().get(idActividad))< puntuacion){
+            usuario.setPuntuaciones(idActividad,puntuacion);
+            System.out.println("Puntuacion actualizada");
+        }
     }
     
     @Override
@@ -231,7 +234,7 @@ public class ControladorActividad implements ActionListener{
             if(actividad.verificarOrden()){
                 puntuacion +=100;
             }
-            vista.jTextFieldPuntuacion.setText(""+puntuacion);
+            vista.jTextFieldPuntuacion.setText(" "+puntuacion);
         }
         else if (e.getSource() == vista.ExitButton){
             subirPuntuacion();

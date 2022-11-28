@@ -32,6 +32,8 @@ public class Actividad3 extends javax.swing.JFrame {
         jRadioButton1 = new javax.swing.JRadioButton();
         jLabel4 = new javax.swing.JLabel();
         jTextFieldPuntuacion = new javax.swing.JTextField();
+        jLabel5 = new javax.swing.JLabel();
+        jTextFieldPuntajemaximo = new javax.swing.JTextField();
         jPanel3 = new javax.swing.JPanel();
         jLabel3 = new javax.swing.JLabel();
         jButtonCheck = new javax.swing.JButton();
@@ -223,6 +225,18 @@ public class Actividad3 extends javax.swing.JFrame {
         jTextFieldPuntuacion.setBorder(null);
         jTextFieldPuntuacion.setOpaque(false);
 
+        jLabel5.setBackground(new java.awt.Color(51, 51, 51));
+        jLabel5.setFont(new java.awt.Font("Roboto", 1, 14)); // NOI18N
+        jLabel5.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel5.setText("Puntuacion Maxima");
+
+        jTextFieldPuntajemaximo.setEditable(false);
+        jTextFieldPuntajemaximo.setFont(new java.awt.Font("SansSerif", 1, 18)); // NOI18N
+        jTextFieldPuntajemaximo.setForeground(new java.awt.Color(252, 161, 3));
+        jTextFieldPuntajemaximo.setText("0");
+        jTextFieldPuntajemaximo.setBorder(null);
+        jTextFieldPuntajemaximo.setOpaque(false);
+
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
@@ -255,6 +269,10 @@ public class Actividad3 extends javax.swing.JFrame {
                         .addContainerGap()
                         .addComponent(ExitButton, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jLabel5)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jTextFieldPuntajemaximo, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(81, 81, 81)
                         .addComponent(jLabel4)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jTextFieldPuntuacion, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)))
@@ -267,7 +285,9 @@ public class Actividad3 extends javax.swing.JFrame {
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(ExitButton)
                     .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jTextFieldPuntuacion, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jTextFieldPuntuacion, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jTextFieldPuntajemaximo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabelActividadPregunta, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
@@ -498,6 +518,7 @@ public class Actividad3 extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
     public javax.swing.JLabel jLabelActividadPregunta;
     public javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
@@ -509,6 +530,7 @@ public class Actividad3 extends javax.swing.JFrame {
     public javax.swing.JRadioButton jRadioButton5;
     public javax.swing.JRadioButton jRadioButton6;
     public javax.swing.JRadioButton jRadioButton7;
+    public javax.swing.JTextField jTextFieldPuntajemaximo;
     public javax.swing.JTextField jTextFieldPuntuacion;
     // End of variables declaration//GEN-END:variables
 }
