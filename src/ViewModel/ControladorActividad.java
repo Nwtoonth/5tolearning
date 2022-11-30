@@ -1,5 +1,6 @@
 package ViewModel;
 
+import View.Actividad2;
 import java.awt.Color;
 import java.awt.Font;
 import java.awt.event.ActionEvent;
@@ -8,7 +9,6 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.Random;
 import javax.swing.JButton;
-import view.Actividad3;
 
 /**
  *
@@ -33,7 +33,7 @@ public class ControladorActividad implements ActionListener{
     /*clases que controla*/
     private ActividadStrings actividad;
     private ArrayList<ActividadStrings> actividades;
-    private Actividad3 vista;
+    private Actividad2 vista;
     private ArrayList<String> enunciados;
     private ArrayList<Integer> ordenActividades;
     
@@ -51,7 +51,7 @@ public class ControladorActividad implements ActionListener{
         this.listaNumerosAleatoria=new ArrayList<>();
         this.ordenActividades = new ArrayList<>();
         this.actividades = acts;
-        this.vista = new Actividad3();
+        this.vista = new Actividad2();
         listaAleatoriaActividades();
         escucharBotonesMenu();
         crearActividad(ordenActividades.get(0));

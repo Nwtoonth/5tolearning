@@ -1,257 +1,635 @@
 package View;
 
-import ViewModel.*;
-import java.awt.Toolkit;
-import javax.swing.JOptionPane;
+import java.awt.Color;
 
+/**
+ *
+ * @author Duvan
+ */
 public class Actividad2 extends javax.swing.JFrame {
 
+    int xMouse, yMouse;  
     public Actividad2() {
         initComponents();
-        question.setText(p.getPregunta(posicion));
-        String[] a = r.setRespuestas(posicion);
-        buttonGroup1.clearSelection(); // sirve para borrar las selecciones de los radio button
-        opc1.setText(a[0]);
-        opc2.setText(a[1]);
-        opc3.setText(a[2]);
-        opc4.setText(a[3]);
-        opc1.requestFocus();
-        regresar.setEnabled(false);
-        terminarExamen.setEnabled(false);
     }
 
-
-    int posicion = 0;
-    Respuestas r = new Respuestas();
-    Preguntas p = new Preguntas();
-    Object[] select = {"","","","",""};
-    
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
         buttonGroup1 = new javax.swing.ButtonGroup();
         jPanel1 = new javax.swing.JPanel();
-        question = new javax.swing.JLabel();
-        opc1 = new javax.swing.JRadioButton();
-        opc2 = new javax.swing.JRadioButton();
-        opc3 = new javax.swing.JRadioButton();
-        opc4 = new javax.swing.JRadioButton();
-        terminarExamen = new javax.swing.JButton();
-        avanzar = new javax.swing.JButton();
-        regresar = new javax.swing.JButton();
+        jPanel2 = new javax.swing.JPanel();
+        jLabel1 = new javax.swing.JLabel();
+        ExitButton = new javax.swing.JToggleButton();
+        jLabelActividadPregunta = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
+        jRadioButton7 = new javax.swing.JRadioButton();
+        jRadioButton6 = new javax.swing.JRadioButton();
+        jRadioButton5 = new javax.swing.JRadioButton();
+        jRadioButton4 = new javax.swing.JRadioButton();
+        jRadioButton3 = new javax.swing.JRadioButton();
+        jRadioButton2 = new javax.swing.JRadioButton();
+        jRadioButton1 = new javax.swing.JRadioButton();
+        jLabel4 = new javax.swing.JLabel();
+        jTextFieldPuntuacion = new javax.swing.JTextField();
+        jLabel5 = new javax.swing.JLabel();
+        jTextFieldPuntajemaximo = new javax.swing.JTextField();
+        jPanel3 = new javax.swing.JPanel();
+        jLabel3 = new javax.swing.JLabel();
+        jButtonCheck = new javax.swing.JButton();
+        header = new java.awt.Panel();
+        exitBtt = new java.awt.Panel();
+        exitTxt = new javax.swing.JLabel();
+        headerTitulo = new javax.swing.JLabel();
+
+        buttonGroup1.add(jRadioButton7);
+        buttonGroup1.add(jRadioButton6);
+        buttonGroup1.add(jRadioButton5);
+        buttonGroup1.add(jRadioButton4);
+        buttonGroup1.add(jRadioButton3);
+        buttonGroup1.add(jRadioButton2);
+        buttonGroup1.add(jRadioButton1);
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        setTitle("Actividad");
+        setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        setUndecorated(true);
+        setResizable(false);
 
-        jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder("Examen"));
-        jPanel1.setName("Examen"); // NOI18N
-
-        question.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        question.setText("¿Pregunta 1?");
-
-        buttonGroup1.add(opc1);
-        opc1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                opc1ActionPerformed(evt);
+        jPanel1.setBackground(new java.awt.Color(204, 255, 255));
+        jPanel1.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        jPanel1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                jPanel1MouseEntered(evt);
             }
         });
 
-        buttonGroup1.add(opc2);
-        opc2.addActionListener(new java.awt.event.ActionListener() {
+        jPanel2.setBackground(new java.awt.Color(3, 123, 252));
+        jPanel2.setBorder(javax.swing.BorderFactory.createEtchedBorder(new java.awt.Color(176, 111, 0), null));
+
+        jLabel1.setBackground(new java.awt.Color(51, 51, 51));
+        jLabel1.setFont(new java.awt.Font("Roboto", 1, 14)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel1.setText("Seleciona el orden correcto:");
+
+        ExitButton.setFont(new java.awt.Font("SansSerif", 0, 14)); // NOI18N
+        ExitButton.setForeground(new java.awt.Color(17, 55, 96));
+        ExitButton.setText("Terminar intento");
+        ExitButton.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        ExitButton.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                ExitButtonMouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                ExitButtonMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                ExitButtonMouseExited(evt);
+            }
+        });
+        ExitButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                opc2ActionPerformed(evt);
+                ExitButtonActionPerformed(evt);
             }
         });
 
-        buttonGroup1.add(opc3);
-        opc3.addActionListener(new java.awt.event.ActionListener() {
+        jLabelActividadPregunta.setFont(new java.awt.Font("SansSerif", 1, 18)); // NOI18N
+        jLabelActividadPregunta.setForeground(new java.awt.Color(204, 255, 255));
+        jLabelActividadPregunta.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabelActividadPregunta.setText("Informacion de la actividad");
+
+        jLabel2.setBackground(new java.awt.Color(51, 51, 51));
+        jLabel2.setFont(new java.awt.Font("Roboto", 1, 14)); // NOI18N
+        jLabel2.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel2.setText("Progreso :");
+
+        jRadioButton7.setBackground(new java.awt.Color(51, 51, 51));
+        jRadioButton7.setFont(new java.awt.Font("Roboto", 1, 18)); // NOI18N
+        jRadioButton7.setForeground(new java.awt.Color(204, 255, 255));
+        jRadioButton7.setText("7");
+        jRadioButton7.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jRadioButton7MouseClicked(evt);
+            }
+        });
+        jRadioButton7.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                opc3ActionPerformed(evt);
+                jRadioButton7ActionPerformed(evt);
             }
         });
 
-        buttonGroup1.add(opc4);
-        opc4.addActionListener(new java.awt.event.ActionListener() {
+        jRadioButton6.setBackground(new java.awt.Color(51, 51, 51));
+        jRadioButton6.setFont(new java.awt.Font("Roboto", 1, 18)); // NOI18N
+        jRadioButton6.setForeground(new java.awt.Color(204, 255, 255));
+        jRadioButton6.setText("6");
+        jRadioButton6.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jRadioButton6MouseClicked(evt);
+            }
+        });
+        jRadioButton6.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                opc4ActionPerformed(evt);
+                jRadioButton6ActionPerformed(evt);
             }
         });
 
-        terminarExamen.setText("Terminar Examen");
-        terminarExamen.addActionListener(new java.awt.event.ActionListener() {
+        jRadioButton5.setBackground(new java.awt.Color(51, 51, 51));
+        jRadioButton5.setFont(new java.awt.Font("Roboto", 1, 18)); // NOI18N
+        jRadioButton5.setForeground(new java.awt.Color(204, 255, 255));
+        jRadioButton5.setText("5");
+        jRadioButton5.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jRadioButton5MouseClicked(evt);
+            }
+        });
+        jRadioButton5.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                terminarExamenActionPerformed(evt);
+                jRadioButton5ActionPerformed(evt);
             }
         });
 
-        avanzar.setText("Avanzar >>");
-        avanzar.addActionListener(new java.awt.event.ActionListener() {
+        jRadioButton4.setBackground(new java.awt.Color(51, 51, 51));
+        jRadioButton4.setFont(new java.awt.Font("Roboto", 1, 18)); // NOI18N
+        jRadioButton4.setForeground(new java.awt.Color(204, 255, 255));
+        jRadioButton4.setText("4");
+        jRadioButton4.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jRadioButton4MouseClicked(evt);
+            }
+        });
+        jRadioButton4.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                avanzarActionPerformed(evt);
+                jRadioButton4ActionPerformed(evt);
             }
         });
 
-        regresar.setText("<< Regresar");
-        regresar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                regresarActionPerformed(evt);
+        jRadioButton3.setBackground(new java.awt.Color(51, 51, 51));
+        jRadioButton3.setFont(new java.awt.Font("Roboto", 1, 18)); // NOI18N
+        jRadioButton3.setForeground(new java.awt.Color(204, 255, 255));
+        jRadioButton3.setText("3");
+        jRadioButton3.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jRadioButton3MouseClicked(evt);
             }
         });
+        jRadioButton3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jRadioButton3ActionPerformed(evt);
+            }
+        });
+
+        jRadioButton2.setBackground(new java.awt.Color(51, 51, 51));
+        jRadioButton2.setFont(new java.awt.Font("Roboto", 1, 18)); // NOI18N
+        jRadioButton2.setForeground(new java.awt.Color(204, 255, 255));
+        jRadioButton2.setText("2");
+        jRadioButton2.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jRadioButton2MouseClicked(evt);
+            }
+        });
+        jRadioButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jRadioButton2ActionPerformed(evt);
+            }
+        });
+
+        jRadioButton1.setBackground(new java.awt.Color(51, 51, 51));
+        jRadioButton1.setFont(new java.awt.Font("Roboto", 1, 18)); // NOI18N
+        jRadioButton1.setForeground(new java.awt.Color(204, 255, 255));
+        jRadioButton1.setSelected(true);
+        jRadioButton1.setText("1");
+        jRadioButton1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jRadioButton1MouseClicked(evt);
+            }
+        });
+        jRadioButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jRadioButton1ActionPerformed(evt);
+            }
+        });
+
+        jLabel4.setBackground(new java.awt.Color(51, 51, 51));
+        jLabel4.setFont(new java.awt.Font("Roboto", 1, 14)); // NOI18N
+        jLabel4.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel4.setText("Puntuacion");
+
+        jTextFieldPuntuacion.setEditable(false);
+        jTextFieldPuntuacion.setFont(new java.awt.Font("SansSerif", 1, 18)); // NOI18N
+        jTextFieldPuntuacion.setForeground(new java.awt.Color(252, 161, 3));
+        jTextFieldPuntuacion.setText("0");
+        jTextFieldPuntuacion.setBorder(null);
+
+        jLabel5.setBackground(new java.awt.Color(51, 51, 51));
+        jLabel5.setFont(new java.awt.Font("Roboto", 1, 14)); // NOI18N
+        jLabel5.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel5.setText("Puntuacion Maxima");
+
+        jTextFieldPuntajemaximo.setEditable(false);
+        jTextFieldPuntajemaximo.setFont(new java.awt.Font("SansSerif", 1, 18)); // NOI18N
+        jTextFieldPuntajemaximo.setForeground(new java.awt.Color(252, 161, 3));
+        jTextFieldPuntajemaximo.setText("0");
+        jTextFieldPuntajemaximo.setBorder(null);
+
+        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
+        jPanel2.setLayout(jPanel2Layout);
+        jPanel2Layout.setHorizontalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabelActividadPregunta, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel2Layout.createSequentialGroup()
+                                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 183, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 79, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jRadioButton1)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jRadioButton2)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jRadioButton3)
+                                .addGap(2, 2, 2)
+                                .addComponent(jRadioButton4)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jRadioButton5)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jRadioButton6)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jRadioButton7))
+                            .addGroup(jPanel2Layout.createSequentialGroup()
+                                .addComponent(ExitButton, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 449, Short.MAX_VALUE)
+                                .addComponent(jLabel5)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jTextFieldPuntajemaximo, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(81, 81, 81)
+                                .addComponent(jLabel4)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jTextFieldPuntuacion, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addContainerGap())))
+        );
+        jPanel2Layout.setVerticalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jTextFieldPuntuacion, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jTextFieldPuntajemaximo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(ExitButton, javax.swing.GroupLayout.Alignment.TRAILING))
+                .addGap(12, 12, 12)
+                .addComponent(jLabelActividadPregunta, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jRadioButton6)
+                    .addComponent(jRadioButton7)
+                    .addComponent(jRadioButton5)
+                    .addComponent(jRadioButton4)
+                    .addComponent(jRadioButton3)
+                    .addComponent(jRadioButton2)
+                    .addComponent(jRadioButton1)
+                    .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(14, 14, 14))
+        );
+
+        jPanel3.setBackground(new java.awt.Color(28, 138, 255));
+        jPanel3.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                jPanel3MouseExited(evt);
+            }
+        });
+
+        jLabel3.setBackground(new java.awt.Color(51, 51, 51));
+        jLabel3.setFont(new java.awt.Font("Roboto", 1, 14)); // NOI18N
+        jLabel3.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel3.setText("Opciones:");
+
+        jButtonCheck.setFont(new java.awt.Font("SansSerif", 0, 14)); // NOI18N
+        jButtonCheck.setForeground(new java.awt.Color(17, 55, 96));
+        jButtonCheck.setText("Comprobar");
+        jButtonCheck.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jButtonCheckMouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                jButtonCheckMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                jButtonCheckMouseExited(evt);
+            }
+        });
+        jButtonCheck.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonCheckActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
+        jPanel3.setLayout(jPanel3Layout);
+        jPanel3Layout.setHorizontalGroup(
+            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel3Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 78, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jButtonCheck, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
+        );
+        jPanel3Layout.setVerticalGroup(
+            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel3Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jButtonCheck))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(30, 30, 30)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(opc2)
-                            .addComponent(opc1)
-                            .addComponent(opc3)
-                            .addComponent(opc4)))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(regresar)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(avanzar))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(terminarExamen))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(question, javax.swing.GroupLayout.PREFERRED_SIZE, 559, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(143, Short.MAX_VALUE))
+            .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addComponent(question, javax.swing.GroupLayout.PREFERRED_SIZE, 63, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(35, 35, 35)
-                .addComponent(opc1)
-                .addGap(18, 18, 18)
-                .addComponent(opc2)
-                .addGap(18, 18, 18)
-                .addComponent(opc3)
-                .addGap(18, 18, 18)
-                .addComponent(opc4)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 66, Short.MAX_VALUE)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(avanzar)
-                    .addComponent(regresar))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(terminarExamen)
-                .addContainerGap())
+                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 38, Short.MAX_VALUE)
+                .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(91, 91, 91))
+        );
+
+        header.setBackground(new java.awt.Color(255, 255, 204));
+        header.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                headerMousePressed(evt);
+            }
+        });
+        header.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
+            public void mouseDragged(java.awt.event.MouseEvent evt) {
+                headerMouseDragged(evt);
+            }
+        });
+
+        exitBtt.setBackground(new java.awt.Color(255, 255, 102));
+        exitBtt.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        exitBtt.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                exitBttMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                exitBttMouseExited(evt);
+            }
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                exitBttMousePressed(evt);
+            }
+        });
+
+        exitTxt.setBackground(new java.awt.Color(255, 255, 102));
+        exitTxt.setFont(new java.awt.Font("Segoe UI Black", 1, 14)); // NOI18N
+        exitTxt.setText("X");
+        exitTxt.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                exitTxtMouseClicked(evt);
+            }
+        });
+
+        javax.swing.GroupLayout exitBttLayout = new javax.swing.GroupLayout(exitBtt);
+        exitBtt.setLayout(exitBttLayout);
+        exitBttLayout.setHorizontalGroup(
+            exitBttLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, exitBttLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(exitTxt, javax.swing.GroupLayout.DEFAULT_SIZE, 17, Short.MAX_VALUE))
+        );
+        exitBttLayout.setVerticalGroup(
+            exitBttLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, exitBttLayout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(exitTxt)
+                .addGap(13, 13, 13))
+        );
+
+        headerTitulo.setText("5tolearning");
+
+        javax.swing.GroupLayout headerLayout = new javax.swing.GroupLayout(header);
+        header.setLayout(headerLayout);
+        headerLayout.setHorizontalGroup(
+            headerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(headerLayout.createSequentialGroup()
+                .addComponent(exitBtt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(468, 468, 468)
+                .addComponent(headerTitulo)
+                .addGap(0, 0, Short.MAX_VALUE))
+        );
+        headerLayout.setVerticalGroup(
+            headerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(headerLayout.createSequentialGroup()
+                .addGroup(headerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(exitBtt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(headerLayout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(headerTitulo)))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addContainerGap())
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(header, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addContainerGap())
+                .addComponent(header, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(2, 2, 2)
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void avanzarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_avanzarActionPerformed
+    private void jPanel1MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanel1MouseEntered
 
-        if(posicion == 3){
-            avanzar.setEnabled(false);
-            terminarExamen.setEnabled(true);
+    }//GEN-LAST:event_jPanel1MouseEntered
+
+    private void ExitButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ExitButtonMouseClicked
+
+    }//GEN-LAST:event_ExitButtonMouseClicked
+
+    private void jRadioButton2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jRadioButton2MouseClicked
+
+    }//GEN-LAST:event_jRadioButton2MouseClicked
+
+    private void jButtonCheckMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButtonCheckMouseClicked
+     
+    }//GEN-LAST:event_jButtonCheckMouseClicked
+
+    private void jRadioButton1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jRadioButton1MouseClicked
+
+    }//GEN-LAST:event_jRadioButton1MouseClicked
+
+    private void jRadioButton3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jRadioButton3MouseClicked
+
+    }//GEN-LAST:event_jRadioButton3MouseClicked
+
+    private void jRadioButton4MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jRadioButton4MouseClicked
+
+    }//GEN-LAST:event_jRadioButton4MouseClicked
+
+    private void jRadioButton5MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jRadioButton5MouseClicked
+
+    }//GEN-LAST:event_jRadioButton5MouseClicked
+
+    private void jRadioButton6MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jRadioButton6MouseClicked
+
+    }//GEN-LAST:event_jRadioButton6MouseClicked
+
+    private void jRadioButton7MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jRadioButton7MouseClicked
+
+    }//GEN-LAST:event_jRadioButton7MouseClicked
+
+    private void jButtonCheckActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonCheckActionPerformed
+        if(jRadioButton1.isSelected()){
+            jRadioButton1.setEnabled(false);
         }
-        
-        if(posicion < 5){
-            regresar.setEnabled(true);
-            posicion++;
-            question.setText(p.getPregunta(posicion));
-            String[] a = r.setRespuestas(posicion);
-            buttonGroup1.clearSelection(); // sirve para borrar las selecciones de los radio button
-            opc1.setText(a[0]);
-            opc2.setText(a[1]);
-            opc3.setText(a[2]);
-            opc4.setText(a[3]);
-            opc1.requestFocus();
-        }else{
-            Toolkit.getDefaultToolkit().beep();
+        else if (jRadioButton2.isSelected()) {
+            jRadioButton2.setEnabled(false);
         }
-    }//GEN-LAST:event_avanzarActionPerformed
-
-    private void regresarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_regresarActionPerformed
-        
-        if(posicion == 0){
-            regresar.setEnabled(false);
+        else if (jRadioButton3.isSelected()) {
+            jRadioButton3.setEnabled(false);
         }
-        
-        if(posicion > -1){
-            posicion--;
-            avanzar.setEnabled(true);
-            question.setText(p.getPregunta(posicion));
-            String[] a = r.setRespuestas(posicion);
-            buttonGroup1.clearSelection(); // sirve para borrar las selecciones de los radio button
-            opc1.setText(a[0]);
-            opc2.setText(a[1]);
-            opc3.setText(a[2]);
-            opc4.setText(a[3]);
-            opc1.requestFocus();
-        }else{
-            Toolkit.getDefaultToolkit().beep();
+        else if (jRadioButton4.isSelected()) {
+            jRadioButton4.setEnabled(false);
         }
-    }//GEN-LAST:event_regresarActionPerformed
-
-    private void terminarExamenActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_terminarExamenActionPerformed
-        
-        int calificacion = 0;
-        
-        for(int i = 0; i < 5; i++){
-            if(select[i].equals(r.getRespuesta(i))){
-                calificacion = calificacion + 1;
-            }
+        else if (jRadioButton5.isSelected()) {
+            jRadioButton5.setEnabled(false);
         }
-        
-        calificacion = calificacion * 2;
-        
-        JOptionPane.showMessageDialog(null, "Tu calificacion es " +  calificacion);
-        
-    }//GEN-LAST:event_terminarExamenActionPerformed
+        else if (jRadioButton6.isSelected()) {
+            jRadioButton6.setEnabled(false);
+        }
+        else if (jRadioButton7.isSelected()) {
+            jRadioButton7.setEnabled(false);
+        }   
+    }//GEN-LAST:event_jButtonCheckActionPerformed
 
-    private void opc1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_opc1ActionPerformed
-        select[posicion] = opc1.getLabel();
-    }//GEN-LAST:event_opc1ActionPerformed
+    private void ExitButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ExitButtonActionPerformed
 
-    private void opc2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_opc2ActionPerformed
-        select[posicion] = opc2.getLabel();
-    }//GEN-LAST:event_opc2ActionPerformed
+    }//GEN-LAST:event_ExitButtonActionPerformed
 
-    private void opc3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_opc3ActionPerformed
-        select[posicion] = opc3.getLabel();
-    }//GEN-LAST:event_opc3ActionPerformed
+    private void jRadioButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButton1ActionPerformed
+        jButtonCheck.setEnabled(true);
+    }//GEN-LAST:event_jRadioButton1ActionPerformed
 
-    private void opc4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_opc4ActionPerformed
-        select[posicion] = opc4.getLabel();
-    }//GEN-LAST:event_opc4ActionPerformed
+    private void jRadioButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButton2ActionPerformed
+        jButtonCheck.setEnabled(true);
+    }//GEN-LAST:event_jRadioButton2ActionPerformed
+
+    private void jRadioButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButton3ActionPerformed
+        jButtonCheck.setEnabled(true);
+    }//GEN-LAST:event_jRadioButton3ActionPerformed
+
+    private void jRadioButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButton4ActionPerformed
+        jButtonCheck.setEnabled(true);
+    }//GEN-LAST:event_jRadioButton4ActionPerformed
+
+    private void jRadioButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButton5ActionPerformed
+        jButtonCheck.setEnabled(true);
+    }//GEN-LAST:event_jRadioButton5ActionPerformed
+
+    private void jRadioButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButton6ActionPerformed
+        jButtonCheck.setEnabled(true);
+    }//GEN-LAST:event_jRadioButton6ActionPerformed
+
+    private void jRadioButton7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButton7ActionPerformed
+        jButtonCheck.setEnabled(true);
+    }//GEN-LAST:event_jRadioButton7ActionPerformed
+
+    private void ExitButtonMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ExitButtonMouseEntered
+        ExitButton.setBackground(Color.decode("#FCA103"));
+    }//GEN-LAST:event_ExitButtonMouseEntered
+
+    private void ExitButtonMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ExitButtonMouseExited
+        ExitButton.setBackground(Color.WHITE);
+    }//GEN-LAST:event_ExitButtonMouseExited
+
+    private void jButtonCheckMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButtonCheckMouseEntered
+        jButtonCheck.setBackground(Color.green);
+    }//GEN-LAST:event_jButtonCheckMouseEntered
+
+    private void jPanel3MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanel3MouseExited
+
+    }//GEN-LAST:event_jPanel3MouseExited
+
+    private void jButtonCheckMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButtonCheckMouseExited
+        jButtonCheck.setBackground(Color.WHITE);
+    }//GEN-LAST:event_jButtonCheckMouseExited
+
+    private void exitBttMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_exitBttMouseEntered
+        exitBtt.setBackground(Color.red);
+    }//GEN-LAST:event_exitBttMouseEntered
+
+    private void exitBttMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_exitBttMouseExited
+        exitBtt.setBackground(Color.YELLOW);
+    }//GEN-LAST:event_exitBttMouseExited
+
+    private void exitBttMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_exitBttMousePressed
+        //this.setVisible(false);
+        this.dispose();
+    }//GEN-LAST:event_exitBttMousePressed
+
+    private void headerMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_headerMousePressed
+        xMouse = evt.getX();
+        yMouse = evt.getY();
+    }//GEN-LAST:event_headerMousePressed
+
+    private void headerMouseDragged(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_headerMouseDragged
+        int x =evt.getXOnScreen ();
+        int y =evt.getYOnScreen ();
+        this.setLocation(x-xMouse,y-yMouse);
+    }//GEN-LAST:event_headerMouseDragged
+
+    private void exitTxtMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_exitTxtMouseClicked
+        this.setVisible(false);
+    }//GEN-LAST:event_exitTxtMouseClicked
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton avanzar;
-    private javax.swing.ButtonGroup buttonGroup1;
-    private javax.swing.JPanel jPanel1;
-    private javax.swing.JRadioButton opc1;
-    private javax.swing.JRadioButton opc2;
-    private javax.swing.JRadioButton opc3;
-    private javax.swing.JRadioButton opc4;
-    private javax.swing.JLabel question;
-    private javax.swing.JButton regresar;
-    private javax.swing.JButton terminarExamen;
+    public javax.swing.JToggleButton ExitButton;
+    public javax.swing.ButtonGroup buttonGroup1;
+    private java.awt.Panel exitBtt;
+    private javax.swing.JLabel exitTxt;
+    private java.awt.Panel header;
+    private javax.swing.JLabel headerTitulo;
+    public javax.swing.JButton jButtonCheck;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
+    public javax.swing.JLabel jLabelActividadPregunta;
+    public javax.swing.JPanel jPanel1;
+    private javax.swing.JPanel jPanel2;
+    private javax.swing.JPanel jPanel3;
+    public javax.swing.JRadioButton jRadioButton1;
+    public javax.swing.JRadioButton jRadioButton2;
+    public javax.swing.JRadioButton jRadioButton3;
+    public javax.swing.JRadioButton jRadioButton4;
+    public javax.swing.JRadioButton jRadioButton5;
+    public javax.swing.JRadioButton jRadioButton6;
+    public javax.swing.JRadioButton jRadioButton7;
+    public javax.swing.JTextField jTextFieldPuntajemaximo;
+    public javax.swing.JTextField jTextFieldPuntuacion;
     // End of variables declaration//GEN-END:variables
 }

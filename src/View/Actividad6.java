@@ -5,13 +5,13 @@ import java.awt.Color;
 import java.awt.Toolkit;
 import javax.swing.JOptionPane;
 
-public class Actividad3 extends javax.swing.JFrame {
+public class Actividad6 extends javax.swing.JFrame {
     int xMouse, yMouse;  
     
-    public Actividad3() {
+    public Actividad6() {
         initComponents();
-        question.setText(p.getPregunta3(posicion));
-        String[] a = r.setRespuesta3(posicion);
+        question.setText(p.getPregunta6(posicion));
+        String[] a = r.setRespuesta6(posicion);
         buttonGroup1.clearSelection(); // sirve para borrar las selecciones de los radio button
         opc1.setText(a[0]);
         opc2.setText(a[1]);
@@ -24,8 +24,8 @@ public class Actividad3 extends javax.swing.JFrame {
 
 
     int posicion = 0;
-    Respuesta3 r = new Respuesta3();
-    Pregunta3 p = new Pregunta3();
+    Respuesta6 r = new Respuesta6();
+    Pregunta6 p = new Pregunta6();
     Object[] select = {"","","","",""};
     
     @SuppressWarnings("unchecked")
@@ -282,8 +282,8 @@ public class Actividad3 extends javax.swing.JFrame {
         if(posicion < 5){
             regresar.setEnabled(true);
             posicion++;
-            question.setText(p.getPregunta3(posicion));
-            String[] a = r.setRespuesta3(posicion);
+            question.setText(p.getPregunta6(posicion));
+            String[] a = r.setRespuesta6(posicion);
             buttonGroup1.clearSelection(); // sirve para borrar las selecciones de los radio button
             opc1.setText(a[0]);
             opc2.setText(a[1]);
@@ -304,8 +304,8 @@ public class Actividad3 extends javax.swing.JFrame {
         if(posicion > -1){
             posicion--;
             avanzar.setEnabled(true);
-            question.setText(p.getPregunta3(posicion));
-            String[] a = r.setRespuesta3(posicion);
+            question.setText(p.getPregunta6(posicion));
+            String[] a = r.setRespuesta6(posicion);
             buttonGroup1.clearSelection(); // sirve para borrar las selecciones de los radio button
             opc1.setText(a[0]);
             opc2.setText(a[1]);
@@ -322,7 +322,7 @@ public class Actividad3 extends javax.swing.JFrame {
         int calificacion = 0;
         
         for(int i = 0; i < 5; i++){
-            if(select[i].equals(r.getRespuesta3(i))){
+            if(select[i].equals(r.getRespuesta6(i))){
                 calificacion = calificacion + 1;
             }
         }

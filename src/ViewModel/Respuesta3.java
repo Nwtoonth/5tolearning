@@ -3,9 +3,9 @@ package ViewModel;
 
 import java.util.StringTokenizer;
 
-public class Respuestas {
+public class Respuesta3 {
 
-    String[] respuestas = {
+    String[] respuesta3 = {
       "java","int","System.out.println()","String","Double"
     };
     
@@ -17,8 +17,8 @@ public class Respuestas {
         "Double,Char,Int,Byte",
     };
     
-    public String getRespuesta(int posicion){
-        return respuestas[posicion];
+    public String getRespuesta3(int posicion){
+        return respuesta3[posicion];
     }
     
     public String[] separar(String cadena, String separador){
@@ -35,7 +35,7 @@ public class Respuestas {
         return a;
     }
     
-    public String[] setRespuestas(int posicion){
+    public String[] setRespuesta3(int posicion){
         String s1 = radioR[posicion];
         String[] s2 = separar(s1,",");
         return s2;

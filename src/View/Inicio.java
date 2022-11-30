@@ -85,6 +85,11 @@ public class Inicio extends javax.swing.JFrame {
         });
 
         exitInicioTxt.setText("Cerrar sesion");
+        exitInicioTxt.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                exitInicioTxtMouseClicked(evt);
+            }
+        });
 
         javax.swing.GroupLayout exitIniciBttLayout = new javax.swing.GroupLayout(exitIniciBtt);
         exitIniciBtt.setLayout(exitIniciBttLayout);
@@ -235,7 +240,11 @@ public class Inicio extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void exitIniciBttMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_exitIniciBttMouseClicked
-
+        userA.calcularPuntuacionGlobal();
+        FirebaseOperaciones.agregarPuntuacion(userA);
+        Login pc = new Login();
+        pc.setVisible(true);
+        this.dispose();
     }//GEN-LAST:event_exitIniciBttMouseClicked
 
     private void exitIniciBttMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_exitIniciBttMouseEntered
@@ -311,6 +320,10 @@ public class Inicio extends javax.swing.JFrame {
         content.revalidate();
         content.repaint();
     }//GEN-LAST:event_btn_perfilMousePressed
+
+    private void exitInicioTxtMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_exitInicioTxtMouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_exitInicioTxtMouseClicked
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private java.awt.Panel Header;
