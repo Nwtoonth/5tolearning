@@ -1,12 +1,8 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package View;
 
 import ViewModel.ControladorActividad;
 import ViewModel.Usuario;
+import java.util.ArrayList;
 import model.ActividadStringModel;
 
 /**
@@ -14,9 +10,7 @@ import model.ActividadStringModel;
  * @author Antonio
  */
 public class InicioActividad extends javax.swing.JPanel {
-    /**
-     * Creates new form Principal
-     */
+    
     private Usuario usuario;
     
     public InicioActividad(Usuario user) {
@@ -50,6 +44,11 @@ public class InicioActividad extends javax.swing.JPanel {
 
         content.setBackground(new java.awt.Color(255, 255, 255));
         content.setBorder(javax.swing.BorderFactory.createCompoundBorder());
+        content.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                contentMouseEntered(evt);
+            }
+        });
 
         Title.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
         Title.setText("Bienvenido");
@@ -132,6 +131,7 @@ public class InicioActividad extends javax.swing.JPanel {
         Actividad5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/Arreglos.jpg"))); // NOI18N
         Actividad5.setText("Actividad 5");
         Actividad5.setBorder(null);
+        Actividad5.setEnabled(false);
         Actividad5.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         Actividad5.setPressedIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/Arreglos.jpg"))); // NOI18N
         Actividad5.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/Arreglos95.jpg"))); // NOI18N
@@ -244,6 +244,7 @@ public class InicioActividad extends javax.swing.JPanel {
         Actividad9.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/snorlax_72.png"))); // NOI18N
         Actividad9.setText("Actividad 9");
         Actividad9.setBorder(null);
+        Actividad9.setEnabled(false);
         Actividad9.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         Actividad9.setPressedIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/snorlax_72.png"))); // NOI18N
         Actividad9.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/snorlax_96.png"))); // NOI18N
@@ -267,6 +268,7 @@ public class InicioActividad extends javax.swing.JPanel {
         Actividad6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/squirtle_72.png"))); // NOI18N
         Actividad6.setText("Actividad 6");
         Actividad6.setBorder(null);
+        Actividad6.setEnabled(false);
         Actividad6.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         Actividad6.setPressedIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/squirtle_72.png"))); // NOI18N
         Actividad6.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/squirtle_96.png"))); // NOI18N
@@ -371,12 +373,7 @@ public class InicioActividad extends javax.swing.JPanel {
     }//GEN-LAST:event_Actividad2MouseClicked
 
     private void Actividad3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Actividad3MouseClicked
-        Actividad3 p2= new Actividad3();
-        p2.setVisible(true);
-        //content.removeAll();
-        //content.add(p2);
-        //content.revalidate();
-        //content.repaint();
+
     }//GEN-LAST:event_Actividad3MouseClicked
 
     private void Actividad3MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Actividad3MousePressed
@@ -384,7 +381,8 @@ public class InicioActividad extends javax.swing.JPanel {
     }//GEN-LAST:event_Actividad3MousePressed
 
     private void Actividad3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Actividad3ActionPerformed
-        // TODO add your handling code here:
+        Actividad3 p2= new Actividad3(usuario);
+        p2.setVisible(true);
     }//GEN-LAST:event_Actividad3ActionPerformed
 
     private void Actividad1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Actividad1MouseClicked
@@ -424,7 +422,7 @@ public class InicioActividad extends javax.swing.JPanel {
         String rutaAchivoString2 = "src/model/data/strings2";
         String rutaArchivoEnunciados2 = "src/model/data/enunciados2";
         ActividadStringModel act2 = new ActividadStringModel(rutaAchivoString2, rutaArchivoEnunciados2);
-        ControladorActividad ctr2 = new ControladorActividad(4,act2.getActividades(),act2.getEnunciados(),usuario);
+        ControladorActividad ctr2 = new ControladorActividad(5,act2.getActividades(),act2.getEnunciados(),usuario);
     }//GEN-LAST:event_Actividad5ActionPerformed
 
     private void Actividad8MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Actividad8MouseClicked
@@ -439,7 +437,7 @@ public class InicioActividad extends javax.swing.JPanel {
         String rutaAchivoString3 = "src/model/data/strings3";
         String rutaArchivoEnunciados3 = "src/model/data/enunciados3";
         ActividadStringModel act3 = new ActividadStringModel(rutaAchivoString3, rutaArchivoEnunciados3);
-        ControladorActividad ctr3 = new ControladorActividad(5,act3.getActividades(), act3.getEnunciados(),usuario);
+        ControladorActividad ctr3 = new ControladorActividad(8,act3.getActividades(), act3.getEnunciados(),usuario);
     }//GEN-LAST:event_Actividad8ActionPerformed
 
     private void Actividad10MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Actividad10MouseClicked
@@ -454,19 +452,15 @@ public class InicioActividad extends javax.swing.JPanel {
         String rutaAchivoString4 = "src/model/data/strings4";
         String rutaArchivoEnunciados4 = "src/model/data/enunciados4";
         ActividadStringModel act4 = new ActividadStringModel(rutaAchivoString4, rutaArchivoEnunciados4);
-        ControladorActividad ctr4 = new ControladorActividad(6,act4.getActividades(),act4.getEnunciados(),usuario);
+        ControladorActividad ctr4 = new ControladorActividad(10,act4.getActividades(),act4.getEnunciados(),usuario);
     }//GEN-LAST:event_Actividad10ActionPerformed
 
     private void Actividad8MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Actividad8MouseEntered
-        if((long)usuario.getPuntuaciones().get(2) >= 500){
-           this.Actividad8.setEnabled(true);
-        }
+
     }//GEN-LAST:event_Actividad8MouseEntered
 
     private void Actividad10MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Actividad10MouseEntered
-        if((long)usuario.getPuntuaciones().get(5) >= 500){
-           this.Actividad10.setEnabled(true);
-        }
+
     }//GEN-LAST:event_Actividad10MouseEntered
 
     private void Actividad11MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Actividad11MouseClicked
@@ -481,17 +475,15 @@ public class InicioActividad extends javax.swing.JPanel {
         String rutaAchivoString5 = "src/model/data/strings5";
         String rutaArchivoEnunciados5 = "src/model/data/enunciados5";
         ActividadStringModel act5 = new ActividadStringModel(rutaAchivoString5, rutaArchivoEnunciados5);
-        ControladorActividad ctr5 = new ControladorActividad(7,act5.getActividades(),act5.getEnunciados(),usuario);
+        ControladorActividad ctr5 = new ControladorActividad(11,act5.getActividades(),act5.getEnunciados(),usuario);
     }//GEN-LAST:event_Actividad11ActionPerformed
 
     private void Actividad11MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Actividad11MouseEntered
-        if((long)usuario.getPuntuaciones().get(6) >= 500){
-           this.Actividad11.setEnabled(true);
-        }
+
     }//GEN-LAST:event_Actividad11MouseEntered
 
     private void Actividad9MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Actividad9MouseClicked
-        Actividad9 p9= new Actividad9();
+        Actividad9 p9= new Actividad9(usuario);
         p9.setVisible(true);
     }//GEN-LAST:event_Actividad9MouseClicked
 
@@ -504,7 +496,7 @@ public class InicioActividad extends javax.swing.JPanel {
     }//GEN-LAST:event_Actividad9ActionPerformed
 
     private void Actividad6MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Actividad6MouseClicked
-        Actividad6 p6= new Actividad6();
+        Actividad6 p6= new Actividad6(usuario);
         p6.setVisible(true);
     }//GEN-LAST:event_Actividad6MouseClicked
 
@@ -515,6 +507,24 @@ public class InicioActividad extends javax.swing.JPanel {
     private void Actividad6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Actividad6ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_Actividad6ActionPerformed
+
+    private void contentMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_contentMouseEntered
+        ArrayList<Long> puntaje = usuario.getPuntuaciones();
+        Long j = 0l;
+        for (int i = 1; i < 10; i++) {
+            j = puntaje.get(i);
+            if(j>=500 && i == 2){
+                Actividad5.setEnabled(true);
+                Actividad6.setEnabled(true);
+            }
+            else if(j>=500 && i == 5){
+                Actividad8.setEnabled(true);
+                Actividad9.setEnabled(true);
+                Actividad10.setEnabled(true);
+                Actividad11.setEnabled(true);
+            }
+        }
+    }//GEN-LAST:event_contentMouseEntered
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

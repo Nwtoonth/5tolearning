@@ -1,17 +1,20 @@
 package View;
 
+import ViewModel.Usuario;
 import model.Respuesta3;
 import model.Pregunta3;
-import ViewModel.*;
 import java.awt.Color;
 import java.awt.Toolkit;
 import javax.swing.JOptionPane;
 
 public class Actividad3 extends javax.swing.JFrame {
-    int xMouse, yMouse;  
+    int xMouse, yMouse;
+    private Usuario user;
     
-    public Actividad3() {
+    public Actividad3(Usuario user1) {
+        this.user=user1;
         initComponents();
+        jTextFieldPuntajemaximo.setText(" "+user.getPuntuaciones().get(3));
         question.setText(p.getPregunta3(posicion));
         String[] a = r.setRespuesta3(posicion);
         buttonGroup1.clearSelection(); // sirve para borrar las selecciones de los radio button
@@ -46,6 +49,8 @@ public class Actividad3 extends javax.swing.JFrame {
         jPanel2 = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
         question = new javax.swing.JTextArea();
+        jLabel1 = new javax.swing.JLabel();
+        jTextFieldPuntajemaximo = new javax.swing.JTextField();
         header = new java.awt.Panel();
         exitBtt = new java.awt.Panel();
         exitTxt = new javax.swing.JLabel();
@@ -61,7 +66,7 @@ public class Actividad3 extends javax.swing.JFrame {
         jPanel1.setName("Examen"); // NOI18N
 
         buttonGroup1.add(opc1);
-        opc1.setText("fdsfsd");
+        opc1.setText("opcion1");
         opc1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 opc1ActionPerformed(evt);
@@ -69,7 +74,7 @@ public class Actividad3 extends javax.swing.JFrame {
         });
 
         buttonGroup1.add(opc2);
-        opc2.setText("dasdas");
+        opc2.setText("opcion2");
         opc2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 opc2ActionPerformed(evt);
@@ -77,7 +82,7 @@ public class Actividad3 extends javax.swing.JFrame {
         });
 
         buttonGroup1.add(opc3);
-        opc3.setText("a");
+        opc3.setText("opcion3");
         opc3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 opc3ActionPerformed(evt);
@@ -85,7 +90,7 @@ public class Actividad3 extends javax.swing.JFrame {
         });
 
         buttonGroup1.add(opc4);
-        opc4.setText("asd");
+        opc4.setText("opcion4");
         opc4.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 opc4ActionPerformed(evt);
@@ -122,6 +127,7 @@ public class Actividad3 extends javax.swing.JFrame {
         question.setForeground(new java.awt.Color(255, 255, 255));
         question.setLineWrap(true);
         question.setRows(5);
+        question.setAutoscrolls(false);
         jScrollPane1.setViewportView(question);
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
@@ -130,7 +136,7 @@ public class Actividad3 extends javax.swing.JFrame {
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jScrollPane1)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 813, Short.MAX_VALUE)
                 .addContainerGap())
         );
         jPanel2Layout.setVerticalGroup(
@@ -141,6 +147,16 @@ public class Actividad3 extends javax.swing.JFrame {
                 .addGap(23, 23, 23))
         );
 
+        jLabel1.setFont(new java.awt.Font("SansSerif", 1, 18)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(17, 55, 96));
+        jLabel1.setText("Puntuacion maxima");
+
+        jTextFieldPuntajemaximo.setEditable(false);
+        jTextFieldPuntajemaximo.setFont(new java.awt.Font("SansSerif", 1, 18)); // NOI18N
+        jTextFieldPuntajemaximo.setForeground(new java.awt.Color(252, 161, 3));
+        jTextFieldPuntajemaximo.setText("0");
+        jTextFieldPuntajemaximo.setBorder(null);
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -149,16 +165,27 @@ public class Actividad3 extends javax.swing.JFrame {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(22, 22, 22)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(terminarExamen)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(regresar)
-                        .addGap(18, 18, 18)
-                        .addComponent(avanzar))
-                    .addComponent(opc3)
-                    .addComponent(opc4)
-                    .addComponent(opc2)
-                    .addComponent(opc1))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(terminarExamen)
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addComponent(regresar)
+                                .addGap(18, 18, 18)
+                                .addComponent(avanzar)))
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(opc3)
+                            .addComponent(opc4)
+                            .addComponent(opc2)
+                            .addComponent(opc1))
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jLabel1)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jTextFieldPuntajemaximo, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -173,12 +200,19 @@ public class Actividad3 extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addComponent(opc4)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 26, Short.MAX_VALUE)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(regresar)
-                    .addComponent(avanzar))
-                .addGap(12, 12, 12)
-                .addComponent(terminarExamen)
-                .addGap(33, 33, 33))
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(regresar)
+                            .addComponent(avanzar))
+                        .addGap(12, 12, 12)
+                        .addComponent(terminarExamen)
+                        .addGap(33, 33, 33))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel1)
+                            .addComponent(jTextFieldPuntajemaximo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addContainerGap())))
         );
 
         header.setBackground(new java.awt.Color(255, 255, 204));
@@ -321,17 +355,16 @@ public class Actividad3 extends javax.swing.JFrame {
 
     private void terminarExamenActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_terminarExamenActionPerformed
         
-        int calificacion = 0;
+        long calificacion = 0l;
         
         for(int i = 0; i < 5; i++){
             if(select[i].equals(r.getRespuesta3(i))){
-                calificacion = calificacion + 1;
+                calificacion += 140;
             }
         }
-        
-        calificacion = calificacion * 2;
-        
-        JOptionPane.showMessageDialog(null, "Tu calificacion es " +  calificacion);
+        JOptionPane.showMessageDialog(null, "Tu calificacion es " +  calificacion);       
+        jTextFieldPuntajemaximo.setText(" "+user.getPuntuaciones().get(3));
+        user.setPuntuaciones(3, calificacion);
         
     }//GEN-LAST:event_terminarExamenActionPerformed
 
@@ -352,9 +385,6 @@ public class Actividad3 extends javax.swing.JFrame {
     }//GEN-LAST:event_opc4ActionPerformed
 
     private void exitTxtMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_exitTxtMouseClicked
-        //cierra en segundo plano
-        //this.setVisible(false);
-        //borra cache
         this.dispose();
     }//GEN-LAST:event_exitTxtMouseClicked
 
@@ -388,9 +418,11 @@ public class Actividad3 extends javax.swing.JFrame {
     private javax.swing.JLabel exitTxt;
     private java.awt.Panel header;
     private javax.swing.JLabel headerTitulo;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JScrollPane jScrollPane1;
+    public javax.swing.JTextField jTextFieldPuntajemaximo;
     private javax.swing.JRadioButton opc1;
     private javax.swing.JRadioButton opc2;
     private javax.swing.JRadioButton opc3;
