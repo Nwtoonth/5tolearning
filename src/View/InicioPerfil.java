@@ -87,8 +87,7 @@ public class InicioPerfil extends javax.swing.JPanel {
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         jSeparator1 = new javax.swing.JSeparator();
-        TextFieldNewUser = new javax.swing.JTextField();
-        PasswordField = new javax.swing.JPasswordField();
+        jTextFieldContraseña = new javax.swing.JTextField();
         jButtonConfirmar = new javax.swing.JButton();
         SubirFoto = new javax.swing.JButton();
         Labeltext = new javax.swing.JLabel();
@@ -107,6 +106,7 @@ public class InicioPerfil extends javax.swing.JPanel {
         LogroTop10 = new javax.swing.JLabel();
         LogroTop3 = new javax.swing.JLabel();
         jSeparator2 = new javax.swing.JSeparator();
+        TextFieldNewUser1 = new javax.swing.JTextField();
 
         jTextArea1.setColumns(20);
         jTextArea1.setRows(5);
@@ -134,29 +134,20 @@ public class InicioPerfil extends javax.swing.JPanel {
         jLabel3.setForeground(new java.awt.Color(17, 55, 96));
         jLabel3.setText("Cambiar usuario - Contraseña");
 
-        TextFieldNewUser.setBackground(new java.awt.Color(255, 255, 255));
-        TextFieldNewUser.setFont(new java.awt.Font("SansSerif", 0, 14)); // NOI18N
-        TextFieldNewUser.setText("Nuevo Usuario");
-        TextFieldNewUser.addMouseListener(new java.awt.event.MouseAdapter() {
+        jTextFieldContraseña.setBackground(new java.awt.Color(255, 255, 255));
+        jTextFieldContraseña.setFont(new java.awt.Font("SansSerif", 0, 14)); // NOI18N
+        jTextFieldContraseña.setText("Contraseña");
+        jTextFieldContraseña.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                TextFieldNewUserMouseClicked(evt);
+                jTextFieldContraseñaMouseClicked(evt);
             }
             public void mouseExited(java.awt.event.MouseEvent evt) {
-                TextFieldNewUserMouseExited(evt);
+                jTextFieldContraseñaMouseExited(evt);
             }
         });
-        TextFieldNewUser.addActionListener(new java.awt.event.ActionListener() {
+        jTextFieldContraseña.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                TextFieldNewUserActionPerformed(evt);
-            }
-        });
-
-        PasswordField.setBackground(new java.awt.Color(255, 255, 255));
-        PasswordField.setFont(new java.awt.Font("SansSerif", 0, 14)); // NOI18N
-        PasswordField.setText("..........");
-        PasswordField.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                PasswordFieldMouseClicked(evt);
+                jTextFieldContraseñaActionPerformed(evt);
             }
         });
 
@@ -260,6 +251,23 @@ public class InicioPerfil extends javax.swing.JPanel {
 
         LogroTop3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/logro2.png"))); // NOI18N
 
+        TextFieldNewUser1.setBackground(new java.awt.Color(255, 255, 255));
+        TextFieldNewUser1.setFont(new java.awt.Font("SansSerif", 0, 14)); // NOI18N
+        TextFieldNewUser1.setText("Nuevo Usuario");
+        TextFieldNewUser1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                TextFieldNewUser1MouseClicked(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                TextFieldNewUser1MouseExited(evt);
+            }
+        });
+        TextFieldNewUser1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                TextFieldNewUser1ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -310,12 +318,12 @@ public class InicioPerfil extends javax.swing.JPanel {
                                                 .addGroup(jPanel1Layout.createSequentialGroup()
                                                     .addComponent(jLabel5)
                                                     .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                                    .addComponent(TextFieldNewUser, javax.swing.GroupLayout.PREFERRED_SIZE, 157, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                    .addComponent(TextFieldNewUser1, javax.swing.GroupLayout.PREFERRED_SIZE, 157, javax.swing.GroupLayout.PREFERRED_SIZE)
                                                     .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                                     .addComponent(jLabel6)
                                                     .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                                    .addComponent(PasswordField, javax.swing.GroupLayout.PREFERRED_SIZE, 168, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                    .addGap(25, 25, 25)
+                                                    .addComponent(jTextFieldContraseña, javax.swing.GroupLayout.PREFERRED_SIZE, 157, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                    .addGap(36, 36, 36)
                                                     .addComponent(jButtonConfirmar, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)))))))
                             .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addGap(18, 18, 18)
@@ -356,12 +364,13 @@ public class InicioPerfil extends javax.swing.JPanel {
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(jLabel5)
                             .addComponent(jLabel6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                .addComponent(PasswordField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(jButtonConfirmar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(TextFieldNewUser))))
+                            .addComponent(jButtonConfirmar)))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                         .addContainerGap()
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(jTextFieldContraseña, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(TextFieldNewUser1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jLabelMensajes, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
@@ -405,9 +414,9 @@ public class InicioPerfil extends javax.swing.JPanel {
         );
     }// </editor-fold>//GEN-END:initComponents
 
-    private void TextFieldNewUserActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TextFieldNewUserActionPerformed
+    private void jTextFieldContraseñaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldContraseñaActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_TextFieldNewUserActionPerformed
+    }//GEN-LAST:event_jTextFieldContraseñaActionPerformed
 
     private void jButtonConfirmarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButtonConfirmarMouseClicked
 
@@ -424,19 +433,19 @@ public class InicioPerfil extends javax.swing.JPanel {
     private void jButtonConfirmarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonConfirmarActionPerformed
         boolean isRegistrado = false;
         try {
-            isRegistrado = FirebaseOperaciones.insertarDatos(TextFieldNewUser.getText(),PasswordField.getText());
+            isRegistrado = FirebaseOperaciones.insertarDatos(jTextFieldContraseña.getText(),jTextFieldContraseña.getText());
         } catch (InterruptedException ex) {
-            Logger.getLogger(Login.class.getName()).log(Level.SEVERE, null, ex);
+            System.out.println("Error: "+ex);
         } catch (ExecutionException ex) {
-            Logger.getLogger(Login.class.getName()).log(Level.SEVERE, null, ex);
+            System.out.println("Error: "+ex);
         }
         if(isRegistrado){
             FirebaseOperaciones.eliminar(user.getNickName());
-            user.setNickName(TextFieldNewUser.getText());
+            user.setNickName(jTextFieldContraseña.getText());
             LabelUserName.setText(user.getNickName());
             jLabelMensajes.setForeground(Color.green);
-            TextFieldNewUser.setText("Nuevo Usuario");
-            PasswordField.setText("..........");
+            jTextFieldContraseña.setText("Nuevo Usuario");
+            jTextFieldContraseña.setText("Contraseña");
             jLabelMensajes.setText("Se realizo el cambio de datos con exito ...");
         }
         else{
@@ -461,19 +470,27 @@ public class InicioPerfil extends javax.swing.JPanel {
         // TODO add your handling code here:
     }//GEN-LAST:event_SubirFotoActionPerformed
 
-    private void TextFieldNewUserMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_TextFieldNewUserMouseClicked
-        if(TextFieldNewUser.getText().equals("Nuevo Usuario")){
-            TextFieldNewUser.setText("");
+    private void jTextFieldContraseñaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTextFieldContraseñaMouseClicked
+        if(jTextFieldContraseña.getText().equals("Contraseña")){
+            jTextFieldContraseña.setText("");
         }
-    }//GEN-LAST:event_TextFieldNewUserMouseClicked
+    }//GEN-LAST:event_jTextFieldContraseñaMouseClicked
 
-    private void TextFieldNewUserMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_TextFieldNewUserMouseExited
+    private void jTextFieldContraseñaMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTextFieldContraseñaMouseExited
 
-    }//GEN-LAST:event_TextFieldNewUserMouseExited
+    }//GEN-LAST:event_jTextFieldContraseñaMouseExited
 
-    private void PasswordFieldMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_PasswordFieldMouseClicked
-        PasswordField.setText("");
-    }//GEN-LAST:event_PasswordFieldMouseClicked
+    private void TextFieldNewUser1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_TextFieldNewUser1MouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_TextFieldNewUser1MouseClicked
+
+    private void TextFieldNewUser1MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_TextFieldNewUser1MouseExited
+        // TODO add your handling code here:
+    }//GEN-LAST:event_TextFieldNewUser1MouseExited
+
+    private void TextFieldNewUser1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TextFieldNewUser1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_TextFieldNewUser1ActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -486,11 +503,10 @@ public class InicioPerfil extends javax.swing.JPanel {
     private javax.swing.JLabel LogroPrimerLugar;
     private javax.swing.JLabel LogroTop10;
     private javax.swing.JLabel LogroTop3;
-    private javax.swing.JPasswordField PasswordField;
     private javax.swing.JTextArea RankingNombres;
     private javax.swing.JTextArea RankingPuntuaciones;
     public javax.swing.JButton SubirFoto;
-    private javax.swing.JTextField TextFieldNewUser;
+    private javax.swing.JTextField TextFieldNewUser1;
     public javax.swing.JButton jButtonConfirmar;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
@@ -506,5 +522,6 @@ public class InicioPerfil extends javax.swing.JPanel {
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JSeparator jSeparator2;
     private javax.swing.JTextArea jTextArea1;
+    private javax.swing.JTextField jTextFieldContraseña;
     // End of variables declaration//GEN-END:variables
 }

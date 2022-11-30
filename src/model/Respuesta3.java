@@ -1,5 +1,4 @@
-
-package ViewModel;
+package model;
 
 import java.util.StringTokenizer;
 

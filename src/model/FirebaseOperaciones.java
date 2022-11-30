@@ -1,6 +1,5 @@
 package model;
 
-
 import ViewModel.Usuario;
 import com.google.api.core.ApiFuture;
 import com.google.auth.oauth2.GoogleCredentials;
@@ -116,6 +115,8 @@ public class FirebaseOperaciones {
         }
     }
 
+    /*Carga la la puntuacion de los usuarios de la mayor a la menor se utiliza para crear
+    la tabla de puntuaciones*/
     public static LinkedHashMap buscarTodo(int limite) throws InterruptedException, ExecutionException{
         LinkedHashMap<String,Long> tablaPosiciones = new LinkedHashMap<>();
         CollectionReference usuarios= dataBase.collection("Usuarios");
@@ -137,6 +138,7 @@ public class FirebaseOperaciones {
         return numeros;
     }
     
+    /*Elimina un usuario de la base de datos, se utiliza para actualizar los datos de usuario*/
     public static void eliminar(String nickName){
         String collection = "Usuarios";
         String documento = nickName;
@@ -149,21 +151,4 @@ public class FirebaseOperaciones {
             System.out.println("Fallo:" + e);
         }
     }
-    
-    /*   
-    public static void eliminarCampos(String campo){
-        String collection = "Usuarios";
-        String documento = "juan";
-        Map<String,Object> updates = new HashMap<>();
-        updates.put(campo,FieldValue.delete());
-        try {
-            DocumentReference docRef = dataBase.collection(collection).document(documento);
-            ApiFuture<WriteResult> result = docRef.update(updates);
-            System.out.println("Tiempo de ejecucion: " + result.get().getUpdateTime());
-            System.out.println("Campos eliminados");
-        } catch (Exception e) {
-            System.out.println("Fallo:" + e);
-        }
-    }
-    */
 }

@@ -22,6 +22,5 @@ public class LectorTxt {
             throw new RuntimeException("Error inesperado en el catch");
         }
         return salida;
-    }
-    
+    }   
 }

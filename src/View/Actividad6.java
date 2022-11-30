@@ -1,5 +1,7 @@
 package View;
 
+import model.Respuesta6;
+import model.Pregunta6;
 import ViewModel.*;
 import java.awt.Color;
 import java.awt.Toolkit;

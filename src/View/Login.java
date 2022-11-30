@@ -1,29 +1,27 @@
 package View;
 
-import ViewModel.Main;
 import ViewModel.Usuario;
 import java.awt.Color;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.concurrent.ExecutionException;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import model.FirebaseOperaciones;
 
-public class Login extends javax.swing.JFrame {
+public class Login extends javax.swing.JFrame{
     
     //encabezado
     int xMouse, yMouse;  
     public Login() {
+        initComponents();
+        JLabelOnline.setVisible(false);
         try {
             FirebaseOperaciones.conectar();
+            JLabelOnline.setVisible(true);
         } catch (FileNotFoundException e){
-            System.out.println("No se encontro la el archivo de acceso " + e);          
+            System.out.println("No se encontro la el archivo de acceso " + e.getMessage());
         } catch (IOException ex) {
-            Logger.getLogger(Main.class.getName()).log(Level.SEVERE, null, ex);
-        }
-        initComponents();
-        
+            System.out.println("Error: "+ex.getMessage());
+        }       
         //logo
         this.setLocationRelativeTo(null);
         rsscalelabel.RSScaleLabel.setScaleLabel(logoLogin,"src/logo/to5learning.png");
@@ -40,6 +38,7 @@ public class Login extends javax.swing.JFrame {
         exitBtt = new java.awt.Panel();
         exitTxt = new javax.swing.JLabel();
         headerTitulo = new javax.swing.JLabel();
+        JLabelOnline = new javax.swing.JLabel();
         content = new javax.swing.JPanel();
         iniciarBtt = new java.awt.Panel();
         iniciarTxt = new javax.swing.JLabel();
@@ -51,8 +50,8 @@ public class Login extends javax.swing.JFrame {
         contraseñaLabel = new javax.swing.JLabel();
         jTextFieldUser = new javax.swing.JTextField();
         jLabelRespuesta = new javax.swing.JLabel();
-        jPasswordField1 = new javax.swing.JPasswordField();
         jLabelMensajes = new javax.swing.JLabel();
+        jTextFieldContrasena = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setLocationByPlatform(true);
@@ -115,6 +114,11 @@ public class Login extends javax.swing.JFrame {
 
         headerTitulo.setText("5tolearning");
 
+        JLabelOnline.setBackground(new java.awt.Color(51, 255, 51));
+        JLabelOnline.setForeground(new java.awt.Color(0, 0, 0));
+        JLabelOnline.setText("Online");
+        JLabelOnline.setOpaque(true);
+
         javax.swing.GroupLayout headerLayout = new javax.swing.GroupLayout(header);
         header.setLayout(headerLayout);
         headerLayout.setHorizontalGroup(
@@ -123,7 +127,9 @@ public class Login extends javax.swing.JFrame {
                 .addComponent(exitBtt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(350, 350, 350)
                 .addComponent(headerTitulo)
-                .addGap(0, 367, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 323, Short.MAX_VALUE)
+                .addComponent(JLabelOnline)
+                .addContainerGap())
         );
         headerLayout.setVerticalGroup(
             headerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -132,7 +138,9 @@ public class Login extends javax.swing.JFrame {
                     .addComponent(exitBtt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(headerLayout.createSequentialGroup()
                         .addContainerGap()
-                        .addComponent(headerTitulo)))
+                        .addGroup(headerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(headerTitulo)
+                            .addComponent(JLabelOnline))))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
@@ -233,16 +241,16 @@ public class Login extends javax.swing.JFrame {
             }
         });
 
-        jPasswordField1.setFont(new java.awt.Font("Segoe Print", 0, 12)); // NOI18N
-        jPasswordField1.setForeground(new java.awt.Color(153, 153, 153));
-        jPasswordField1.setText("*********");
-        jPasswordField1.addMouseListener(new java.awt.event.MouseAdapter() {
+        jLabelMensajes.setFont(new java.awt.Font("SansSerif", 0, 14)); // NOI18N
+
+        jTextFieldContrasena.setFont(new java.awt.Font("Segoe Print", 0, 12)); // NOI18N
+        jTextFieldContrasena.setForeground(new java.awt.Color(204, 204, 204));
+        jTextFieldContrasena.setText("Contraseña");
+        jTextFieldContrasena.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jPasswordField1MouseClicked(evt);
+                jTextFieldContrasenaMouseClicked(evt);
             }
         });
-
-        jLabelMensajes.setFont(new java.awt.Font("SansSerif", 0, 14)); // NOI18N
 
         javax.swing.GroupLayout contentLayout = new javax.swing.GroupLayout(content);
         content.setLayout(contentLayout);
@@ -267,9 +275,9 @@ public class Login extends javax.swing.JFrame {
                                     .addComponent(titulo, javax.swing.GroupLayout.PREFERRED_SIZE, 260, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(jTextFieldUser, javax.swing.GroupLayout.DEFAULT_SIZE, 272, Short.MAX_VALUE)
                                     .addComponent(jLabelRespuesta, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(jPasswordField1)
                                     .addComponent(userLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(contraseñaLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addComponent(contraseñaLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jTextFieldContrasena, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 272, Short.MAX_VALUE))
                                 .addGap(104, 104, 104)))))
                 .addContainerGap(72, Short.MAX_VALUE))
         );
@@ -285,19 +293,19 @@ public class Login extends javax.swing.JFrame {
                 .addGap(4, 4, 4)
                 .addComponent(jTextFieldUser, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(contentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(contentLayout.createSequentialGroup()
-                        .addComponent(contraseñaLabel)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jPasswordField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(10, 10, 10)
+                .addComponent(contraseñaLabel)
+                .addGap(8, 8, 8)
+                .addComponent(jTextFieldContrasena, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(contentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, contentLayout.createSequentialGroup()
                         .addComponent(jLabelRespuesta)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGap(36, 36, 36)
                         .addComponent(jLabelMensajes, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(iniciarBtt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(registrarBtt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(33, Short.MAX_VALUE))
+                    .addComponent(registrarBtt, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         bg.add(content, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 50, 530, 450));
@@ -353,14 +361,15 @@ public class Login extends javax.swing.JFrame {
         iniciarBtt.setBackground(Color.YELLOW);
     }//GEN-LAST:event_iniciarBttMouseExited
 
+    @SuppressWarnings("empty-statement")
     private void iniciarBttMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_iniciarBttMouseClicked
         Usuario userData = null;
         try {
-            userData = FirebaseOperaciones.buscar(jTextFieldUser.getText(),jPasswordField1.getText());
+            userData = FirebaseOperaciones.buscar(jTextFieldUser.getText(),jTextFieldContrasena.getText());
         } catch (InterruptedException ex) {
-            Logger.getLogger(Login.class.getName()).log(Level.SEVERE, null, ex);
+            System.out.println("Error: "+ex.getMessage());;
         } catch (ExecutionException ex) {
-            Logger.getLogger(Login.class.getName()).log(Level.SEVERE, null, ex);
+            System.out.println("Error: "+ex.getMessage());
         }
         if(userData != null){
             new Inicio(userData).setVisible(true);
@@ -375,11 +384,11 @@ public class Login extends javax.swing.JFrame {
     private void registrarBttMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_registrarBttMouseClicked
         boolean isRegistrado = false;
         try {
-            isRegistrado = FirebaseOperaciones.insertarDatos(jTextFieldUser.getText(),jPasswordField1.getText());
+            isRegistrado = FirebaseOperaciones.insertarDatos(jTextFieldUser.getText(),jTextFieldContrasena.getText());
         } catch (InterruptedException ex) {
-            Logger.getLogger(Login.class.getName()).log(Level.SEVERE, null, ex);
+            System.out.println("Error: "+ex.getMessage());
         } catch (ExecutionException ex) {
-            Logger.getLogger(Login.class.getName()).log(Level.SEVERE, null, ex);
+            System.out.println("Error: "+ex.getMessage());
         }
         if(isRegistrado){
             jLabelMensajes.setForeground(Color.green);
@@ -414,11 +423,12 @@ public class Login extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_jTextFieldUserMouseClicked
 
-    private void jPasswordField1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPasswordField1MouseClicked
-            jPasswordField1.setText("");
-            jTextFieldUser.setForeground(Color.BLACK);
-
-    }//GEN-LAST:event_jPasswordField1MouseClicked
+    private void jTextFieldContrasenaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTextFieldContrasenaMouseClicked
+        if(jTextFieldContrasena.getText().equals("Contraseña")){
+            jTextFieldContrasena.setText("");
+            jTextFieldContrasena.setForeground(Color.BLACK);
+        }        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextFieldContrasenaMouseClicked
 
     /**
      * @param args the command line arguments
@@ -449,6 +459,7 @@ public class Login extends javax.swing.JFrame {
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
+            @Override
             public void run() {
                 new Login().setVisible(true);
             }
@@ -456,6 +467,7 @@ public class Login extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel JLabelOnline;
     private javax.swing.JPanel bg;
     private javax.swing.JPanel content;
     private javax.swing.JLabel contraseñaLabel;
@@ -467,7 +479,7 @@ public class Login extends javax.swing.JFrame {
     private javax.swing.JLabel iniciarTxt;
     private javax.swing.JLabel jLabelMensajes;
     private javax.swing.JLabel jLabelRespuesta;
-    private javax.swing.JPasswordField jPasswordField1;
+    private javax.swing.JTextField jTextFieldContrasena;
     private javax.swing.JTextField jTextFieldUser;
     private javax.swing.JLabel logoLogin;
     private javax.swing.JLabel morty;
@@ -476,4 +488,5 @@ public class Login extends javax.swing.JFrame {
     private javax.swing.JLabel titulo;
     private javax.swing.JLabel userLabel;
     // End of variables declaration//GEN-END:variables
+
 }

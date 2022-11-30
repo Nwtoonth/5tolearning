@@ -1,5 +1,4 @@
-
-package ViewModel;
+package model;
 //package View;
 
 public class Pregunta3 {
